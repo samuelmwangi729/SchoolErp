@@ -1,0 +1,9 @@
+{
+    "editor.fontFamily": "'Times New Roman'",
+    "editor.fontStyle": "italics",
+    "terminal.integrated.fontWeight": "bold",
+    "terminal.integrated.fontSize": 12,
+    "terminal.integrated.fontFamily": "monospace",
+    "workbench.colorTheme": "Abyss",
+    "editor.fontWeight": "bold"
+}

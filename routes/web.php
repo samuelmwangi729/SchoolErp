@@ -1,0 +1,218 @@
+<?php
+use Carbon\Carbon;
+
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register web routes for your application. These
+| routes are loaded by the RouteServiceProvider within a group which
+| contains the "web" middleware group. Now create something great!
+|
+*/
+
+Route::get('/','HomeController@index');
+Route::get('/users','ApiController@index');
+Auth::routes();
+Route::get('/home','HomeController@home')->name('index');
+Route::get('/Sessions/All',[
+    'uses'=>'SessionsController@index',
+    'as'=>'Ses.index'
+]);
+Route::post('/Sessions/Save',[
+    'uses'=>'SessionsController@store',
+    'as'=>'session.save'
+]);
+Route::get('/Students/All',[
+    'uses'=>'StudentsController@index',
+    'as'=>'students.all'
+]);
+Route::get('/Students/Add',[
+    'uses'=>'StudentsController@create',
+    'as'=>'students.add'
+]);
+Route::post('/Students/addFile',[
+    'uses'=>'StudentsController@bulk',
+    'as'=>'students.addFile'
+]);
+Route::post('/Students/addStudent',[
+    'uses'=>'StudentsController@store',
+    'as'=>'student.store'
+]);
+Route::post('/Students/Delete/{id}',[
+    'uses'=>'StudentsController@destroy',
+    'as'=>'student.delete'
+]);
+Route::get('/Students/show/{id}',[
+    'uses'=>'StudentsController@show',
+    'as'=>'student.view'
+]);
+Route::get('/Students/Edit/{id}',[
+    'uses'=>'StudentsController@edit',
+    'as'=>'student.edit'
+]);
+Route::post('/Students/Update/{id}',[
+    'uses'=>'StudentsController@update',
+    'as'=>'student.update'
+]);
+Route::get("/Syllabus/Home",[
+    'uses'=>'SyllabiController@index',
+    'as'=>'syllabus.index'
+]);
+Route::get("/Teachers/Home",[
+    'uses'=>'TeachersController@index',
+    'as'=>'teachers.index'
+]);
+Route::get("/Parents/Home",[
+    'uses'=>'ParentController@index',
+    'as'=>'parents.index'
+]);
+Route::post("/Parent/Add",[
+    'uses'=>'ParentController@store',
+    'as'=>'parents.store'
+]);
+Route::get("/Parent/Edit/{id}",[
+    'uses'=>'ParentController@edit',
+    'as'=>'parent.edit'
+]);
+Route::post("/Parent/Update/{id}",[
+    'uses'=>'ParentController@update',
+    'as'=>'parent.update'
+]);
+Route::post("/Syllabus/Save",[
+    'uses'=>'SyllabiController@store',
+    'as'=>'syllabus.post'
+]);
+Route::post("/Teacher/Add",[
+    'uses'=>'TeachersController@store',
+    'as'=>'teacher.register'
+]);
+Route::get("/Teacher/Edit/{id}",[
+    'uses'=>'TeachersController@edit',
+    'as'=>'teacher.edit'
+]);
+Route::get("/Teacher/View/{id}",[
+    'uses'=>'TeachersController@show',
+    'as'=>'teacher.show'
+]);
+Route::get("/Teacher/Delete/{id}",[
+    'uses'=>'TeachersController@destroy',
+    'as'=>'teacher.delete'
+]);
+Route::post("/Teacher/Update/{id}",[
+    'uses'=>'TeachersController@update',
+    'as'=>'teacher.update'
+]);
+Route::get("/Syllabus/edit/{id}",[
+    'uses'=>'SyllabiController@edit',
+    'as'=>'syllabus.edit'
+]);
+Route::get("/Syllabus/delete/{id}",[
+    'uses'=>'SyllabiController@destroy',
+    'as'=>'syllabus.delete'
+]);
+Route::post("/Syllabus/Update/{id}",[
+    'uses'=>'SyllabiController@update',
+    'as'=>'syllabus.update'
+]);
+Route::get("/Staff/Index/",[
+    'uses'=>'StaffController@index',
+    'as'=>'staff.index'
+]);
+Route::post("/StaffType/Save/",[
+    'uses'=>'StaffController@type',
+    'as'=>'type.save'
+]);
+Route::post("/Staff/Save/",[
+    'uses'=>'StaffController@store',
+    'as'=>'staff.register'
+]);
+Route::get("/Staff/Delete/{id}",[
+    'uses'=>'StaffController@delete',
+    'as'=>'type.delete'
+]);
+Route::get("/Class/Home/",[
+    'uses'=>'ClassesController@index',
+    'as'=>'class.index'
+]);
+Route::post("/Streams/Save/",[
+    'uses'=>'ClassesController@stream',
+    'as'=>'streams.save'
+]);
+Route::post("/Classes/Save/",[
+    'uses'=>'ClassesController@store',
+    'as'=>'class.save'
+]);
+Route::get("/Classes/Delete/{id}",[
+    'uses'=>'ClassesController@destroy',
+    'as'=>'class.delete'
+]);
+Route::get("/Stream/Delete/{id}",[
+    'uses'=>'ClassesController@delete',
+    'as'=>'stream.delete'
+]);
+Route::get("/Dorms/Index/",[
+    'uses'=>'DormsController@index',
+    'as'=>'dorm.index'
+]);
+Route::post("/Dorms/Save/",[
+    'uses'=>'DormsController@store',
+    'as'=>'dorm.add'
+]);
+Route::get("/CLubs/Index",[
+    'uses'=>'ClubsController@index',
+    'as'=>'clubs.index'
+]);
+Route::post("/Clubs/Save",[
+    'uses'=>'ClubsController@store',
+    'as'=>'club.store'
+]);
+Route::get("Club/Edit/{id}",[
+    'uses'=>'ClubsController@edit',
+    'as'=>'club.edit'
+]);
+Route::post("Club/Update/{id}",[
+    'uses'=>'ClubsController@update',
+    'as'=>'club.update'
+]);
+Route::get("Club/Approve/{id}",[
+    'uses'=>'ClubsController@approve',
+    'as'=>'club.approve'
+]);
+Route::get("Club/Reject/{id}",[
+    'uses'=>'ClubsController@reject',
+    'as'=>'club.reject'
+]);
+Route::get("Voteheads/Home",[
+    'uses'=>'VoteHeadController@index',
+    'as'=>'voteheads'
+]);
+Route::post("Voteheads/Save",[
+    'uses'=>'VoteHeadController@store',
+    'as'=>'votehead.store'
+]);
+Route::get("Voteheads/Edit/{id}",[
+    'uses'=>'VoteHeadController@edit',
+    'as'=>'votehead.edit'
+]);
+Route::get("Voteheads/Delete/{id}",[
+    'uses'=>'VoteHeadController@destroy',
+    'as'=>'votehead.delete'
+]);
+Route::get("Voteheads/Suspend/{id}",[
+    'uses'=>'VoteHeadController@suspend',
+    'as'=>'votehead.suspend'
+]);
+Route::get("Voteheads/Approve/{id}",[
+    'uses'=>'VoteHeadController@approve',
+    'as'=>'votehead.approve'
+]);
+Route::post("Voteheads/Update/{id}",[
+    'uses'=>'VoteHeadController@update',
+    'as'=>'votehead.update'
+]);
+Route::get("/Fees/All",[
+    'uses'=>'FeesController@index',
+    'as'=>'fees.index'
+]);

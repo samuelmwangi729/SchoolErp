@@ -1,0 +1,3 @@
+command="php artisan db:wipe";
+$command
+echo "Database successfully Wiped Clean";
