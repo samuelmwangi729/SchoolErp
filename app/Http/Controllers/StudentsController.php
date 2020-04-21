@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Session;
 use App\{Parents,Student,Stream,Classes,CurrentTerm,Fee};
 use Excel;
+use App\Imports\StudentsImport;
 
 class StudentsController extends Controller
 {
@@ -103,21 +104,8 @@ class StudentsController extends Controller
         ]);
         $file=$request->StudentFile;
         $newName=$file->getClientOriginalName();
-        $data=Excel::load($newName)->get();
-        dd($data);
-        // $file->move('Students/',$newName);
-        Student::create([
-            'StudentName'=>$request->StudentName,
-            'parent'=>$request->parent,
-            'class'=>$request->class,
-            'Stream'=>$request->Stream,
-            'AdmissionNumber'=>$request->AdmissionNumber,
-            'Kcpe'=>$request->Kcpe,
-            'birthDate'=>$request->birthDate,
-            'Passport'=>'Students/'.$newName,
-            'Nemis'=>$request->Nemis
-        ]);
-        Session::flash('success','Student Successfully Added');
+        Excel::import(new StudentsImport,$file);
+        Session::flash('success','Students Successfully Added');
         return redirect()->back();
     }
 

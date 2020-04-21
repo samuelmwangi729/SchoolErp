@@ -1,7 +1,7 @@
 <!-- jQuery 2.0.2 -->
 
 <!-- jQuery UI 1.10.3 -->
-    
+
 {{-- <script src="{{asset('js/jquery-ui-1.10.3.min.js')}}" type="text/javascript"></script> --}}
 
         {{-- <script src="{{ asset('js/app.js') }}" defer></script> --}}

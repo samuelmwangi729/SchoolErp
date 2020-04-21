@@ -1,0 +1,1849 @@
+<!DOCTYPE html>
+<!-- saved from url=(0099)https://null-byte.wonderhowto.com/how-to/bt-recon-snoop-bluetooth-devices-using-kali-linux-0165049/ -->
+<html lang="en" class=" js no-flexbox flexbox-legacy canvas canvastext webgl no-touch geolocation postmessage websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths bgsizecover textoverflow" xmlns:og="http://opengraphprotocol.org/schema/"><!--<![endif]--><head prefix="og: http://ogp.me/ns#"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <title>BT Recon: How to Snoop on Bluetooth Devices Using Kali Linux « Null Byte :: WonderHowTo</title><!-- GBM3CR7NTN37J5P3RXTMY7BQHBNY5 -->
+            <link rel="preload" href="./BT Recon_ How to Snoop on Bluetooth Devices Using Kali Linux « Null Byte __ WonderHowTo_files/tmnhead.js" as="script">
+    <link rel="preload" href="./BT Recon_ How to Snoop on Bluetooth Devices Using Kali Linux « Null Byte __ WonderHowTo_files/wonderhowto.logo.shadow.png" as="image">
+    <link rel="preload" href="./BT Recon_ How to Snoop on Bluetooth Devices Using Kali Linux « Null Byte __ WonderHowTo_files/wonderhowto.mark.png" as="image">
+    <link rel="preload" href="./BT Recon_ How to Snoop on Bluetooth Devices Using Kali Linux « Null Byte __ WonderHowTo_files/css(1)" as="style">
+    <link rel="preload" href="./BT Recon_ How to Snoop on Bluetooth Devices Using Kali Linux « Null Byte __ WonderHowTo_files/fonts-and-styles.woff2.bundle.min.css" as="style">
+    <link rel="preload" href="./BT Recon_ How to Snoop on Bluetooth Devices Using Kali Linux « Null Byte __ WonderHowTo_files/ready.min.js" as="script">
+    <link rel="preload" href="./BT Recon_ How to Snoop on Bluetooth Devices Using Kali Linux « Null Byte __ WonderHowTo_files/bt-recon-snoop-bluetooth-devices-using-kali-linux.1280x600.jpg" as="image">
+    <link rel="preload" href="./BT Recon_ How to Snoop on Bluetooth Devices Using Kali Linux « Null Byte __ WonderHowTo_files/jquery.min.js" as="script">
+    <link rel="preload" href="./BT Recon_ How to Snoop on Bluetooth Devices Using Kali Linux « Null Byte __ WonderHowTo_files/set.min.js" as="script">
+    <link rel="preload" href="./BT Recon_ How to Snoop on Bluetooth Devices Using Kali Linux « Null Byte __ WonderHowTo_files/go.min.js" as="script">
+
+    <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0,user-scalable=no,viewport-fit=cover">
+    <meta property="fb:app_id" content="133643190002681">
+    <meta property="og:site_name" content="WonderHowTo">
+    <meta content="BT Recon: How to Snoop on Bluetooth Devices Using Kali Linux" property="og:title">
+<meta content="https://null-byte.wonderhowto.com/how-to/bt-recon-snoop-bluetooth-devices-using-kali-linux-0165049/" property="og:url">
+<meta content="While many people may use Bluetooth every day, the majority don&#39;t know how it works or that it can be hacked. Bluetooth hacking gives a clear window into the world of the target. Nearly every device has Bluetooth capabilities, and people store a great deal of personal info on their phones and tablets. Hack their Bluetooth connection, and you may be able to access all of that data." property="og:description">
+<meta content="article" property="og:type">
+<meta content="https://www.facebook.com/WonderHowTo" property="article:publisher">
+<meta content="https://img.wonderhowto.com/img/78/54/63579830993356/0/bt-recon-snoop-bluetooth-devices-using-kali-linux.1280x600.jpg" property="og:image">
+<meta content="While many people may use Bluetooth every day, the majority don&#39;t know how it works or that it can be hacked. Bluetooth hacking gives a clear window into the world of the target. Nearly every device has Bluetooth capabilities, and people store a great deal of personal info on their phones and tablets. Hack their Bluetooth connection, and you may be able to access all of that data." name="description">
+<meta content="summary_large_image" name="twitter:card">
+<meta content="https://img.wonderhowto.com/img/78/54/63579830993356/0/bt-recon-snoop-bluetooth-devices-using-kali-linux.1280x600.jpg" name="twitter:image:src">
+<meta content="@WonderHowTo" name="twitter:site">
+<meta content="Snoop on Bluetooth Devices Using Kali" name="twitter:title">
+<meta content="While many people may use Bluetooth every day, the majority don&#39;t know how it works or that it can be hacked. Bluetooth hacking gives a clear window into the world of the target. Nearly every devic..." name="twitter:description">
+<meta content="@NullByte" name="twitter:creator">
+<meta content="null-byte.WonderHowTo.com" name="twitter:domain">
+<link href="https://null-byte.wonderhowto.com/how-to/bt-recon-snoop-bluetooth-devices-using-kali-linux-0165049/" rel="canonical">
+<link href="https://nulb.app/z3tpo" rel="shortlink">
+
+    <link rel="alternate" type="application/rss+xml" href="https://null-byte.wonderhowto.com/rss.xml" title="Null Byte RSS Feed">
+        <link rel="apple-touch-icon" sizes="180x180" href="https://img.wonderhowto.com/images/favicons/wonderhowto/apple-touch-icon.png">
+    <link rel="icon" type="image/png" href="https://img.wonderhowto.com/images/favicons/wonderhowto/favicon-194x194.png" sizes="194x194">
+    <link rel="icon" type="image/png" href="https://img.wonderhowto.com/images/favicons/wonderhowto/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://img.wonderhowto.com/images/favicons/wonderhowto/favicon-16x16.png" sizes="16x16">
+    <link rel="manifest" href="https://img.wonderhowto.com/images/favicons/wonderhowto/manifest.json">
+    <link rel="mask-icon" href="https://img.wonderhowto.com/images/favicons/wonderhowto/safari-pinned-tab.svg" color="#7abd13">
+    <meta name="apple-mobile-web-app-title" content="WonderHowTo">
+    <meta name="application-name" content="WonderHowTo">
+    <meta name="msapplication-TileColor" content="#7abd13">
+    <meta name="msapplication-TileImage" content="https://img.wonderhowto.com/images/favicons/wonderhowto/mstile-144x144.png">
+    <meta name="theme-color" content="#7abd13">
+    <script type="text/javascript" src="./BT Recon_ How to Snoop on Bluetooth Devices Using Kali Linux « Null Byte __ WonderHowTo_files/event.js"></script><script src="./BT Recon_ How to Snoop on Bluetooth Devices Using Kali Linux « Null Byte __ WonderHowTo_files/amp4ads-host-v0.js"></script><script src="./BT Recon_ How to Snoop on Bluetooth Devices Using Kali Linux « Null Byte __ WonderHowTo_files/osd.js"></script><script async="" src="./BT Recon_ How to Snoop on Bluetooth Devices Using Kali Linux « Null Byte __ WonderHowTo_files/spectrum.js"></script><script async="" src="./BT Recon_ How to Snoop on Bluetooth Devices Using Kali Linux « Null Byte __ WonderHowTo_files/bk-coretag.js"></script><script src="./BT Recon_ How to Snoop on Bluetooth Devices Using Kali Linux « Null Byte __ WonderHowTo_files/pubads_impl_rendering_2020041602.js"></script><script async="" src="./BT Recon_ How to Snoop on Bluetooth Devices Using Kali Linux « Null Byte __ WonderHowTo_files/beacon.js"></script><script async="" src="./BT Recon_ How to Snoop on Bluetooth Devices Using Kali Linux « Null Byte __ WonderHowTo_files/analytics.js"></script><script async="" src="./BT Recon_ How to Snoop on Bluetooth Devices Using Kali Linux « Null Byte __ WonderHowTo_files/tmntag.js"></script><script async="" type="text/javascript" src="./BT Recon_ How to Snoop on Bluetooth Devices Using Kali Linux « Null Byte __ WonderHowTo_files/gpt.js"></script><script async="" type="text/javascript" src="./BT Recon_ How to Snoop on Bluetooth Devices Using Kali Linux « Null Byte __ WonderHowTo_files/tmnhead.js"></script><script type="text/javascript">
+        //<![CDATA[
+        
+        (function (WHT) {
+            WHT.scriptUrlBase = 'https://img.wonderhowto.com/js/';
+            WHT.scriptUrlTail = '.min.js?v=2020012201';
+        })(window.WHT = window.WHT || {});
+        var tmntag = tmntag || {}; tmntag.cmd = tmntag.cmd || [];
+        (function(w){try{w.top.location!==w.location&&(w.top.location.replace(w.location))}catch(e){try{w.top.location=w.location}catch(ex){}}})(this);
+        
+        (function (a) { _q = function () { return a; }; $ = function (f) { typeof f === "function" && a.push(arguments); return $; }; jQuery = $.ready = $; }([]));
+        (function () {
+            // callback format: callback(oElement, sSrc, bSuccess, bFromCache){}
+            window.preloadImage = function (element, src, callback, skipCacheCheck) {
+                var c = callback;
+                if (skipCacheCheck !== true) { var t = document.createElement('img'); t.src = src; if (t.complete || t.width + t.height > 0) { t = null; if (callback) callback(element, src, true, true); return; } t = null; }
+                var i = new Image();
+                i.onload = function () { i.onload = i.onerror = i.onabort = null; if (callback) callback(element, i.src, true, false); i = null; };
+                i.onerror = i.onabort = function () { i = i.onload = i.onerror = i.onabort = null; if (callback) callback(element, src, false, false); i = null; };
+                i.src = src;
+            };
+        })();
+
+        
+            (function (WHT) { WHT.___pOpts = { type: 'article', pageSize: 2, kw: ["null-byte","Null Byte","Bluetooth Hacking","wonderhowto.com","WonderHowTo","ID0165049","howto","bt","recon","snoop","bluetooth","devices","using","kali","linux"], vplid: 'Cm7IKQ1O', enableCloning: true, cloneOneAtATime: true, maxClone: 10, iForceRefreshIfUnfilledAfterSeconds: 15, iMinAgeForBlankVisiblePlacementRefresh: 6, speedyRefresh: false }; })(window.WHT = window.WHT || {});
+                
+                    (function() {
+                        try { if (window.document.location.hash === '#loadtest') { return; } } catch (e) { }
+                        var tmnhead = document.createElement('script'); tmnhead.async = true; tmnhead.type = 'text/javascript'; tmnhead.src = 'https://ads.servebom.com/tmnhead.js';
+                        var node = document.getElementsByTagName('script')[0]; node.parentNode.insertBefore(tmnhead, node);
+                    })();
+                
+        document.documentElement.className = '';
+        //]]>
+    </script>
+    <link href="./BT Recon_ How to Snoop on Bluetooth Devices Using Kali Linux « Null Byte __ WonderHowTo_files/css(1)" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="./BT Recon_ How to Snoop on Bluetooth Devices Using Kali Linux « Null Byte __ WonderHowTo_files/fonts-and-styles.woff2.bundle.min.css" type="text/css">
+    <link rel="stylesheet" href="./BT Recon_ How to Snoop on Bluetooth Devices Using Kali Linux « Null Byte __ WonderHowTo_files/print.min.css" type="text/css" media="print">
+
+<link rel="preload" href="./BT Recon_ How to Snoop on Bluetooth Devices Using Kali Linux « Null Byte __ WonderHowTo_files/f(11).txt" as="script"><script type="text/javascript" src="./BT Recon_ How to Snoop on Bluetooth Devices Using Kali Linux « Null Byte __ WonderHowTo_files/f(11).txt"></script><script src="./BT Recon_ How to Snoop on Bluetooth Devices Using Kali Linux « Null Byte __ WonderHowTo_files/pubads_impl_2020041602.js" async=""></script><link rel="prefetch" href="https://tpc.googlesyndication.com/safeframe/1-0-37/html/container.html"><script src="./BT Recon_ How to Snoop on Bluetooth Devices Using Kali Linux « Null Byte __ WonderHowTo_files/JWPlayer.js"></script><style id="jw-main-styles">.jw-loaded { background-color: rgba(0,0,0,.1); margin: 5px 0; }.jw-dock-image { background-size:45%; }.jw-dock-button[button="close"] { display:none; }@media screen and (min-width: 250px) {@keyframes jw-minimize {0%   { opacity: 0; }100% { opacity: 1; }}.jw-player-minimize { animation: jw-minimize .6s; }.jw-player-minimize .jw-dock-button[button="close"] { display:inherit; }.jw-player-minimize .jw-flag-small-player .jw-dock-button { width:30px;height:30px; }.jw-player-minimize .jw-player-position {transition: top .2s, transform .2s;position: fixed; z-index:9999; width:300px;bottom:0;}.jw-player-minimize .jw-player-position {left:980px;}.listing .jw-player-minimize .jw-player-position,.listing-page .jw-player-minimize .jw-player-position {left:0px;}}a.ftr-close-button { border: none; cursor: pointer; position: absolute; top: 10px; right: 10px; z-index: 100; width: 25px; height: 25px; }.ftr-close-button path { fill: white; }.ftr-close-button:hover path { fill: #eee; }</style><style id="jw-resize-styles"></style><style id="jw-sticky-styles"></style><style id="jw-offset-bottom-styles"></style><script src="./BT Recon_ How to Snoop on Bluetooth Devices Using Kali Linux « Null Byte __ WonderHowTo_files/Z39MjvEU.js"></script></head>
+<body class="theme-wh oversized-header isworld is-world world-name-null-byte subworld controller-article action-index isnotuser hascalltoaction" vocab="http://schema.org/">
+    <header>
+        <div id="header-offset" class="clearfix"><div></div></div>
+        <div id="top-header" class="page-header header-height full-page-width">
+                <img id="header-bg-image" class="header-bg full-page-width" src="./BT Recon_ How to Snoop on Bluetooth Devices Using Kali Linux « Null Byte __ WonderHowTo_files/bt-recon-snoop-bluetooth-devices-using-kali-linux.1280x600.jpg" width="128" height="60" style="transform: translate3d(0px, 0px, 0px); opacity: 1;">
+            
+                <div id="header-overlay" class="header-overlay" style="transform: translate3d(0px, 0px, 0px);">
+                    <strong class="big-site-logo">
+                    <a class="big-logo" href="https://www.wonderhowto.com/">
+                        <span>WonderHowTo</span>
+                        <img class="immediate" src="./BT Recon_ How to Snoop on Bluetooth Devices Using Kali Linux « Null Byte __ WonderHowTo_files/wonderhowto.logo.shadow.png" width="309" height="125">
+                    </a>
+                    </strong>
+
+<strong class="header-tagline sub-site-title">                        <a class="active-world-name" href="https://null-byte.wonderhowto.com/" title="The aspiring white-hat hacker/security awareness playground">
+                            Null Byte
+                        </a>
+</strong>                </div>
+        </div>
+        <div class="init">
+            <!-- Preload header image -->
+            
+            <script type="text/javascript">
+                //<![CDATA[
+                (function (d) {
+                    window.rxMatchDomain = /^http(s)?\:\/\/([a-z0-9-]+)\.((wonderhowto|gadgethacks|invisiverse|foodhacksdaily)\.com|reality\.news|driverless\.id)/i;
+                    var sDN = function (u, s, rx) { rx = rxMatchDomain.exec(u); window['_WHT_' + s + 'sdn'] = rx == null ? '' : rx[1]; window['_WHT_' + s + 'tdn'] = rx == null ? '' : rx[2]; }, bDidJump = false,
+                        sbbg = 'https://img.wonderhowto.com/img/69/07/63620327870894/0/null-byte.b300x140.jpg',
+                        sfbg = 'https://img.wonderhowto.com/img/69/07/63620327870894/0/null-byte.1280x600.jpg';
+                    sDN(document.location, 'c'); sDN(document.referrer, 'r');
+                    window._RefInSite = (_WHT_ctdn === _WHT_rtdn && _WHT_csdn === _WHT_rsdn);
+                    window._RefInNetwork = (_WHT_rtdn !== '');
+                    
+                })(document.getElementById('header-bg-image'));
+                //]]>
+            </script>
+        </div>
+        <div id="top-nav" class="full-page-width immediate" style="top: 270px;">
+            <div style="height:0;">
+                <div class="nav-menu-block">
+                    <div class="shade" style="opacity: 0.5;"></div>
+                    <div class="root-sites"><div>
+	<a href="https://www.wonderhowto.com/" class="wonderhowto_com theme-wh">WonderHowTo</a>
+	<a href="https://www.gadgethacks.com/" class="gadgethacks_com theme-gh">Gadget Hacks</a>
+	<a href="https://next.reality.news/" class="reality_news theme-nr">Next Reality</a>
+	<a href="https://null-byte.wonderhowto.com/" class="sub-null-byte active theme-wh">Null Byte</a>
+</div></div>
+                    <div class="small-logo-mark">
+                        <a class="logo-mark" href="https://www.wonderhowto.com/">
+                            <img class="immediate" src="./BT Recon_ How to Snoop on Bluetooth Devices Using Kali Linux « Null Byte __ WonderHowTo_files/wonderhowto.mark.png" width="60" height="60">
+                        </a>
+                    </div>
+                    <div class="top-nav-links navlinks">
+                        <div class="social-cta" style="display: block;">
+                            <button type="button" class="fa fa-facebook-square" data-action="follow-facebook"></button>
+                            <button type="button" class="fa fa-twitter-square" data-action="follow-twitter" style="display: inline-block;"></button>
+                            <button type="button" class="fa fa-youtube-square" data-action="follow-youtube" style="display: inline-block;"></button>
+                            <button type="button" class="fa fa-pinterest-square" data-action="follow-pinterest"></button>
+                        </div>
+                        <div class="top-nav-link-container">
+                            
+
+        <a href="https://null-byte.wonderhowto.com/collection/cyber-weapons-lab/">Cyber Weapons Lab</a>
+        <a href="https://null-byte.wonderhowto.com/forum">Forum</a>
+        <a href="https://null-byte.wonderhowto.com/how-to/metasploit-basics/">Metasploit Basics</a>
+        <a href="https://null-byte.wonderhowto.com/how-to/facebook-hacks/">Facebook Hacks</a>
+        <a href="https://null-byte.wonderhowto.com/how-to/password-cracking/">Password Cracking</a>
+        <a href="https://null-byte.wonderhowto.com/how-to/buy-best-wireless-network-adapter-for-wi-fi-hacking-2019-0178550/">Top Wi-Fi Adapters</a>
+        <a href="https://null-byte.wonderhowto.com/how-to/wi-fi-hacking/">Wi-Fi Hacking</a>
+        <a href="https://null-byte.wonderhowto.com/how-to/linux-basics/">Linux Basics</a>
+        <a href="https://null-byte.wonderhowto.com/how-to/mr-robot-hacks/">Mr. Robot Hacks</a>
+        <a href="https://null-byte.wonderhowto.com/how-to/hack-like-a-pro/">Hack Like a Pro</a>
+        <a href="https://null-byte.wonderhowto.com/how-to/forensics/">Forensics</a>
+        <a href="https://null-byte.wonderhowto.com/how-to/recon/">Recon</a>
+        <a href="https://null-byte.wonderhowto.com/how-to/social-engineering/">Social Engineering</a>
+        <a href="https://null-byte.wonderhowto.com/how-to/networking-basics/">Networking Basics</a>
+        <a href="https://null-byte.wonderhowto.com/how-to/evading-av-software/">Antivirus Evasion</a>
+        <a href="https://null-byte.wonderhowto.com/how-to/spy-tactics/">Spy Tactics</a>
+        <a href="https://null-byte.wonderhowto.com/how-to/mitm/">MitM</a>
+        <a href="https://null-byte.wonderhowto.com/how-to/advice-from-a-hacker/">Advice from a Hacker</a>
+
+                        </div>
+                    </div>
+                    <div class="menu-buttons">
+                        <button type="button" class="nav-button nav-menu-toggle fa fa-bars">
+                        </button>
+                        <button type="button" class="nav-button nav-search-toggle fa fa-search"></button>
+                    </div>
+                    <form action="https://null-byte.wonderhowto.com/search/" method="GET" class="search-form" novalidate="novalidate">
+                        <input type="search" id="searchbox" placeholder="Search" class="search-box" name="searchText" value="">
+                        <button type="submit" class="search-submit"></button>
+                    </form>
+                </div>
+                <div class="center-frame">
+                    <div id="locked-toolbar" class="locked-toolbar-block"></div>
+                </div>
+            </div>
+        </div>
+        <div class="top-nav-init">
+            <script type="text/javascript">
+                (function () {
+                    window.waitForFont = function (fCallback, fontClass, oCallBackScope) {
+                        window.waitForFont.fonts = window.waitForFont.fonts || {};
+                        if (window.waitForFont.fonts[fontClass || 'default']) { if (oCallBackScope) fCallback.apply(oCallBackScope, []); else fCallback(); return; }
+                        var fc = document.createElement('span'), w, to = null, retries = 0;
+                        fc.className = 'font-load-check' + (fontClass ? ' ' + fontClass : '');
+                        document.body.appendChild(fc); w = fc.offsetWidth; fc.className += ' check';
+                        var fCheck = function () {
+                            if (to != null) clearTimeout(to); to = null;
+                            if (++retries > 3000) return;
+                            if (fc && fc.offsetWidth != w) { window.waitForFont.fonts[fontClass || 'default'] = true; fc.parentNode.removeChild(fc); fc = null; if (oCallBackScope) fCallback.apply(oCallBackScope, []); else fCallback(); return; }
+                            to = setTimeout(fCheck, 10);
+                        };
+                        fCheck();
+                    };
+                })();
+                
+            </script>
+        </div>
+    </header>
+
+    <section class="page-wrapper">
+        <div id="main-wrapper" class="clearfix">
+            
+                <div id="ad-top-lock" class="full-page-width">
+                    <div class="centered clearfix">
+                        <div class="ad-top-container whtaph" data-unit-type="topwide"><div class="" id="purch_Y_L_1_1" data-google-query-id="CPGP66fP-OgCFUvg1QodOswMng" style="min-height: 66px;"><div id="google_ads_iframe_/10518929/tmnp.wonderhowto/a1-p1-s1_0__container__" style="border: 0pt none;"><iframe id="google_ads_iframe_/10518929/tmnp.wonderhowto/a1-p1-s1_0" title="3rd party ad content" name="google_ads_iframe_/10518929/tmnp.wonderhowto/a1-p1-s1_0" width="970" height="250" scrolling="no" marginwidth="0" marginheight="0" frameborder="0" style="border: 0px; vertical-align: bottom;" data-google-container-id="b" data-load-complete="true" src="./BT Recon_ How to Snoop on Bluetooth Devices Using Kali Linux « Null Byte __ WonderHowTo_files/saved_resource(23).html"></iframe></div></div></div>
+                    </div>
+                </div>
+            <div id="content" class="center-frame">
+                
+
+
+
+<div id="content-container" class="reversed">
+    
+    <div class="right-col outer-article-wrapper">
+        
+<div class="article-wrapper at-10 article-id-165049" data-article-id="165049">
+
+    <div class="article-root" itemscope="" itemtype="http://schema.org/Article">
+
+
+
+        
+<header class="article-headline ">
+    <h1 itemprop="name headline">
+        <a itemprop="url mainEntityOfPage" href="https://null-byte.wonderhowto.com/how-to/bt-recon-snoop-bluetooth-devices-using-kali-linux-0165049/">
+                <span class="series-tab"><span class="series">BT Recon</span></span><span class="hide">:</span>
+            How to Snoop on Bluetooth Devices Using Kali Linux
+        </a>
+    </h1>
+        <figure class="hide" itemprop="image" itemscope="" itemtype="http://schema.org/ImageObject">
+            <img src="./BT Recon_ How to Snoop on Bluetooth Devices Using Kali Linux « Null Byte __ WonderHowTo_files/bt-recon-snoop-bluetooth-devices-using-kali-linux.1280x600.jpg" width="1280" height="600" alt="How to Snoop on Bluetooth Devices Using Kali Linux" class="article-cover-image hide" itemprop="url contentUrl">
+            <meta itemprop="width" content="1280">
+            <meta itemprop="height" content="600">
+        </figure>
+</header>
+
+        <aside class="meta-stats">
+            <ul>
+                <li class="stat stat-author" itemprop="author" itemscope="" itemtype="https://schema.org/Person">By <a rel="author" itemprop="url" href="https://creator.wonderhowto.com/tenebrism/"><strong itemprop="name"><!-- Author Start -->Justin Meyers<!-- Author End --></strong></a></li>
+                        <li class="stat stat-timestamp"><i class="fa fa-clock-o"></i>
+            <time datetime="2020-01-21T00:00:00" pubdate="pubdate" class="localtimestamp tooltip" data-published="2020-01-21T00:00:00" data-revised="2020-01-21T16:45:25" data-featured="2020-01-21T16:45:25" data-only-original="true" data-show-original="true" title="Updated on 01/21/2020 7:45 pm">01/21/2020 3:00 am</time>
+        </li>
+    <meta itemprop="dateCreated" content="2015-10-04T19:01:59">
+    <meta itemprop="datePublished" content="2020-01-21T00:00:00">
+    <meta itemprop="dateModified" content="2020-01-21T16:45:25">
+
+                
+                        <li class="stat stat-site"><a href="https://null-byte.wonderhowto.com/how-to/bluetooth-hacking/">Bluetooth Hacking</a></li>
+                                    <li class="stat stat-site"><a href="https://null-byte.wonderhowto.com/collection/cyber-weapons-lab/">Cyber Weapons Lab</a></li>
+                <li class="stat stat-site" style="display:none;" itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+
+                    <a href="https://www.wonderhowto.com/" itemprop="url"><strong itemprop="name">WonderHowTo</strong></a>
+                    <meta itemprop="logo">
+                    <figure class="hide" itemprop="logo" itemscope="" itemtype="http://schema.org/ImageObject">
+                        <img src="./BT Recon_ How to Snoop on Bluetooth Devices Using Kali Linux « Null Byte __ WonderHowTo_files/wonderhowto.feed.logo.gif" width="144" height="144" alt="WonderHowTo" class="hide" itemprop="url contentUrl">
+                        <meta itemprop="width" content="144">
+                        <meta itemprop="height" content="144">
+                    </figure>
+                </li>
+            </ul>
+        </aside>
+
+        <div class="article-box">
+            <!-- Article Start -->
+            <article class="article-container clearfix centered-article-content" itemprop="articleBody">
+                <section>
+                    
+                    <p>While many people may use Bluetooth every day, the majority don't know how it works or that it can be hacked. <a href="https://null-byte.wonderhowto.com/how-to/bluetooth-hacking/">Bluetooth hacking</a> gives a clear window into the world of the target. Nearly every device has Bluetooth capabilities, and people store a great deal of personal info on their phones and tablets. Hack their Bluetooth connection, and you may be able to access all of that data.</p><aside class="whtaph-rightbox whtaph-728"><aside class="whtaph rightbox" data-unit-type="rightbox"><div class="" id="purch_Y_L_0_1" style="min-height: 90px;" data-google-query-id="CI6HtfzO-OgCFRdsGwod9ZcIwg"><div id="google_ads_iframe_/10518929/tmnp.wonderhowto/a0-p1-s1_0__container__" style="border: 0pt none; display: inline-block; width: 728px; height: 90px;"><iframe frameborder="0" src="./BT Recon_ How to Snoop on Bluetooth Devices Using Kali Linux « Null Byte __ WonderHowTo_files/container.html" id="google_ads_iframe_/10518929/tmnp.wonderhowto/a0-p1-s1_0" title="3rd party ad content" name="" scrolling="no" marginwidth="0" marginheight="0" width="728" height="90" data-is-safeframe="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" data-google-container-id="4" style="border: 0px; vertical-align: bottom;" data-load-complete="true"></iframe></div></div></aside></aside><p>Although Bluetooth shares the same 2.4 GHz frequency as Wi-Fi, the properties are different because the protocols are not quite the same. There's enhanced security so that popular Wi-Fi hacking tools won't work on Bluetooth.</p><p>For one, they're continually hopping frequencies, so if you have two devices communicating over Bluetooth, they're both using an algorithm that shifts the frequency many times per second. That means we can't merely sit on one frequency and listen because they're going to be hopping all over the place. It makes it difficult for an attacker to listen in on the conversation in the first place.</p><ul><li><strong>Don't Miss: <a href="https://null-byte.wonderhowto.com/how-to/hacks-mr-robot-hack-bluetooth-0163586/">How Mr. Robot Hacked Bluetooth</a></strong></li> </ul><p>Another property is that Bluetooth doesn't negotiate a key every single time like Wi-Fi does, where it's easy for anyone to join and leave the Wi-Fi network. Instead, Bluetooth negotiates a key once at the beginning, stores the secret key, and then refers to it every time it sees the same device. That means it's impossible to sit there and sniff the key because you need to be there the first time these devices communicate. Otherwise, you're not going to get anything useful, and it's impossible to jump into the conversation the way you can with Wi-Fi.</p><aside class="whtaph-rightbox whtaph-728"><aside class="whtaph rightbox" data-unit-type="rightbox"></aside></aside><p>However, we can still track nearby Bluetooth devices, read from them, and even write specific characteristics. Because of that, it's useful to do the <a href="https://null-byte.wonderhowto.com/how-to/recon/">reconnaissance</a> in case we can either take control of the device, identify a vulnerability, or find a vulnerability later that matches up with one that's nearby.</p></section><aside class="whtaph-rightbox whtaph-728"><aside class="whtaph rightbox" data-unit-type="rightbox"></aside></aside>
+<section>
+<h2 class="sectionHeadline"><a id="jump-whatyoullneedforbluetoothrecon" class="anchor"></a>What You'll Need for Bluetooth Recon</h2><p>To begin Bluetooth surveillance, you'll need a fully updated version of Kali Linux installed because we're going to be using Bluetooth tools that are built-in. To keep things super basic, we're not installing anything extra, and we can just work with the Bluetooth tools that Kali Linux has by default.</p><p>The built-in tools we'll be covering below include hciconfig, hcitool, sdptool, l2ping, and btscanner. Many of these tools are included in <a href="http://www.bluez.org/" rel="nofollow" target="_blank">BlueZ</a>, the default Bluetooth protocol stack in nearly every version of Linux, including Kali. (We will also use some specialized tools for Bluetooth recon in Kali.)</p><aside class="whtaph-rightbox whtaph-728"><aside class="whtaph rightbox" data-unit-type="rightbox"><div class="" id="purch_Y_L_0_2" style="min-height: 90px;" data-google-query-id="CI-HtfzO-OgCFRdsGwod9ZcIwg"><div id="google_ads_iframe_/10518929/tmnp.wonderhowto/a0-p2-s1_0__container__" style="border: 0pt none; display: inline-block; width: 728px; height: 90px;"><iframe frameborder="0" src="./BT Recon_ How to Snoop on Bluetooth Devices Using Kali Linux « Null Byte __ WonderHowTo_files/container(1).html" id="google_ads_iframe_/10518929/tmnp.wonderhowto/a0-p2-s1_0" title="3rd party ad content" name="" scrolling="no" marginwidth="0" marginheight="0" width="728" height="90" data-is-safeframe="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" data-google-container-id="5" style="border: 0px; vertical-align: bottom;" data-load-complete="true"></iframe></div></div></aside></aside><p>Of course, we have to be in <a href="https://null-byte.wonderhowto.com/how-to/hack-bluetooth-part-1-terms-technologies-security-0163977/">fairly close proximity</a> to hack Bluetooth. With an excellent Bluetooth adapter, which is needed, you should be able to reach Bluetooth devices in a coffee shop, school classroom, office, and maybe even into a neighbor's house.</p><ul><li><strong>Don't Miss: <a href="https://null-byte.wonderhowto.com/how-to/hack-bluetooth-part-2-using-multiblue-control-any-mobile-device-0164377/">Using MultiBlue to Control Any Mobile Device via Bluetooth</a></strong></li></ul> <figure><figure class="whtGallery pad-2 bleed" id="21778184docPartGal880005" role="group" style="background-color: rgb(0, 0, 0);"><div class="gallery-layout" style="overflow: visible; height: 530px; width: auto;">   <div class="gallery-layout-container"><figure class="gal-row gal-row-f gal-wf video-loading" data-index="0" style="background: rgb(255, 255, 255); width: 980px; border: 0px; box-shadow: none;"><iframe width="980" height="530" src="./BT Recon_ How to Snoop on Bluetooth Devices Using Kali Linux « Null Byte __ WonderHowTo_files/JmQk4Yp9bww.html" frameborder="0" allowfullscreen="allowfullscreen"></iframe></figure></div>   <div class="white-out" style="display: none;">       <div style="display: none;"></div>   </div></div></figure></figure> 
+<aside class="aph_rads"></aside> </section><aside class="whtaph-rightbox whtaph-728"><aside class="whtaph rightbox" data-unit-type="rightbox"></aside></aside>
+<section>
+<h2 class="step no-auto-capitalize"><a id="jump-step1" class="anchor"></a><span class="margin-label"><span>Step 1</span></span>Enable Your Bluetooth Adapter with hciconfig</h2><p>If you're familiar with <strong>ifconfig</strong> for Wi-Fi cards and adapters, there is another tool that is similar for Bluetooth devices. And it's called <strong>hciconfig</strong>.</p> <pre class="syntax-highlighted"><code class="language-unknown">~# hciconfig
+
+hci0     Type: Primary Bus: USB
+         BD Address: ██:██:██:██:██:██  ACL MTU: 1022:8   SCO MTU: 183.5
+         DOWN
+         RX bytes:574 acl:0 sco:0 events:30 errors:0
+         TX bytes:368 acl:0 sco:0 commands:30 errors:0</code></pre> <p>In my example, we can see a Bluetooth interface. It's what we'll be using to do all of the things we want to do with Bluetooth. You can see that its current state is down, which means that it's not able to do anything, so the first thing we need to do to work with Bluetooth is to bring our interface up.</p><aside class="whtaph-rightbox whtaph-728"><aside class="whtaph rightbox" data-unit-type="rightbox"></aside></aside><p>If we have a Wi-Fi interface that's plugged in, but it's not up yet, we can type <strong>ifconfig</strong>, then the name of the interface, and then <strong>up</strong>. Since hciconfig is basically the same thing as ifconfig, we can use a lot of the same commands, which you can see in its <strong>man</strong> page.</p> <pre class="syntax-highlighted"><code class="language-unknown">~# man hciconfig
+
+HCICONFIG(1)              Linux System Administration             HCICONFIG(1)
+
+NAME
+       hciconfig - configure Bluetooth devices
+
+SYNOPSIS
+       hciconfig -h
+       hciconfig [-a]
+       hciconfig [-a] hciX [command [command parameters]]
+
+DESCRIPTION
+       hciconfig  is used to configure Bluetooth devices.  hciX is the name of
+       a Bluetooth device installed in the system. If hciX is not given,  hci‐
+       config  prints  name  and basic information about all the Bluetooth de‐
+       vices installed in the system. If hciX  is  given  but  no  command  is
+       given,  it prints basic information on device hciX only. Basic informa‐
+       tion is interface type, BD address, ACL MTU, SCO MTU, flags (up,  init,
+       running, raw, page scan enabled, inquiry scan enabled, inquiry, authen‐
+       tication enabled, encryption enabled).
+
+OPTIONS
+       -h, --help
+              Gives a list of possible commands.
+
+       -a, --all
+              Other than the basic info, print  features,  packet  type,  link
+              policy, link mode, name, class, version.
+
+COMMANDS
+       up                   Open and initialize HCI device.
+       down                 Close HCI device.
+       reset                Reset HCI device.
+       rstat                Reset statistic counters.
+       auth                 Enable authentication (sets device to security mode 3).
+       noauth               Disable authentication.
+       encrypt              Enable encryption (sets device to security mode 3).
+       noencrypt            Disable encryption.
+       secmgr               Enable security manager (current kernel support is limited).
+       nosecmgr             Disable security manager.
+       piscan               Enable page and inquiry scan.
+       noscan               Disable page and inquiry scan.
+       iscan                Enable inquiry scan, disable page scan.
+       pscan                Enable page scan, disable inquiry scan.
+       ptype [type]         With no type , displays the current packet types. Otherwise, all the packet types specified by type are set.  type  is  a  comma-separated  list of packet types, where the possible packet types are DM1, DM3, DM5, DH1, DH3, DH5, HV1, HV2, HV3.
+       name [name]          With no name, prints local name. Otherwise, sets local  name  to name.
+       class [class]        With  no class, prints class of device. Otherwise, sets class of device to class.  class is a 24-bit hex  number  describing  the class  of  device,  as specified in section 1.2 of the Bluetooth Assigned Numers document.
+       voice [voice]        With no voice, prints voice setting. Otherwise, sets voice  setting  to  voice.   voice  is  a 16-bit hex number describing the voice setting.
+       iac [iac]            With no iac, prints the current IAC setting. Otherwise, sets the IAC to iac.
+       inqtpl [level]       With  no  level,  prints  out the current inquiry transmit power level. Otherwise, sets inquiry transmit power level to level.
+       inqmode [mode]       With no mode, prints out the current  inquiry  mode.  Otherwise, sets inquiry mode to mode.
+       inqdata [data]       With  no  name,  prints out the current inquiry data. Otherwise, sets inquiry data to data.
+       inqtype [type]       With no type, prints out the current inquiry scan  type.  Otherwise, sets inquiry scan type to type.
+       inqparams [win:int]  With no win:int, prints inquiry scan window and interval. Otherwise, sets inquiry scan window to win slots and inquiry scan interval to int slots.
+       pageparms [win:int]  With  no  win:int,  prints page scan window and interval. Otherwise, sets page scan window to win slots and page scan  interval to int slots.
+       pageto [to]          With no to, prints page timeout. Otherwise, sets page timeout to .I to slots.
+       afhmode [mode]       With no mode, prints out the current AFH mode.  Otherwise,  sets AFH mode to mode.
+       sspmode [mode]       With no mode, prints out the current Simple Pairing mode. Otherwise, sets Simple Pairing mode to mode.
+       aclmtu mtu:pkt       Sets ACL MTU to to mtu bytes and ACL buffer size to pkt packets.
+       scomtu mtu:pkt       Sets SCO MTU to mtu bytes and SCO buffer size to pkt packets.
+       delkey &lt;bdaddr&gt;      This command deletes the stored link key for bdaddr from the device.
+       oobdata              Get local OOB data (invalidates previously read data).
+       commands             Display supported commands.
+       features             Display device features.
+       version              Display version information.
+       revision             Display revision information.
+       lm [mode]            With  no mode , prints link mode.  MASTER or SLAVE mean, respectively, to ask to become master or to remain slave when  a  connection  request  comes  in. The additional keyword ACCEPT means that baseband  connections will be accepted even if there are no listening  AF_BLUETOOTH  sockets.  mode is NONE or a comma-separated list of keywords, where possible keywords are  MASTER  and ACCEPT  .  NONE sets link policy to the default behaviour of remaining slave and not accepting baseband connections when  there are no listening AF_BLUETOOTH sockets. If MASTER is present, the device will ask to become master if a connection  request  comes in.  If  ACCEPT is present, the device will accept baseband connections even when there are no listening AF_BLUETOOTH sockets.
+
+AUTHORS
+       Written by Maxim Krasnyansky &lt;maxk@qualcomm.com&gt;  and  Marcel  Holtmann &lt;marcel@holtmann.org&gt;
+
+       man page by Fabrizio Gennari &lt;fabrizio.gennari@philips.com&gt;
+
+BlueZ                             Nov 11 2002                     HCICONFIG(1)
+
+Manual page hciconfig(1) line 147/169 (END) (press h for help or q to quit)</code></pre> <p>We can see in the man page that this is used to configure Bluetooth devices, so if you have that external Bluetooth device or something plugged in, you can also use that to see the devices that are connected and configure them appropriately.</p><p>Now that we know a little bit more about hciconfig, let's go ahead and press <strong>Q</strong> to quit. We'll need to take the Bluetooth device we've discovered and bring it up. Just type <strong>hciconfig</strong>, then the name of the device we found, and <strong>up</strong>.</p><aside class="whtaph-rightbox whtaph-728"><aside class="whtaph rightbox" data-unit-type="rightbox"><div class="" id="purch_Y_L_0_3" style="min-height: 90px;" data-google-query-id="CJCHtfzO-OgCFRdsGwod9ZcIwg"><div id="google_ads_iframe_/10518929/tmnp.wonderhowto/a0-p3-s1_0__container__" style="border: 0pt none; display: inline-block; width: 728px; height: 90px;"><iframe frameborder="0" src="./BT Recon_ How to Snoop on Bluetooth Devices Using Kali Linux « Null Byte __ WonderHowTo_files/container(2).html" id="google_ads_iframe_/10518929/tmnp.wonderhowto/a0-p3-s1_0" title="3rd party ad content" name="" scrolling="no" marginwidth="0" marginheight="0" width="728" height="90" data-is-safeframe="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" data-google-container-id="6" style="border: 0px; vertical-align: bottom;" data-load-complete="true"></iframe></div></div></aside></aside> <pre class="syntax-highlighted"><code class="language-unknown">~# hciconfig hci0 up</code></pre> <p>To see if it worked, run the <strong>hciconfig</strong> command again:</p> <pre class="syntax-highlighted"><code class="language-unknown">~# hciconfig
+
+hci0     Type: Primary Bus: USB
+         BD Address: ██:██:██:██:██:██  ACL MTU: 1022:8   SCO MTU: 183.5
+         UP RUNNING
+         RX bytes:1148 acl:0 sco:0 events:60 errors:0
+         TX bytes:736 acl:0 sco:0 commands:60 errors:0</code></pre> </section><aside class="whtaph-rightbox whtaph-728"><aside class="whtaph rightbox" data-unit-type="rightbox"></aside></aside>
+<section>
+<h2 class="step no-auto-capitalize"><a id="jump-step2" class="anchor"></a><span class="margin-label"><span>Step 2</span></span>Scan for Bluetooth Devices with hcitool</h2><p>Now let's use <strong>hcitool</strong> to look for Bluetooth devices that are sending out their discover beacons (in discovery mode). First, let's check out its <strong>man</strong> page:</p> <pre class="syntax-highlighted"><code class="language-unknown">~# man hciconfig
+
+HCITOOL(1)                Linux System Administration               HCITOOL(1)
+
+NAME
+       hcitool - configure Bluetooth connections
+
+SYNOPSIS
+       hcitool [-h]
+       hcitool [-i &lt;hciX&gt;] [command [command parameters]]
+
+DESCRIPTION
+       hcitool  is  used to configure Bluetooth connections and send some spe‐
+       cial command to Bluetooth devices. If no command is given,  or  if  the
+       option -h is used, hcitool prints some usage information and exits.
+
+OPTIONS
+       -h     Gives a list of possible commands
+
+       -i &lt;hciX&gt;
+              The  command  is applied to device hciX , which must be the name
+              of an installed Bluetooth device. If not specified, the  command
+              will be sent to the first available Bluetooth device.
+
+COMMANDS
+       dev                  Display local devices
+       inq                  Inquire  remote  devices.  For each discovered device, Bluetooth device address, clock offset and class are printed.
+       scan                 Inquire remote devices. For each discovered device, device  name are printed.
+       name &lt;bdaddr&gt;        Print  device  name  of  remote  device  with  Bluetooth address bdaddr.
+       info &lt;bdaddr&gt;        Print device name, version and supported features of remote  device with Bluetooth address bdaddr.
+       spinq                Start periodic inquiry process. No inquiry results are printed.
+       epinq                Exit periodic inquiry process.
+       cmd &lt;ogf&gt; &lt;ocf&gt; [parameters]
+                            Submit  an  arbitrary HCI command to local device.  ogf, ocf and parameters are hexadecimal bytes.
+       con                  Display active baseband connections
+       cc [--role=m|s] [--pkt-type=&lt;ptype&gt;] &lt;bdaddr&gt;
+                            Create baseband connection to remote device with  Bluetooth  address  bdaddr.   Option  --pkt-type  specifies a list of allowed packet types.  &lt;ptype&gt;  is  a  comma-separated  list  of  packet types,  where  the possible packet types are DM1, DM3, DM5, DH1, DH3, DH5, HV1, HV2, HV3.  Default is to allow all packet  types. Option  --role  can have value m (do not allow role switch, stay master) or s (allow role switch, become slave if the  peer  asks to become master). Default is m.
+       dc &lt;bdaddr&gt; [reason]
+                            Delete baseband connection from remote device with Bluetooth address bdaddr.  The reason can be one of the Bluetooth HCI  error codes.  Default is 19 for user ended connections. The value must be given in decimal.
+       sr &lt;bdaddr&gt; &lt;role&gt;   Switch role for the baseband connection from the  remote  device to master or slave.
+       cpt &lt;bdaddr&gt; &lt;packet types&gt;
+                            Change packet types for baseband connection to device with Bluetooth address bdaddr.  packet types is a comma-separated list of packet types, where the possible packet types are DM1, DM3, DM5, DH1, DH3, DH5, HV1, HV2, HV3.
+       rssi &lt;bdaddr&gt;        Display received signal strength information for the  connection to the device with Bluetooth address bdaddr.
+       lq &lt;bdaddr&gt;          Display link quality for the connection to the device with Bluetooth address bdaddr.
+       tpl &lt;bdaddr&gt; [type]  Display transmit power level for the connection  to  the  device with  Bluetooth  address bdaddr.  The type can be 0 for the current transmit power level (which is default) or 1 for the  maximum transmit power level.
+       afh &lt;bdaddr&gt;         Display  AFH  channel  map for the connection to the device with Bluetooth address bdaddr.
+       lp &lt;bdaddr&gt; [value]  With no value, displays link policy settings for the  connection to the device with Bluetooth address bdaddr.  If value is given, sets the link policy settings  for  that  connection  to  value. Possible values are RSWITCH, HOLD, SNIFF and PARK.
+       lst &lt;bdaddr&gt; [value] With no value, displays link supervision timeout for the connection to the device with Bluetooth address bdaddr.  If  value  is given,  sets the link supervision timeout for that connection to value slots, or to infinite if value is 0.
+       auth &lt;bdaddr&gt;        Request authentication for the  device  with  Bluetooth  address bdaddr.
+       enc &lt;bdaddr&gt; [encrypt enable]
+                            Enable  or  disable the encryption for the device with Bluetooth address bdaddr.
+       key &lt;bdaddr&gt;         Change the connection link key for the device with Bluetooth address bdaddr.
+       clkoff &lt;bdaddr&gt;      Read  the  clock  offset  for  the device with Bluetooth address bdaddr.
+       clock [bdaddr] [which clock]
+                            Read the clock for the device  with  Bluetooth  address  bdaddr. The  clock  can  be  0  for the local clock or 1 for the piconet clock (which is default).
+       lescan [--privacy] [--passive] [--whitelist]  [--discovery=g|l]  [--duplicates]
+                            Start LE scan
+       leinfo [--static] [--random] &lt;bdaddr&gt;
+                            Get LE remote information
+       lewladd [--random] &lt;bdaddr&gt;
+                            Add device to LE White List
+       lewlrm &lt;bdaddr&gt;      Remove device from LE White List
+       lewlsz               Read size of LE White List
+       lewlclr              Clear LE White List
+       lerladd [--local irk] [--peer irk] [--random] &lt;bdaddr&gt;
+                            Add device to LE Resolving List
+       lerlrm &lt;bdaddr&gt;      Remove device from LE Resolving List
+       lerlclr              Clear LE Resolving List
+       lerlsz               Read size of LE Resolving List
+       lerlon               Enable LE Address Resolution
+       lerloff              Disable LE Address Resolution
+       lecc [--static] [--random] &lt;bdaddr&gt; | [--whitelist]
+                            Create a LE Connection
+       ledc &lt;handle&gt; [reason]
+                            Disconnect a LE Connection
+       lecup &lt;handle&gt; &lt;min&gt; &lt;max&gt; &lt;latency&gt; &lt;timeout&gt;
+                            LE Connection Update
+
+AUTHORS
+       Written  by  Maxim  Krasnyansky &lt;maxk@qualcomm.com&gt; and Marcel Holtmann &lt;marcel@holtmann.org&gt;
+
+       man page by Fabrizio Gennari &lt;fabrizio.gennari@philips.com&gt;
+
+BlueZ                             Nov 12 2002                       HCITOOL(1)
+
+Manual page hcitool(1) line 154/176 (END) (press h for help or q to quit)</code></pre> <p>Hcitool is used to both configure and perform various tasks like scans, inquiries, and pulling names. That's really useful to learn about the device, but some of these commands require a MAC address to use them.</p><aside class="whtaph-rightbox whtaph-728"><aside class="whtaph rightbox" data-unit-type="rightbox"><div class="" id="purch_Y_L_0_4" style="min-height: 90px;" data-google-query-id="CJGHtfzO-OgCFRdsGwod9ZcIwg"><div id="google_ads_iframe_/10518929/tmnp.wonderhowto/a0-p4-s1_0__container__" style="border: 0pt none; display: inline-block; width: 728px; height: 90px;"><iframe frameborder="0" src="./BT Recon_ How to Snoop on Bluetooth Devices Using Kali Linux « Null Byte __ WonderHowTo_files/container(3).html" id="google_ads_iframe_/10518929/tmnp.wonderhowto/a0-p4-s1_0" title="3rd party ad content" name="" scrolling="no" marginwidth="0" marginheight="0" width="728" height="90" data-is-safeframe="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" data-google-container-id="7" style="border: 0px; vertical-align: bottom;" data-load-complete="true"></iframe></div></div></aside></aside><p>Let's take a look at some of these commands. First, we'll do a scan. It will use the Bluetooth interface to scan for nearby Bluetooth devices and present their MAC addresses for us to do additional scans, inquiries, or attempt to get the name of the device.</p> <pre class="syntax-highlighted"><code class="language-unknown">~# hcitool scan
+
+Scanning ...
+        00:1D:A5:00:09:1D       OBDII</code></pre> <p>Above, we see an <a href="https://android.gadgethacks.com/how-to/diagnose-your-cars-check-engine-light-using-android-phone-0177132/">OBD2 connector</a> which is connected to a vehicle. That's pretty interesting. With the MAC address, we can now we can do another command that required us to have a MAC address in the first place. Let's try getting the name of the device:</p> <pre class="syntax-highlighted"><code class="language-unknown">~# hcitool name 00:1D:A5:00:09:1D
+
+OBDII</code></pre> <p>That should allow us to get the name of the device, but we already knew it from that first scan. If we didn't know it, however, it'll allow us to be able to learn more about it. To learn more, we can use the <strong>inq</strong> command:</p><aside class="whtaph-rightbox whtaph-728"><aside class="whtaph rightbox" data-unit-type="rightbox"></aside></aside> <pre class="syntax-highlighted"><code class="language-unknown">~# hcitool inq 00:1D:A5:00:09:1D
+
+Scanning ...
+        00:1D:A5:00:09:1D       clock offset: 0x21c0    class: ox5a020c</code></pre> <p>Note that it also displays clock offset and the class. The class indicates what type of Bluetooth device it is, and we can look up the code by going to the <a href="https://www.bluetooth.com/specifications/assigned-numbers/" rel="nofollow" target="_blank">Bluetooth site</a>. Or, as we will see later, some tools will do it for us.</p></section><aside class="whtaph-rightbox whtaph-728"><aside class="whtaph rightbox" data-unit-type="rightbox"></aside></aside>
+<section>
+<h2 class="step no-auto-capitalize"><a id="jump-step3" class="anchor"></a><span class="margin-label"><span>Step 3</span></span>Scan for Services with sdptool</h2><p>To learn more about services, we can use a tool called <strong>sdptool</strong> to browse more about what's available on the device and learn about the properties — maybe what we can and can't do. We'll need to use the MAC address again, but first, let's check out its <strong>man</strong> page too:</p> <pre class="syntax-highlighted"><code class="language-unknown">~# man sdptool
+
+sdptool(1)                  General Commands Manual                 sdptool(1)
+
+NAME
+       sdptool — control and interrogate SDP servers
+
+SYNOPSIS
+       sdptool [options]  {command}  [command parameters ...]
+
+DESCRIPTION
+       sdptool  provides the interface for performing SDP queries on Bluetooth
+       devices, and administering a local SDP database.
+
+COMMANDS
+       The following commands are available.  In all  cases  bdaddr  specifies
+       the  device to search or browse.  If local is used for bdaddr, then the
+       local SDP database is searched.
+
+       Services are identified and manipulated  with  a  4-byte  record_handle
+       (NOT  the  service  name).  To find a service's record_handle, look for
+       the "Service RecHandle" line in the search or browse results
+
+       search [--bdaddr bdaddr] [--tree] [--raw] [--xml] service_name
+                 Search for services.. Known service names are DID, SP, DUN, LAN, FAX,  OPUSH,  FTP, HS,  HF,  HFAG,  SAP,  NAP,  GN, PANU, HCRP, HID, CIP, A2SRC, A2SNK, AVRCT, AVRTG, UDIUE, UDITE and SYNCML.
+       browse [--tree] [--raw] [--xml] [bdaddr]
+                 Browse all available services on the device  specified  by  a Bluetooth address as a parameter.
+       records [--tree] [--raw] [--xml] bdaddr
+                 Retrieve all possible service records.
+       add [ --handle=N --channel=N ]
+                 Add a service to the local SDP database. You  can  specify a handle for this record using the --handle option. You can specify a channel to add the  service  on  using  the --channel option. NOTE:  Local  adapters  configuration will not be updated and this command should be used only for SDP testing.
+       del record_handle
+                 Remove a service from the local SDP database. NOTE: Local adapters configuration will not  be  updated  and this command should be used only for SDP testing.
+       get [--tree] [--raw] [--xml] [--bdaddr bdaddr] record_handle
+                 Retrieve a service from the local SDP database.
+       setattr record_handle attrib_id attrib_value
+                 Set or add an attribute to an SDP record.
+       setseq record_handle attrib_id attrib_values
+                 Set or add an attribute sequence to an SDP record.
+
+OPTIONS
+       --help    Displays help on using sdptool.
+
+EXAMPLES
+       sdptool browse 00:80:98:24:15:6D
+       sdptool browse local
+       sdptool add DUN
+       sdptool del 0x10000
+
+BUGS
+       Documentation needs improving.
+
+AUTHOR
+       Maxim  Krasnyansky &lt;maxk@qualcomm.com&gt;. Man page written by Edd Dumbill &lt;ejad@debian.org&gt;.
+
+                                                                    sdptool(1)
+
+Manual page sdptool(1) line 60/82 (END) (press h for help or q to quit)</code></pre> <p>It lets us configure, control, and interrogate SDP (service discovery protocol) servers. So it's something that allows us to do queries on Bluetooth devices and figure out precisely what is going on with the permissions and what we can probably start to do with those services.</p><aside class="whtaph-rightbox whtaph-728"><aside class="whtaph rightbox" data-unit-type="rightbox"></aside></aside><p>Quit the man page, and let's type <strong>sdptool</strong> then <strong>browse</strong>, followed by the MAC address we captured.</p> <pre class="syntax-highlighted"><code class="language-unknown">~# sdptool browse 00:1D:A5:00:09:1D
+
+Browsing 00:1D:A5:00:09:1D ...
+Service Name: SPP
+Service RecHandle: 0x10001
+Service Class ID List:
+    "Serial Port" (ox1101)
+Protocol Descriptor List:
+    "L2CAP" (0x0100)
+    "RFCOMM" (0x0003)
+      Channel: 1</code></pre> <p>Here, we can see a little bit more information about the communications, the protocols, and perhaps we could even start to discover whether or not there's a vulnerability in the device or if we're able to communicate with it directly. We can maybe even find whether it's using MAC address randomization or something like that.</p></section><aside class="whtaph-rightbox whtaph-728"><aside class="whtaph rightbox" data-unit-type="rightbox"></aside></aside>
+<section>
+<h2 class="step no-auto-capitalize"><a id="jump-step4" class="anchor"></a><span class="margin-label"><span>Step 4</span></span>Ping Bluetooth Devices with l2ping</h2><p>Now that we have the MAC addresses of all the nearby devices, we can ping them with a tool called <strong>l2ping</strong>, whether they are in discover mode or not, to see whether they are in reach. For me, it's just one device. Before doing so, let's run the <strong>man</strong> page for the tool just to see everything available.</p><aside class="whtaph-rightbox whtaph-728"><aside class="whtaph rightbox" data-unit-type="rightbox"></aside></aside> <pre class="syntax-highlighted"><code class="language-unknown">~# man l2ping
+
+L2PING(1)                 Linux System Administration                L2PING(1)
+
+NAME
+       l2ping - Send L2CAP echo request and receive answer
+
+SYNOPSIS
+       l2ping  [-i  &lt;hciX&gt;]  [-s size] [-c count] [-t timeout] [-d delay] [-f]
+       [-r] [-v] bd_addr
+
+DESCRIPTION
+       L2ping sends a L2CAP echo request to the Bluetooth MAC address  bd_addr
+       given in dotted hex notation.
+
+OPTIONS
+       -i &lt;hciX&gt;        The  command  is applied to device hciX , which must be the name of an installed Bluetooth device (X = 0,  1,  2,  ...)   If  not specified, the command will be sent to the first available Bluetooth device.
+       -s size          The size of the data packets to be sent.
+       -c count         Send count number of packets then exit.
+       -t timeout       Wait timeout seconds for the response.
+       -d delay         Wait delay seconds between pings.
+       -f               Kind of flood ping. Use with care! It reduces the delay time between packets to 0.
+       -r               Reverse  ping  (gnip?).  Send  echo response instead of echo request.
+       -v               Verify response payload is identical to request payload.  It  is not  required  for  remote stacks to return the request payload, but most stacks do (including Bluez).
+       bd_addr          The Bluetooth MAC address to be pinged in dotted hex notation like 01:02:03:ab:cd:ef or 01:EF:cd:aB:02:03
+
+AUTHORS
+       Written  by  Maxim  Krasnyansky &lt;maxk@qualcomm.com&gt; and Marcel Holtmann &lt;marcel@holtmann.org&gt;
+
+       man  page  by  Nils  Faerber  &lt;nils@kernelconcepts.de&gt;,   Adam   Laurie &lt;adam@algroup.co.uk&gt;.
+
+BlueZ                             Jan 22 2002                        L2PING(1)
+
+Manual page l2ping(1) line 32/54 (END) (press h for help or q to quit)</code></pre> <p>We don't need to do anything fancy here, just ping the Bluetooth device as so:</p> <pre class="syntax-highlighted"><code class="language-unknown">~# l2ping 00:1D:A5:00:09:1D
+
+Ping: 00:1D:A5:00:09:1D from ██:██:██:██:██:██ (data size 44) ...
+44 bytes from 00:1D:A5:00:09:1D id 0 time 37.57ms
+44 bytes from 00:1D:A5:00:09:1D id 1 time 27.23ms
+44 bytes from 00:1D:A5:00:09:1D id 2 time 27.59ms
+44 bytes from 00:1D:A5:00:09:1D id 3 time 27.31ms
+44 bytes from 00:1D:A5:00:09:1D id 4 time 40.99ms
+44 bytes from 00:1D:A5:00:09:1D id 5 time 48.77ms
+44 bytes from 00:1D:A5:00:09:1D id 6 time 59.93ms
+44 bytes from 00:1D:A5:00:09:1D id 7 time 48.84ms
+44 bytes from 00:1D:A5:00:09:1D id 8 time 67.59ms</code></pre> <p>This indicates that the device is within range and reachable.</p></section><aside class="whtaph-rightbox whtaph-728"><aside class="whtaph rightbox" data-unit-type="rightbox"></aside></aside>
+<section>
+<h2 class="step no-auto-capitalize"><a id="jump-step5" class="anchor"></a><span class="margin-label"><span>Step 5</span></span>Scan for Bluetooth Devices with btscanner</h2><p>Now it's time to move on to the last tool we're going to cover, which is a full-on graphic user interface used to discover Bluetooth devices. It's called <strong>btscanner</strong>, and once we start it, we can type <strong>btscanner</strong>. But before doing that, since we've looked at the <strong>man</strong> pages for the rest of the tools, let's take a quick look here too:</p><aside class="whtaph-rightbox whtaph-728"><aside class="whtaph rightbox" data-unit-type="rightbox"></aside></aside> <pre class="syntax-highlighted"><code class="language-unknown">~# man btscanner
+
+BTSCANNER(1)                General Commands Manual               BTSCANNER(1)
+
+NAME
+       btscanner - ncurses-based scanner for Bluetooth devices
+
+SYNOPSIS
+       btscanner [--help] [--cfg &lt;file&gt;] [--no-reset]
+
+DESCRIPTION
+       This  manual page was written for the Debian GNU/Linux distribution be‐
+       cause the original program does not have a manual page.
+
+       btscanner is a tool designed specifically to extract as  much  informa‐
+       tion  as  possible  from  a Bluetooth device without the requirement to
+       pair. A detailed information screen extracts HCI and  SDP  information,
+       and  maintains an open connection to monitor the RSSI and link quality.
+       btscanner is based on the BlueZ Bluetooth stack, which is included with
+       recent  Linux kernels, and the BlueZ toolset. btscanner also contains a
+       complete listing of the IEEE OUI numbers and class lookup tables. Using
+       the information gathered from these sources it is possible to make edu‐
+       cated guesses as to the host device type.
+
+OPTIONS
+       --help           Show a help text and exit.
+       --cfg &lt;file&gt;     Use &lt;file&gt; as the config file.
+       --no-reset       Do not reset the Bluetooth adapter before scanning.
+
+BUGS
+       Please report any bugs to Tim Hurman &lt;tim.hurman@pentest.co.uk&gt;.
+
+LICENCE
+       btscanner is covered by the GNU General Public License (GPL).
+
+SEE ALSO
+       kismet(1).
+
+AUTHORS
+       Tim Hurman &lt;tim.hurman@pentest.co.uk&gt;
+
+       This manual page was written by Uwe Hermann  &lt;uwe@hermann-uwe.de&gt;,  for
+       the Debian GNU/Linux system (but may be used by others).
+
+                                April 22, 2006                    BTSCANNER(1)
+
+ Manual page btscanner(1) line 23/45 (END) (press h for help or q to quit)</code></pre> <p>You can see there's not much to btscanner, and that's because it's a GUI tool, so all of the magic happens after running the tool, so let's do that now:</p> <pre class="syntax-highlighted"><code class="language-unknown">~# btscanner
+
+Opening the OUI database
+Reading the OUT database</code></pre> <figure><figure class="whtGallery pad-2" id="59868245docPartGal880045" role="group"><div class="gallery-layout" style="overflow: visible; height: 338px; width: auto;">   <div class="gallery-layout-container"><figure class="gal-row gal-row-f gal-wa" data-index="0" style="background: rgb(255, 255, 255); width: 594px;"><a href="https://img.wonderhowto.com/img/original/15/74/63715192347132/0/637151923471321574.jpg" rel="nofollow" target="_blank"><img src="./BT Recon_ How to Snoop on Bluetooth Devices Using Kali Linux « Null Byte __ WonderHowTo_files/bt-recon-snoop-bluetooth-devices-using-kali-linux.w1456.jpg" alt="" style="width: auto; max-width: 600px; height: 332px;"></a></figure></div>   <div class="white-out" style="display: none;">       <div style="display: none;"></div>   </div></div></figure></figure><aside class="whtaph-rightbox whtaph-728"><aside class="whtaph rightbox" data-unit-type="rightbox"></aside></aside> <p>The interface might look kind of similar to people who are familiar with the Kismet interface, which kind of allows us to do a lot of stuff in the command-line format with a GUI type of feel. It's beneficial and cool because it means that by typing <strong>i</strong>, we can start doing an inquiry scan and find nearby Bluetooth devices, and it could allow us to connect or set a command or something like that.</p> <figure><figure class="whtGallery pad-2" id="7614495docPartGal880047" role="group"><div class="gallery-layout" style="overflow: visible; height: 338px; width: auto;">   <div class="gallery-layout-container"><figure class="gal-row gal-row-f gal-wa" data-index="0" style="background: rgb(255, 255, 255); width: 594px;"><a href="https://img.wonderhowto.com/img/original/20/66/63715192370710/0/637151923707102066.jpg" rel="nofollow" target="_blank"><img src="./BT Recon_ How to Snoop on Bluetooth Devices Using Kali Linux « Null Byte __ WonderHowTo_files/bt-recon-snoop-bluetooth-devices-using-kali-linux.w1456(1).jpg" alt="" style="width: auto; max-width: 600px; height: 332px;"></a></figure></div>   <div class="white-out" style="display: none;">       <div style="display: none;"></div>   </div></div></figure></figure><aside class="whtaph-rightbox whtaph-728"><aside class="whtaph rightbox" data-unit-type="rightbox"></aside></aside> <p>We found a device, and it's the same Bluetooth device we saw before, and I'm sure that we'll be able to find some other devices as they roll in. For now, we can go ahead and press <em>Enter</em> to learn about the device.</p><aside class="whtaph-rightbox whtaph-728"><aside class="whtaph rightbox" data-unit-type="rightbox"></aside></aside> <figure><figure class="whtGallery pad-2" id="28840599docPartGal880049" role="group"><div class="gallery-layout" style="overflow: visible; height: 486px; width: auto;">   <div class="gallery-layout-container"><figure class="gal-row gal-row-f gal-wa" data-index="0" style="background: rgb(255, 255, 255); width: 594px;"><a href="https://img.wonderhowto.com/img/original/13/65/63715192395429/0/637151923954291365.jpg" rel="nofollow" target="_blank"><img src="./BT Recon_ How to Snoop on Bluetooth Devices Using Kali Linux « Null Byte __ WonderHowTo_files/bt-recon-snoop-bluetooth-devices-using-kali-linux.w1456(2).jpg" alt="" style="width: auto; max-width: 600px; height: 480px; margin-left: 0px;"></a></figure></div>   <div class="white-out" style="display: none;">       <div style="display: none;"></div>   </div></div></figure></figure><aside class="whtaph-rightbox whtaph-728"><aside class="whtaph rightbox" data-unit-type="rightbox"></aside></aside> <p>Here, we can see the name of the device when it's first seen, the owner, which is interesting, and then some more information about the various features that are being advertised.</p><p>To go back to the main window, press <strong>Q</strong>, and as other devices are discovered, or as they come in range, we can find them here and start to learn more about what these devices are doing, what they're communicating with, what else they are capable of, and more.</p> <figure><figure class="whtGallery pad-2" id="2891206docPartGal880051" role="group"><div class="gallery-layout" style="overflow: visible; height: 338px; width: auto;">   <div class="gallery-layout-container"><figure class="gal-row gal-row-f gal-wa" data-index="0" style="background: rgb(255, 255, 255); width: 594px;"><a href="https://img.wonderhowto.com/img/original/02/76/63715192417054/0/637151924170540276.jpg" rel="nofollow" target="_blank"><img src="./BT Recon_ How to Snoop on Bluetooth Devices Using Kali Linux « Null Byte __ WonderHowTo_files/bt-recon-snoop-bluetooth-devices-using-kali-linux.w1456(3).jpg" alt="" style="width: auto; max-width: 600px; height: 332px;"></a></figure></div>   <div class="white-out" style="display: none;">       <div style="display: none;"></div>   </div></div></figure></figure><aside class="whtaph-rightbox whtaph-728"><aside class="whtaph rightbox" data-unit-type="rightbox"></aside></aside> <p>If you don't have Bluetooth on your computer, you can always plug in a Bluetooth adapter, but you might want to check to make sure that it's compatible before you go ahead and go through the trouble. I'm not sure that every Bluetooth adapter is going to work with every Linux program.</p><aside class="whtaph-rightbox whtaph-728"><aside class="whtaph rightbox" data-unit-type="rightbox"></aside></aside><p>Above, you can see we found a second device, so let's go ahead and click on it.</p> <figure><figure class="whtGallery pad-2" id="62666713docPartGal880053" role="group"><div class="gallery-layout" style="overflow: visible; height: 501px; width: auto;">   <div class="gallery-layout-container"><figure class="gal-row gal-row-f gal-wa" data-index="0" style="background: rgb(255, 255, 255); width: 594px;"><a href="https://img.wonderhowto.com/img/original/43/69/63715192439241/0/637151924392414369.jpg" rel="nofollow" target="_blank"><img src="./BT Recon_ How to Snoop on Bluetooth Devices Using Kali Linux « Null Byte __ WonderHowTo_files/bt-recon-snoop-bluetooth-devices-using-kali-linux.w1456(4).jpg" alt="" style="width: auto; max-width: 600px; height: 495px; margin-left: 0px;"></a></figure></div>   <div class="white-out" style="display: none;">       <div style="display: none;"></div>   </div></div></figure></figure><aside class="whtaph-rightbox whtaph-728"><aside class="whtaph rightbox" data-unit-type="rightbox"></aside></aside> <p>We can see that this is a smartphone — a Samsung device — and it has a lot more capabilities and things we could do with it than our first device did. Already, we're able to reach out and start looking at different devices. We can begin to learn about them, maybe the software running behind them, and certainly see the services that they're advertising to understand whether or not it represents a good attack surface.</p><p>All of the above is done with a fully updated version of Kali Linux, and we didn't have to install anything. So if you're starting fresh with Kali Linux, it's a great way to use some of the built-in tools to reach out and touch Bluetooth devices around you and begin to learn more about what each one of these versatile and powerful tools is capable of.</p></section><aside class="whtaph-rightbox whtaph-728"><aside class="whtaph rightbox" data-unit-type="rightbox"></aside></aside>
+<section>
+<h2 class="sectionHeadline"><a id="jump-whatwevelearnedsofar" class="anchor"></a>What We've Learned So Far</h2><p>Today, we explored Bluetooth reconnaissance, and there are some more advanced things we can do with this information. Many Bluetooth devices don't bother to randomize their MAC address, meaning it'll be the same all the time. That can be used to track a person from place to place.</p><p>For instance, <a href="https://www.amazon.de/Tile-Mate-Replaceable-Battery-pack/dp/B07GM59D13/?tag=wnbde-21&amp;language=en_GB" data-hover-url="https://www.amazon.com/Tile-Mate-Replaceable-Battery-pack/dp/B07GM59D13/" data-swap-url="https://www.amazon.de/Tile-Mate-Replaceable-Battery-pack/dp/B07GM59D13/?tag=wnbde-21&amp;language=en_GB" rel="nofollow" target="_blank">Tile Bluetooth trackers</a>, where you can find a lost item by anybody who has the app running. That means that a person is trackable, and there is no way to turn it off. If you want to opt-out of that kind of tracking, make sure to disable Bluetooth on devices like a cell phone. But for devices that naturally have it turned on, like a Tile tracker, there's no option other than to leave it at home.</p><aside><blockquote class="center"><p><strong>Don't Miss: <a href="https://null-byte.wonderhowto.com/how-to/target-bluetooth-devices-with-bettercap-0194421/">How to Target Bluetooth Devices with Bettercap</a></strong></p></blockquote></aside> 
+
+
+
+</section><aside class="whtaph-rightbox whtaph-728"><aside class="whtaph rightbox" data-unit-type="rightbox"></aside></aside> 
+<section class="wht-cta cta-article-end" data-ctaid="304"><p><strong>Want to start making money as a white hat hacker?</strong> Jump start your White-Hat Hacking career with our <a rel="nofollow" target="_blank" href="https://shop.null-byte.com/sales/the-2020-premium-ethical-hacking-certification-bundle">2020 Premium Ethical Hacking Certification Training Bundle</a> from the new Null Byte Shop and get over 60 hours of training from Ethical Hacking Professionals.</p><aside class="whtaph-rightbox whtaph-728"><aside class="whtaph rightbox" data-unit-type="rightbox"></aside></aside><p><strong><a rel="nofollow" target="_blank" href="https://shop.null-byte.com/sales/the-2020-premium-ethical-hacking-certification-bundle">Buy Now (96% off) &gt;</a></strong></p> 
+</section> 
+<section><small class="image-credits">Cover image via Shutterstock (<a href="http://www.shutterstock.com/pic-285391550/" rel="nofollow" target="_blank">1</a>, <a href="http://www.shutterstock.com/pic-304657244/" rel="nofollow" target="_blank">2</a>)</small> 
+                </section><aside class="whtaph-rightbox whtaph-728"><aside class="whtaph rightbox" data-unit-type="rightbox"></aside></aside>
+                <footer class="clearfix mgb"></footer>
+            </article>
+            <!-- Article End -->
+
+
+
+
+            <div class="wht-cta cta-newsletter" data-ctaid="272" data-url="c71bf431b5">
+                    <h2 class="browse-title">Our Best Hacking &amp; Security Guides</h2>
+                                    <h3 class="browse-title">New Null Byte posts — delivered straight to your inbox.</h3>
+                <div class="clearfix">
+                    <form method="post" action="https://null-byte.wonderhowto.com/" autocomplete="off" novalidate="novalidate">
+                        <div class="inputs centered-article-content">
+                                <input type="hidden" name="newslettername" value="">
+                            <input type="email" name="newsletteremail" value="" autocomplete="off" placeholder="Your Email" class="sunken ">
+                        </div>
+                        <div class="button centered-article-content">
+                            <button type="submit" class="raised-btn align-center mtop-small"><i class="fa fa-envelope-o"></i> Subscribe Now</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+
+                <aside class="related-scroller">
+                    <h2 class="subsections-heading text-only"><span class="centered-article-content">Related</span></h2>
+                    
+    <div class="article-list article-list-mode1 hscrollable" data-margin-between-items="0" data-filter-sort="0" data-display-mode="1" data-prevpagekey="" data-activepagekey="QXJ0aWNsZUxpc3RLZXl8MHwxMzB8MHwxMTI0fHwxfDE2NTA0OXwwfDB8MXwwfA==" data-nextpagekey="" data-prevpagepath="" data-activepagepath="" data-nextpagepath="" data-title-base="Related" data-page-number="1" style="overflow: hidden; height: 230px;">
+                <ul style="width: 3920px; height: 230px; transition-timing-function: cubic-bezier(0.1, 0.57, 0.1, 1); transition-duration: 0ms; transform: translate(0px, 0px) translateZ(0px);">
+    <li class="article-item item snappable img-crop-zoom-rotate " data-article-id="160011" style="margin: 0px;">
+        <h3 class="article-headline">
+            <a draggable="false" href="https://android.gadgethacks.com/how-to/replace-androids-voice-dialer-with-google-now-for-better-bluetooth-dialing-0160011/" class="has-video ">
+
+                    <span class="img-crop">
+                        <img src="./BT Recon_ How to Snoop on Bluetooth Devices Using Kali Linux « Null Byte __ WonderHowTo_files/replace-androids-voice-dialer-with-google-now-for-better-bluetooth-dialing.300x140.jpg" alt="" width="300" height="140" draggable="false">                    </span>
+
+                <span class="text ">
+                        <span class="series">How To</span><span class="hide">:</span>
+                    Replace Android's Voice Dialer with Google Now for Better Bluetooth Dialing
+                </span>
+            </a>
+        </h3>
+    </li>
+    <li class="article-item item snappable img-crop-zoom-rotate " data-article-id="163977" style="margin: 0px;">
+        <h3 class="article-headline">
+            <a draggable="false" href="https://null-byte.wonderhowto.com/how-to/hack-bluetooth-part-1-terms-technologies-security-0163977/" class="no-video ">
+
+                    <span class="img-crop">
+                        <img src="./BT Recon_ How to Snoop on Bluetooth Devices Using Kali Linux « Null Byte __ WonderHowTo_files/hack-bluetooth-part-1-terms-technologies-security.300x140.jpg" alt="" width="300" height="140" draggable="false">                    </span>
+
+                <span class="text ">
+                        <span class="series">How to Hack Bluetooth, Part 1</span><span class="hide">:</span>
+                    Terms, Technologies, &amp; Security
+                </span>
+            </a>
+        </h3>
+    </li>
+    <li class="article-item item snappable img-crop-zoom-rotate " data-article-id="194421" style="margin: 0px;">
+        <h3 class="article-headline">
+            <a draggable="false" href="https://null-byte.wonderhowto.com/how-to/target-bluetooth-devices-with-bettercap-0194421/" class="has-video ">
+
+                    <span class="img-crop">
+                        <img src="./BT Recon_ How to Snoop on Bluetooth Devices Using Kali Linux « Null Byte __ WonderHowTo_files/target-bluetooth-devices-with-bettercap.300x140.jpg" alt="" width="300" height="140" draggable="false">                    </span>
+
+                <span class="text ">
+                        <span class="series">How To</span><span class="hide">:</span>
+                    Target Bluetooth Devices with Bettercap
+                </span>
+            </a>
+        </h3>
+    </li>
+    <li class="article-item item snappable img-crop-zoom-rotate " data-article-id="163586" style="margin: 0px;">
+        <h3 class="article-headline">
+            <a draggable="false" href="https://null-byte.wonderhowto.com/how-to/hacks-mr-robot-hack-bluetooth-0163586/" class="no-video ">
+
+                    <span class="img-crop">
+                        <img src="./BT Recon_ How to Snoop on Bluetooth Devices Using Kali Linux « Null Byte __ WonderHowTo_files/hacks-mr-robot-hack-bluetooth.300x140.jpg" alt="" width="300" height="140" draggable="false">                    </span>
+
+                <span class="text ">
+                        <span class="series">The Hacks of Mr. Robot</span><span class="hide">:</span>
+                    How to Hack Bluetooth
+                </span>
+            </a>
+        </h3>
+    </li>
+    <li class="article-item item snappable img-crop-zoom-rotate " data-article-id="197231" style="margin: 0px;">
+        <h3 class="article-headline">
+            <a draggable="false" href="https://next.reality.news/news/hands-on-epson-joins-move-android-smartphones-with-moverio-bt-30c-smart-glasses-0197231/" class="no-video ">
+
+                    <span class="img-crop">
+                        <img src="./BT Recon_ How to Snoop on Bluetooth Devices Using Kali Linux « Null Byte __ WonderHowTo_files/hands-epson-joins-move-android-smartphones-with-moverio-bt-30c-smart-glasses.300x140.jpg" alt="" width="300" height="140" draggable="false">                    </span>
+
+                <span class="text ">
+                        <span class="series">Hands-On</span><span class="hide">:</span>
+                    Epson Joins the Move to Android Smartphones with Moverio BT-30C Smart Glasses
+                </span>
+            </a>
+        </h3>
+    </li>
+    <li class="article-item item snappable img-crop-zoom-rotate " data-article-id="177827" style="margin: 0px;">
+        <h3 class="article-headline">
+            <a draggable="false" href="https://augmented.reality.news/news/epson-adds-two-new-moverio-augmented-reality-headsets-0177827/" class="has-video ">
+
+                    <span class="img-crop">
+                        <img src="./BT Recon_ How to Snoop on Bluetooth Devices Using Kali Linux « Null Byte __ WonderHowTo_files/epson-adds-two-new-moverio-augmented-reality-headsets.300x140.jpg" alt="" width="300" height="140" draggable="false">                    </span>
+
+                <span class="text ">
+                        <span class="series">News</span><span class="hide">:</span>
+                    Epson Adds Two New Moverio Augmented Reality Headsets
+                </span>
+            </a>
+        </h3>
+    </li>
+    <li class="article-item item snappable img-crop-zoom-rotate " data-article-id="147121" style="margin: 0px;">
+        <h3 class="article-headline">
+            <a draggable="false" href="https://null-byte.wonderhowto.com/how-to/hack-like-pro-linux-basics-for-aspiring-hacker-part-1-getting-started-0147121/" class="no-video ">
+
+                    <span class="img-crop">
+<img class="lazy-img" src="./BT Recon_ How to Snoop on Bluetooth Devices Using Kali Linux « Null Byte __ WonderHowTo_files/trans.gif" data-src="https://img.wonderhowto.com/img/17/14/63505510298501/0/hack-like-pro-linux-basics-for-aspiring-hacker-part-1-getting-started.300x140.jpg" alt="" width="300" height="140" draggable="false">                                            </span>
+
+                <span class="text ">
+                        <span class="series">Hack Like a Pro</span><span class="hide">:</span>
+                    Linux Basics for the Aspiring Hacker, Part 1 (Getting Started)
+                </span>
+            </a>
+        </h3>
+    </li>
+    <li class="article-item item snappable img-crop-zoom-rotate " data-article-id="158464" style="margin: 0px;">
+        <h3 class="article-headline">
+            <a draggable="false" href="https://null-byte.wonderhowto.com/how-to/hack-like-pro-use-maltego-do-network-reconnaissance-0158464/" class="no-video ">
+
+                    <span class="img-crop">
+<img class="lazy-img" src="./BT Recon_ How to Snoop on Bluetooth Devices Using Kali Linux « Null Byte __ WonderHowTo_files/trans.gif" data-src="https://img.wonderhowto.com/img/81/42/63551216077678/0/hack-like-pro-use-maltego-do-network-reconnaissance.300x140.jpg" alt="" width="300" height="140" draggable="false">                                            </span>
+
+                <span class="text ">
+                        <span class="series">Hack Like a Pro</span><span class="hide">:</span>
+                    How to Use Maltego to Do Network Reconnaissance
+                </span>
+            </a>
+        </h3>
+    </li>
+    <li class="article-item item snappable img-crop-zoom-rotate " data-article-id="184144" style="margin: 0px;">
+        <h3 class="article-headline">
+            <a draggable="false" href="https://null-byte.wonderhowto.com/how-to/build-beginner-hacking-kit-with-raspberry-pi-3-model-b-0184144/" class="has-video ">
+
+                    <span class="img-crop">
+<img class="lazy-img" src="./BT Recon_ How to Snoop on Bluetooth Devices Using Kali Linux « Null Byte __ WonderHowTo_files/trans.gif" data-src="https://img.wonderhowto.com/img/66/49/63659351790960/0/build-beginner-hacking-kit-with-raspberry-pi-3-model-b.300x140.jpg" alt="" width="300" height="140" draggable="false">                                            </span>
+
+                <span class="text ">
+                        <span class="series">How To</span><span class="hide">:</span>
+                    Build a Beginner Hacking Kit with the Raspberry Pi 3 Model B+
+                </span>
+            </a>
+        </h3>
+    </li>
+    <li class="article-item item snappable img-crop-zoom-rotate " data-article-id="147234" style="margin: 0px;">
+        <h3 class="article-headline">
+            <a draggable="false" href="https://null-byte.wonderhowto.com/how-to/hack-like-pro-linux-basics-for-aspiring-hacker-part-2-creating-directories-files-0147234/" class="no-video ">
+
+                    <span class="img-crop">
+<img class="lazy-img" src="./BT Recon_ How to Snoop on Bluetooth Devices Using Kali Linux « Null Byte __ WonderHowTo_files/trans.gif" data-src="https://img.wonderhowto.com/img/31/83/63505941000680/0/hack-like-pro-linux-basics-for-aspiring-hacker-part-2-creating-directories-files.300x140.jpg" alt="" width="300" height="140" draggable="false">                                            </span>
+
+                <span class="text ">
+                        <span class="series">Hack Like a Pro</span><span class="hide">:</span>
+                    Linux Basics for the Aspiring Hacker, Part 2 (Creating Directories &amp; Files)
+                </span>
+            </a>
+        </h3>
+    </li>
+    <li class="article-item item snappable img-crop-zoom-rotate " data-article-id="169854" style="margin: 0px;">
+        <h3 class="article-headline">
+            <a draggable="false" href="https://null-byte.wonderhowto.com/how-to/hack-like-pro-reconnaissance-with-recon-ng-part-1-getting-started-0169854/" class="no-video ">
+
+                    <span class="img-crop">
+<img class="lazy-img" src="./BT Recon_ How to Snoop on Bluetooth Devices Using Kali Linux « Null Byte __ WonderHowTo_files/trans.gif" data-src="https://img.wonderhowto.com/img/27/76/63594788005433/0/hack-like-pro-reconnaissance-with-recon-ng-part-1-getting-started.300x140.jpg" alt="" width="300" height="140" draggable="false">                                            </span>
+
+                <span class="text ">
+                        <span class="series">Hack Like a Pro</span><span class="hide">:</span>
+                    Reconnaissance with Recon-Ng, Part 1 (Getting Started)
+                </span>
+            </a>
+        </h3>
+    </li>
+    <li class="article-item item snappable img-crop-zoom-rotate " data-article-id="167373" style="margin: 0px;">
+        <h3 class="article-headline">
+            <a draggable="false" href="https://null-byte.wonderhowto.com/how-to/build-and-install-kali-nethunter-the-new-version-supported-android-device-running-android-6-0-1-0167373/" class="no-video ">
+
+                    <span class="img-crop">
+<img class="lazy-img" src="./BT Recon_ How to Snoop on Bluetooth Devices Using Kali Linux « Null Byte __ WonderHowTo_files/trans.gif" data-src="https://img.wonderhowto.com/img/66/34/63586911528336/0/build-and-install-kali-nethunter-new-version-supported-android-device-running-android-6-0-1.300x140.jpg" alt="" width="300" height="140" draggable="false">                                            </span>
+
+                <span class="text ">
+                        <span class="series">How To</span><span class="hide">:</span>
+                    Build and Install Kali Nethunter (The New Version) On a Supported Android Device Running Android 6.0.1
+                </span>
+            </a>
+        </h3>
+    </li>
+    <li class="article-item item snappable img-crop-zoom-rotate " data-article-id="194422" style="margin: 0px;">
+        <h3 class="article-headline">
+            <a draggable="false" href="https://null-byte.wonderhowto.com/how-to/hack-wi-fi-networks-with-bettercap-0194422/" class="has-video ">
+
+                    <span class="img-crop">
+<img class="lazy-img" src="./BT Recon_ How to Snoop on Bluetooth Devices Using Kali Linux « Null Byte __ WonderHowTo_files/trans.gif" data-src="https://img.wonderhowto.com/img/62/81/63688485798729/0/hack-wi-fi-networks-with-bettercap.300x140.jpg" alt="" width="300" height="140" draggable="false">                                            </span>
+
+                <span class="text ">
+                        <span class="series">How To</span><span class="hide">:</span>
+                    Hack Wi-Fi Networks with Bettercap
+                </span>
+            </a>
+        </h3>
+    </li>
+    <li class="article-item item snappable img-crop-zoom-rotate " data-article-id="-424245" style="margin: 0px;">
+        <h3 class="article-headline">
+            <a draggable="false" href="https://internet.gadgethacks.com/how-to/hack-bluetooth-device-using-linux-backtrack-424245/" class="has-video ">
+
+                    <span class="img-crop">
+<img class="lazy-img" src="./BT Recon_ How to Snoop on Bluetooth Devices Using Kali Linux « Null Byte __ WonderHowTo_files/trans.gif" data-src="https://img.wonderhowto.com/img/45/43/63475352234580/0/hack-bluetooth-device-using-linux-backtrack.300x140.jpg" alt="" width="300" height="140" draggable="false">                                            </span>
+
+                <span class="text ">
+                        <span class="series">How To</span><span class="hide">:</span>
+                    Hack a Bluetooth device using Linux BackTrack
+                </span>
+            </a>
+        </h3>
+    </li>
+                                    </ul>
+    <div class="scroller-arrow arrow-left hide" style="display: none;"><div class="fade"></div><em class="fa fa-chevron-left" style="line-height: 230px;"></em></div><div class="scroller-arrow arrow-right hide" style="display: block;"><div class="fade"></div><em class="fa fa-chevron-right" style="line-height: 230px;"></em></div></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                </aside>
+        </div>
+    </div>
+
+        <div class="comments-box article-id-165049" data-article-id="165049">
+            <div class="responses-wrapper clearfix">
+
+                    <div class="centered-article-content">
+                        
+                        
+                    </div>
+
+                <h2 class="subsections-heading response-count" data-response-count="2"><span class="centered-article-content">2 Comments</span></h2>
+
+                <div class="responses">
+
+
+<article class="response cascadelevel-1 clearfix" id="comment-192945" data-id="192945" data-article-id="165049" data-user-id="1304785" data-user-name="jazielsaucedo" data-created="2020-02-27T01:56:23Z" data-updated="" data-level="1" data-score="1" data-vote="" data-parent="0">
+
+    <aside class="author-hero">
+        <div class="centered-article-content clearfix">
+            <div class="fr vote-container">
+                <button class="raised-btn mfr short hidden-toggle" data-action="unhide"></button>
+                <button class="raised-btn fr merge-left short fa fa-chevron-down " data-action="downvote"></button>
+                <button class="raised-btn fr merge-right short fa fa-chevron-up " data-action="upvote"></button>
+                <span class="comment-score comment-score-192945">1</span>
+            </div>
+            <a href="https://creator.wonderhowto.com/jazielsaucedo/" rel="nofollow" class="image"><img src="./BT Recon_ How to Snoop on Bluetooth Devices Using Kali Linux « Null Byte __ WonderHowTo_files/jazielsaucedo.135x180.jpg" width="23" height="30" alt="Jaziel Saucedo"></a>
+            <span class="text">
+                <a href="https://creator.wonderhowto.com/jazielsaucedo/" rel="nofollow" itemprop="author" class="name">Jaziel Saucedo</a>
+                <small>
+                    <time datetime="2020-02-27T01:56:23" pubdate="pubdate">
+                        last month
+                    </time>
+                </small>
+                <meta itemprop="dateCreated" content="2020-02-27T01:56:23">
+                <meta itemprop="datePublished" content="2020-02-27T01:56:23">
+                <meta itemprop="dateModified" content="0001-01-01T00:00:00">
+            </span>
+        </div>
+    </aside>
+
+    <div class="response-content article-container centered-article-content">
+        <section>
+<p>When I use the command hciconfig nothing happens. I already turned on my bluetooth using different approches I find on the internet and nothing seems to work.</p>         </section>
+    </div>
+
+    <aside class="comment-actions centered-article-content clearfix">
+        <button class="link-btn mfr short subtle" data-action="reply"><i class="fa fa-reply"></i> Reply</button>
+            </aside>
+</article>
+
+
+
+<article class="response cascadelevel-1 clearfix" id="comment-193169" data-id="193169" data-article-id="165049" data-user-id="1308103" data-user-name="penggao" data-created="2020-03-17T10:58:34Z" data-updated="" data-level="1" data-score="1" data-vote="" data-parent="0">
+
+    <aside class="author-hero">
+        <div class="centered-article-content clearfix">
+            <div class="fr vote-container">
+                <button class="raised-btn mfr short hidden-toggle" data-action="unhide"></button>
+                <button class="raised-btn fr merge-left short fa fa-chevron-down " data-action="downvote"></button>
+                <button class="raised-btn fr merge-right short fa fa-chevron-up " data-action="upvote"></button>
+                <span class="comment-score comment-score-193169">1</span>
+            </div>
+            <a href="https://creator.wonderhowto.com/penggao/" rel="nofollow" class="image"><img src="./BT Recon_ How to Snoop on Bluetooth Devices Using Kali Linux « Null Byte __ WonderHowTo_files/penggao.135x180.jpg" width="23" height="30" alt="peng gao"></a>
+            <span class="text">
+                <a href="https://creator.wonderhowto.com/penggao/" rel="nofollow" itemprop="author" class="name">peng gao</a>
+                <small>
+                    <time datetime="2020-03-17T10:58:34" pubdate="pubdate">
+                        last month
+                    </time>
+                </small>
+                <meta itemprop="dateCreated" content="2020-03-17T10:58:34">
+                <meta itemprop="datePublished" content="2020-03-17T10:58:34">
+                <meta itemprop="dateModified" content="0001-01-01T00:00:00">
+            </span>
+        </div>
+    </aside>
+
+    <div class="response-content article-container centered-article-content">
+        <section>
+<p>Hello, I have a lot of Bluetooth enabled devices. For example, Iphone, iPad and Windows computer with Bluetooth adapter plugged in. Why can't I scan any device with hcitool scan.</p><aside class="whtaph-rightbox whtaph-728"><aside class="whtaph rightbox" data-unit-type="rightbox"></aside></aside><p>Is my Bluetooth adapter not strong enough? I use the CSR8510 A10 Bluetooth adapter</p>         </section>
+    </div>
+
+    <aside class="comment-actions centered-article-content clearfix">
+        <button class="link-btn mfr short subtle" data-action="reply"><i class="fa fa-reply"></i> Reply</button>
+            </aside>
+</article>
+
+                <div class="hide reply-root clearfix" style="display: none;"><div class="centered-article-content"><button type="button" class="raised-btn mfl" data-action="reply-root"><i class="fa fa-reply"></i> Start a New Comment</button></div></div></div><div class="user-comment-editor">
+                    <h2 class="subsections-heading  comment-editor-header"><span class="centered-article-content">Share Your Thoughts</span></h2>
+
+                    
+                    
+
+
+    <div class="share-widget clearfix notOnInit" data-world-topic-id="0">
+        <div class="share-widget-input clearfix">
+            <div class="article-box">
+
+                    <aside class="author-hero">
+                        <div class="centered-article-content clearfix">
+                                <span rel="nofollow" class="image"><img src="./BT Recon_ How to Snoop on Bluetooth Devices Using Kali Linux « Null Byte __ WonderHowTo_files/user-default.135x180.jpg" width="23" height="30"></span>
+                                <span class="text">
+                                    <a href="javascript://" rel="nofollow" class="name">You</a>
+                                    <small>Login to Comment</small>
+                                </span>
+                        </div>
+                    </aside>
+
+                <div class="centered-article-content clearfix">
+                    <div class="share-pre-init clearfix">
+                            <div class="wteParagraph textholder pos-rel">
+                                <span class="txt-clr-lighter">
+                                    Click to share your thoughts
+                                </span>
+                            </div>
+                            <textarea placeholder="Click to leave a response" class="comment-input hide"></textarea>
+                    </div>
+                    <div class="sharePrompt">
+                        <form class="share-form" novalidate="novalidate">
+                            <div class="editorBlocks"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="action-buttons clearfix centered-article-content"></div>
+        </div>
+
+        <div class="share-widget-tips" style="display: none;">
+
+        </div>
+    </div>
+
+                </div>
+
+            </div>
+
+            
+                
+        </div><aside class="whtaph-rightbox whtaph-728"><aside class="whtaph rightbox" data-unit-type="rightbox"></aside></aside>
+</div>
+
+
+
+
+    </div>
+
+        <div class="left-col" style="transform: translate3d(0px, 80px, 0px);">
+            
+<aside class="top-ad-anchor whtaph" data-unit-type="bigbox">
+    
+<div class="" id="purch_Y_R_1_1" data-google-query-id="CIyHtfzO-OgCFRdsGwod9ZcIwg" style="min-height: 250px; background-color: rgb(255, 255, 255);"><div id="google_ads_iframe_/10518929/tmnp.wonderhowto/a1-p1-s2_0__container__" style="border: 0pt none; display: inline-block; width: 300px; height: 250px;"><iframe frameborder="0" src="./BT Recon_ How to Snoop on Bluetooth Devices Using Kali Linux « Null Byte __ WonderHowTo_files/container(4).html" id="google_ads_iframe_/10518929/tmnp.wonderhowto/a1-p1-s2_0" title="3rd party ad content" name="" scrolling="no" marginwidth="0" marginheight="0" width="300" height="250" data-is-safeframe="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" data-google-container-id="2" style="border: 0px; vertical-align: bottom;" data-load-complete="true"></iframe></div></div></aside>
+
+<div class="content-nav">
+    
+
+    
+
+    <div class="lockable-anchor" style="height: 4844px;">
+        <div class="lockable-region" data-lockable-top-offset="0" data-lock-edge="bottom" style="width: 300px;">
+            
+
+            <div class="list-toggler subtabs">
+                <ul>
+                    <li><span class="right" data-filter-sort="12"><i class="fa fa-certificate"></i> Hot</span></li>
+                    <li><span class="left active" data-filter-sort="18"><i class="fa fa-clock-o"></i> Latest</span></li>
+                    
+                </ul>
+            </div>
+
+            <div class="lockable-fill-vertical-no"><div>
+                
+
+
+
+                
+
+                
+    <div class="article-list article-list-mode1" data-filter-sort="18" data-display-mode="1" data-prevpagekey="" data-activepagekey="QXJ0aWNsZUxpc3RLZXl8MTh8MTMwfDB8MTEyNHx8MXwxNjUwNDl8MHwxfDF8MXw=" data-nextpagekey="QXJ0aWNsZUxpc3RLZXl8MTh8MTMwfDB8MTEyNHx8MnwxNjUwNDl8MHwxfDF8MXw=" data-prevpagepath="" data-activepagepath="https://null-byte.wonderhowto.com/newest/" data-nextpagepath="https://null-byte.wonderhowto.com/newest/2/" data-title-base="New Null Byte Posts" data-page-number="1">
+                <ul>
+    <li class="article-item item snappable img-crop-zoom-rotate " data-article-id="215787">
+        <h3 class="article-headline">
+            <a draggable="false" href="https://null-byte.wonderhowto.com/how-to/use-graffiti-generate-obfuscated-payloads-0215787/" class="no-video ">
+
+                    <span class="img-crop">
+                        <img src="./BT Recon_ How to Snoop on Bluetooth Devices Using Kali Linux « Null Byte __ WonderHowTo_files/use-graffiti-generate-obfuscated-payloads.300x140.jpg" alt="" width="300" height="140" draggable="false">                    </span>
+
+                <span class="text ">
+                        <span class="series">How To</span><span class="hide">:</span>
+                    Use Graffiti to Generate Obfuscated Payloads
+                </span>
+            </a>
+        </h3>
+    </li>
+    <li class="article-item item snappable img-crop-zoom-rotate " data-article-id="203515">
+        <h3 class="article-headline">
+            <a draggable="false" href="https://null-byte.wonderhowto.com/how-to/hack-5-ghz-wi-fi-networks-with-alfa-wi-fi-adapter-0203515/" class="has-video ">
+
+                    <span class="img-crop">
+                        <img src="./BT Recon_ How to Snoop on Bluetooth Devices Using Kali Linux « Null Byte __ WonderHowTo_files/hack-5-ghz-wi-fi-networks-with-alfa-wi-fi-adapter.300x140.jpg" alt="" width="300" height="140" draggable="false">                    </span>
+
+                <span class="text ">
+                        <span class="series">How To</span><span class="hide">:</span>
+                    Hack 5 GHz Wi-Fi Networks with an Alfa Wi-Fi Adapter
+                </span>
+            </a>
+        </h3>
+    </li><li><aside class="whtaph leftbox" data-unit-type="leftbox"><div class="" id="purch_Y_R_0_1" data-google-query-id="CICOt_zO-OgCFRdsGwod9ZcIwg" style="min-height: 250px;"><div id="google_ads_iframe_/10518929/tmnp.wonderhowto/a0-p1-s2_0__container__" style="border: 0pt none;"><iframe id="google_ads_iframe_/10518929/tmnp.wonderhowto/a0-p1-s2_0" title="3rd party ad content" name="google_ads_iframe_/10518929/tmnp.wonderhowto/a0-p1-s2_0" width="300" height="600" scrolling="no" marginwidth="0" marginheight="0" frameborder="0" style="border: 0px; vertical-align: bottom;" data-google-container-id="3" data-load-complete="true" src="./BT Recon_ How to Snoop on Bluetooth Devices Using Kali Linux « Null Byte __ WonderHowTo_files/saved_resource(24).html"></iframe></div></div></aside></li>
+    <li class="article-item item snappable img-crop-zoom-rotate " data-article-id="212025">
+        <h3 class="article-headline">
+            <a draggable="false" href="https://null-byte.wonderhowto.com/how-to/discover-hidden-http-parameters-with-arjun-0212025/" class="no-video ">
+
+                    <span class="img-crop">
+                        <img src="./BT Recon_ How to Snoop on Bluetooth Devices Using Kali Linux « Null Byte __ WonderHowTo_files/discover-hidden-http-parameters-with-arjun.300x140.jpg" alt="" width="300" height="140" draggable="false">                    </span>
+
+                <span class="text ">
+                        <span class="series">How To</span><span class="hide">:</span>
+                    Discover Hidden HTTP Parameters with Arjun
+                </span>
+            </a>
+        </h3>
+    </li>
+    <li class="article-item item snappable img-crop-zoom-rotate " data-article-id="286765">
+        <h3 class="article-headline">
+            <a draggable="false" href="https://null-byte.wonderhowto.com/how-to/8-web-courses-supplement-your-hacking-knowledge-0286765/" class="no-video ">
+
+                    <span class="img-crop">
+                        <img src="./BT Recon_ How to Snoop on Bluetooth Devices Using Kali Linux « Null Byte __ WonderHowTo_files/8-web-courses-supplement-your-hacking-knowledge.300x140.jpg" alt="" width="300" height="140" draggable="false">                    </span>
+
+                <span class="text ">
+                        <span class="series">How To</span><span class="hide">:</span>
+                    8 Web Courses to Supplement Your Hacking Knowledge
+                </span>
+            </a>
+        </h3>
+    </li>
+    <li class="article-item item snappable img-crop-zoom-rotate " data-article-id="202701">
+        <h3 class="article-headline">
+            <a draggable="false" href="https://null-byte.wonderhowto.com/how-to/map-wardriving-data-with-jupyter-notebook-0202701/" class="has-video ">
+
+                    <span class="img-crop">
+                        <img src="./BT Recon_ How to Snoop on Bluetooth Devices Using Kali Linux « Null Byte __ WonderHowTo_files/map-wardriving-data-with-jupyter-notebook.300x140.jpg" alt="" width="300" height="140" draggable="false">                    </span>
+
+                <span class="text ">
+                        <span class="series">How To</span><span class="hide">:</span>
+                    Map Wardriving Data with Jupyter Notebook
+                </span>
+            </a>
+        </h3>
+    </li>
+    <li class="article-item item snappable img-crop-zoom-rotate " data-article-id="286761">
+        <h3 class="article-headline">
+            <a draggable="false" href="https://null-byte.wonderhowto.com/news/learn-essential-skills-start-career-with-affordable-online-training-0286761/" class="no-video ">
+
+                    <span class="img-crop">
+                        <img src="./BT Recon_ How to Snoop on Bluetooth Devices Using Kali Linux « Null Byte __ WonderHowTo_files/learn-essential-skills-start-career-with-affordable-online-training.300x140.jpg" alt="" width="300" height="140" draggable="false">                    </span>
+
+                <span class="text ">
+                        <span class="series">News</span><span class="hide">:</span>
+                    Learn the Essential Skills to Start a Career in IT with This Affordable Online Training
+                </span>
+            </a>
+        </h3>
+    </li>
+    <li class="article-item item snappable img-crop-zoom-rotate " data-article-id="202742">
+        <h3 class="article-headline">
+            <a draggable="false" href="https://null-byte.wonderhowto.com/how-to/pick-antenna-for-wi-fi-hacking-0202742/" class="has-video ">
+
+                    <span class="img-crop">
+<img class="lazy-img" src="./BT Recon_ How to Snoop on Bluetooth Devices Using Kali Linux « Null Byte __ WonderHowTo_files/trans.gif" data-src="https://img.wonderhowto.com/img/70/64/63700562321404/0/pick-antenna-for-wi-fi-hacking.300x140.jpg" alt="" width="300" height="140" draggable="false">                                            </span>
+
+                <span class="text ">
+                        <span class="series">How To</span><span class="hide">:</span>
+                    Pick an Antenna for Wi-Fi Hacking
+                </span>
+            </a>
+        </h3>
+    </li>
+    <li class="article-item item snappable img-crop-zoom-rotate " data-article-id="198775">
+        <h3 class="article-headline">
+            <a draggable="false" href="https://null-byte.wonderhowto.com/how-to/hacking-windows-10-identify-antivirus-software-installed-windows-pc-0198775/" class="no-video ">
+
+                    <span class="img-crop">
+<img class="lazy-img" src="./BT Recon_ How to Snoop on Bluetooth Devices Using Kali Linux « Null Byte __ WonderHowTo_files/trans.gif" data-src="https://img.wonderhowto.com/img/32/63/63721958492416/0/hacking-windows-10-identify-antivirus-software-installed-windows-pc.300x140.jpg" alt="" width="300" height="140" draggable="false">                                            </span>
+
+                <span class="text ">
+                        <span class="series">Hacking Windows 10</span><span class="hide">:</span>
+                    How to Identify Antivirus Software Installed on a Windows PC
+                </span>
+            </a>
+        </h3>
+    </li>
+    <li class="article-item item snappable img-crop-zoom-rotate " data-article-id="200449">
+        <h3 class="article-headline">
+            <a draggable="false" href="https://null-byte.wonderhowto.com/how-to/hack-with-arduino-defeat-vpns-track-macos-computer-remotely-0200449/" class="has-video ">
+
+                    <span class="img-crop">
+<img class="lazy-img" src="./BT Recon_ How to Snoop on Bluetooth Devices Using Kali Linux « Null Byte __ WonderHowTo_files/trans.gif" data-src="https://img.wonderhowto.com/img/77/67/63721787025028/0/hack-with-arduino-defeat-vpns-track-macos-computer-remotely.300x140.jpg" alt="" width="300" height="140" draggable="false">                                            </span>
+
+                <span class="text ">
+                        <span class="series">How to Hack with Arduino</span><span class="hide">:</span>
+                    Defeat VPNs &amp; Track a MacOS Computer Remotely
+                </span>
+            </a>
+        </h3>
+    </li>
+    <li class="article-item item snappable img-crop-zoom-rotate " data-article-id="212024">
+        <h3 class="article-headline">
+            <a draggable="false" href="https://null-byte.wonderhowto.com/how-to/abuse-vulnerable-sudo-versions-get-root-0212024/" class="no-video ">
+
+                    <span class="img-crop">
+<img class="lazy-img" src="./BT Recon_ How to Snoop on Bluetooth Devices Using Kali Linux « Null Byte __ WonderHowTo_files/trans.gif" data-src="https://img.wonderhowto.com/img/12/39/63708809398873/0/abuse-vulnerable-sudo-versions-get-root.300x140.jpg" alt="" width="300" height="140" draggable="false">                                            </span>
+
+                <span class="text ">
+                        <span class="series">How To</span><span class="hide">:</span>
+                    Abuse Vulnerable Sudo Versions to Get Root
+                </span>
+            </a>
+        </h3>
+    </li>
+    <li class="article-item item snappable img-crop-zoom-rotate " data-article-id="200448">
+        <h3 class="article-headline">
+            <a draggable="false" href="https://null-byte.wonderhowto.com/how-to/hack-with-arduino-tracking-which-networks-mac-has-connected-when-0200448/" class="has-video ">
+
+                    <span class="img-crop">
+<img class="lazy-img" src="./BT Recon_ How to Snoop on Bluetooth Devices Using Kali Linux « Null Byte __ WonderHowTo_files/trans.gif" data-src="https://img.wonderhowto.com/img/50/57/63698156421213/0/hack-with-arduino-tracking-which-networks-mac-has-connected-when.300x140.jpg" alt="" width="300" height="140" draggable="false">                                            </span>
+
+                <span class="text ">
+                        <span class="series">How to Hack with Arduino</span><span class="hide">:</span>
+                    Tracking Which Networks a Mac Has Connected To &amp; When
+                </span>
+            </a>
+        </h3>
+    </li>
+    <li class="article-item item snappable img-crop-zoom-rotate " data-article-id="198465">
+        <h3 class="article-headline">
+            <a draggable="false" href="https://null-byte.wonderhowto.com/how-to/hacking-windows-10-use-ssh-tunnels-forward-requests-hack-remote-routers-0198465/" class="no-video ">
+
+                    <span class="img-crop">
+<img class="lazy-img" src="./BT Recon_ How to Snoop on Bluetooth Devices Using Kali Linux « Null Byte __ WonderHowTo_files/trans.gif" data-src="https://img.wonderhowto.com/img/17/51/63695631654218/0/hacking-windows-10-use-ssh-tunnels-forward-requests-hack-remote-routers.300x140.jpg" alt="" width="300" height="140" draggable="false">                                            </span>
+
+                <span class="text ">
+                        <span class="series">Hacking Windows 10</span><span class="hide">:</span>
+                    How to Use SSH Tunnels to Forward Requests &amp; Hack Remote Routers
+                </span>
+            </a>
+        </h3>
+    </li><li><aside class="whtaph leftbox" data-unit-type="leftbox"></aside></li>
+    <li class="article-item item snappable img-crop-zoom-rotate " data-article-id="202743">
+        <h3 class="article-headline">
+            <a draggable="false" href="https://null-byte.wonderhowto.com/how-to/spy-ssh-sessions-with-sshpry2-0-0202743/" class="has-video ">
+
+                    <span class="img-crop">
+<img class="lazy-img" src="./BT Recon_ How to Snoop on Bluetooth Devices Using Kali Linux « Null Byte __ WonderHowTo_files/trans.gif" data-src="https://img.wonderhowto.com/img/15/92/63700580650764/0/spy-ssh-sessions-with-sshpry2-0.300x140.jpg" alt="" width="300" height="140" draggable="false">                                            </span>
+
+                <span class="text ">
+                        <span class="series">How To</span><span class="hide">:</span>
+                    Spy on SSH Sessions with SSHPry2.0
+                </span>
+            </a>
+        </h3>
+    </li>
+    <li class="article-item item snappable img-crop-zoom-rotate " data-article-id="196708">
+        <h3 class="article-headline">
+            <a draggable="false" href="https://null-byte.wonderhowto.com/how-to/hacking-macos-turn-forums-into-c-c-servers-control-macbooks-0196708/" class="no-video ">
+
+                    <span class="img-crop">
+<img class="lazy-img" src="./BT Recon_ How to Snoop on Bluetooth Devices Using Kali Linux « Null Byte __ WonderHowTo_files/trans.gif" data-src="https://img.wonderhowto.com/img/76/86/63692362446593/0/hacking-macos-turn-forums-into-c-c-servers-control-macbooks.300x140.jpg" alt="" width="300" height="140" draggable="false">                                            </span>
+
+                <span class="text ">
+                        <span class="series">Hacking macOS</span><span class="hide">:</span>
+                    How to Turn Forums into C&amp;C Servers to Control MacBooks
+                </span>
+            </a>
+        </h3>
+    </li>
+    <li class="article-item item snappable img-crop-zoom-rotate " data-article-id="208763">
+        <h3 class="article-headline">
+            <a draggable="false" href="https://null-byte.wonderhowto.com/how-to/brute-force-ftp-credentials-get-server-access-0208763/" class="no-video ">
+
+                    <span class="img-crop">
+<img class="lazy-img" src="./BT Recon_ How to Snoop on Bluetooth Devices Using Kali Linux « Null Byte __ WonderHowTo_files/trans.gif" data-src="https://img.wonderhowto.com/img/44/63/63706390568077/0/brute-force-ftp-credentials-get-server-access.300x140.jpg" alt="" width="300" height="140" draggable="false">                                            </span>
+
+                <span class="text ">
+                        <span class="series">How To</span><span class="hide">:</span>
+                    Brute-Force FTP Credentials &amp; Get Server Access
+                </span>
+            </a>
+        </h3>
+    </li>
+    <li class="article-item item snappable img-crop-zoom-rotate " data-article-id="208764">
+        <h3 class="article-headline">
+            <a draggable="false" href="https://null-byte.wonderhowto.com/how-to/use-goscan-quickly-enumerate-networks-services-0208764/" class="no-video ">
+
+                    <span class="img-crop">
+<img class="lazy-img" src="./BT Recon_ How to Snoop on Bluetooth Devices Using Kali Linux « Null Byte __ WonderHowTo_files/trans.gif" data-src="https://img.wonderhowto.com/img/93/31/63706390519639/0/use-goscan-quickly-enumerate-networks-services.300x140.jpg" alt="" width="300" height="140" draggable="false">                                            </span>
+
+                <span class="text ">
+                        <span class="series">How To</span><span class="hide">:</span>
+                    Use GoScan to Quickly Enumerate Networks &amp; Services
+                </span>
+            </a>
+        </h3>
+    </li>
+    <li class="article-item item snappable img-crop-zoom-rotate " data-article-id="206006">
+        <h3 class="article-headline">
+            <a draggable="false" href="https://null-byte.wonderhowto.com/how-to/use-wordlister-create-custom-password-combinations-for-cracking-0206006/" class="no-video ">
+
+                    <span class="img-crop">
+<img class="lazy-img" src="./BT Recon_ How to Snoop on Bluetooth Devices Using Kali Linux « Null Byte __ WonderHowTo_files/trans.gif" data-src="https://img.wonderhowto.com/img/21/03/63703972076774/0/use-wordlister-create-custom-password-combinations-for-cracking.300x140.jpg" alt="" width="300" height="140" draggable="false">                                            </span>
+
+                <span class="text ">
+                        <span class="series">How To</span><span class="hide">:</span>
+                    Use Wordlister to Create Custom Password Combinations for Cracking
+                </span>
+            </a>
+        </h3>
+    </li>
+    <li class="article-item item snappable img-crop-zoom-rotate " data-article-id="206005">
+        <h3 class="article-headline">
+            <a draggable="false" href="https://null-byte.wonderhowto.com/how-to/find-exploits-get-root-with-linux-exploit-suggester-0206005/" class="no-video ">
+
+                    <span class="img-crop">
+<img class="lazy-img" src="./BT Recon_ How to Snoop on Bluetooth Devices Using Kali Linux « Null Byte __ WonderHowTo_files/trans.gif" data-src="https://img.wonderhowto.com/img/95/45/63703972116242/0/find-exploits-get-root-with-linux-exploit-suggester.300x140.jpg" alt="" width="300" height="140" draggable="false">                                            </span>
+
+                <span class="text ">
+                        <span class="series">How To</span><span class="hide">:</span>
+                    Find Exploits &amp; Get Root with Linux Exploit Suggester
+                </span>
+            </a>
+        </h3>
+    </li>
+    <li class="article-item item snappable img-crop-zoom-rotate " data-article-id="203668">
+        <h3 class="article-headline">
+            <a draggable="false" href="https://null-byte.wonderhowto.com/how-to/catch-usb-rubber-duckies-your-computer-with-usbrip-0203668/" class="has-video ">
+
+                    <span class="img-crop">
+<img class="lazy-img" src="./BT Recon_ How to Snoop on Bluetooth Devices Using Kali Linux « Null Byte __ WonderHowTo_files/trans.gif" data-src="https://img.wonderhowto.com/img/60/15/63717289217307/0/catch-usb-rubber-duckies-your-computer-with-usbrip.300x140.jpg" alt="" width="300" height="140" draggable="false">                                            </span>
+
+                <span class="text ">
+                        <span class="series">How To</span><span class="hide">:</span>
+                    Catch USB Rubber Duckies on Your Computer with USBRip
+                </span>
+            </a>
+        </h3>
+    </li>
+    <li class="article-item item snappable img-crop-zoom-rotate " data-article-id="204718">
+        <h3 class="article-headline">
+            <a draggable="false" href="https://null-byte.wonderhowto.com/how-to/exploit-webdav-server-get-shell-0204718/" class="no-video ">
+
+                    <span class="img-crop">
+<img class="lazy-img" src="./BT Recon_ How to Snoop on Bluetooth Devices Using Kali Linux « Null Byte __ WonderHowTo_files/trans.gif" data-src="https://img.wonderhowto.com/img/62/29/63702753147365/0/exploit-webdav-server-get-shell.300x140.jpg" alt="" width="300" height="140" draggable="false">                                            </span>
+
+                <span class="text ">
+                        <span class="series">How To</span><span class="hide">:</span>
+                    Exploit WebDAV on a Server &amp; Get a Shell
+                </span>
+            </a>
+        </h3>
+    </li>
+                                            <li class="pad-small"><div class="paging next-only auto-load-on-scroll"> <a class="btn-next align-right raised-btn" href="https://null-byte.wonderhowto.com/newest/2/">More New Null Byte Posts <span class="fa fa-chevron-right"></span></a> </div></li>
+                </ul>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                
+    <div class="article-list article-list-mode1" data-filter-sort="12" data-display-mode="1" data-prevpagekey="" data-activepagekey="QXJ0aWNsZUxpc3RLZXl8MTJ8MTMwfDB8MTEyNHx8MXwxNjUwNDl8MHwxfDF8MHw=" data-nextpagekey="QXJ0aWNsZUxpc3RLZXl8MTJ8MTMwfDB8MTEyNHx8MnwxNjUwNDl8MHwxfDF8MHw=" data-prevpagepath="" data-activepagepath="https://null-byte.wonderhowto.com/hot/" data-nextpagepath="https://null-byte.wonderhowto.com/hot/2/" data-title-base="Hot Null Byte Posts" data-page-number="1" style="display: none;">
+                <ul>
+    <li class="article-item item snappable img-crop-zoom-rotate " data-article-id="203515">
+        <h3 class="article-headline">
+            <a draggable="false" href="https://null-byte.wonderhowto.com/how-to/hack-5-ghz-wi-fi-networks-with-alfa-wi-fi-adapter-0203515/" class="has-video ">
+
+                    <span class="img-crop">
+                        <img src="./BT Recon_ How to Snoop on Bluetooth Devices Using Kali Linux « Null Byte __ WonderHowTo_files/hack-5-ghz-wi-fi-networks-with-alfa-wi-fi-adapter.300x140.jpg" alt="" width="300" height="140" draggable="false">                    </span>
+
+                <span class="text ">
+                        <span class="series">How To</span><span class="hide">:</span>
+                    Hack 5 GHz Wi-Fi Networks with an Alfa Wi-Fi Adapter
+                </span>
+            </a>
+        </h3>
+    </li>
+    <li class="article-item item snappable img-crop-zoom-rotate " data-article-id="215787">
+        <h3 class="article-headline">
+            <a draggable="false" href="https://null-byte.wonderhowto.com/how-to/use-graffiti-generate-obfuscated-payloads-0215787/" class="no-video ">
+
+                    <span class="img-crop">
+                        <img src="./BT Recon_ How to Snoop on Bluetooth Devices Using Kali Linux « Null Byte __ WonderHowTo_files/use-graffiti-generate-obfuscated-payloads.300x140.jpg" alt="" width="300" height="140" draggable="false">                    </span>
+
+                <span class="text ">
+                        <span class="series">How To</span><span class="hide">:</span>
+                    Use Graffiti to Generate Obfuscated Payloads
+                </span>
+            </a>
+        </h3>
+    </li><li><aside class="whtaph leftbox" data-unit-type="leftbox"></aside></li>
+    <li class="article-item item snappable img-crop-zoom-rotate " data-article-id="286765">
+        <h3 class="article-headline">
+            <a draggable="false" href="https://null-byte.wonderhowto.com/how-to/8-web-courses-supplement-your-hacking-knowledge-0286765/" class="no-video ">
+
+                    <span class="img-crop">
+                        <img src="./BT Recon_ How to Snoop on Bluetooth Devices Using Kali Linux « Null Byte __ WonderHowTo_files/8-web-courses-supplement-your-hacking-knowledge.300x140.jpg" alt="" width="300" height="140" draggable="false">                    </span>
+
+                <span class="text ">
+                        <span class="series">How To</span><span class="hide">:</span>
+                    8 Web Courses to Supplement Your Hacking Knowledge
+                </span>
+            </a>
+        </h3>
+    </li>
+    <li class="article-item item snappable img-crop-zoom-rotate " data-article-id="212025">
+        <h3 class="article-headline">
+            <a draggable="false" href="https://null-byte.wonderhowto.com/how-to/discover-hidden-http-parameters-with-arjun-0212025/" class="no-video ">
+
+                    <span class="img-crop">
+                        <img src="./BT Recon_ How to Snoop on Bluetooth Devices Using Kali Linux « Null Byte __ WonderHowTo_files/discover-hidden-http-parameters-with-arjun.300x140.jpg" alt="" width="300" height="140" draggable="false">                    </span>
+
+                <span class="text ">
+                        <span class="series">How To</span><span class="hide">:</span>
+                    Discover Hidden HTTP Parameters with Arjun
+                </span>
+            </a>
+        </h3>
+    </li>
+    <li class="article-item item snappable img-crop-zoom-rotate " data-article-id="202742">
+        <h3 class="article-headline">
+            <a draggable="false" href="https://null-byte.wonderhowto.com/how-to/pick-antenna-for-wi-fi-hacking-0202742/" class="has-video ">
+
+                    <span class="img-crop">
+                        <img src="./BT Recon_ How to Snoop on Bluetooth Devices Using Kali Linux « Null Byte __ WonderHowTo_files/pick-antenna-for-wi-fi-hacking.300x140.jpg" alt="" width="300" height="140" draggable="false">                    </span>
+
+                <span class="text ">
+                        <span class="series">How To</span><span class="hide">:</span>
+                    Pick an Antenna for Wi-Fi Hacking
+                </span>
+            </a>
+        </h3>
+    </li>
+    <li class="article-item item snappable img-crop-zoom-rotate " data-article-id="139532">
+        <h3 class="article-headline">
+            <a draggable="false" href="https://null-byte.wonderhowto.com/how-to/4-ways-crack-facebook-password-protect-yourself-from-them-0139532/" class="no-video ">
+
+                    <span class="img-crop">
+                        <img src="./BT Recon_ How to Snoop on Bluetooth Devices Using Kali Linux « Null Byte __ WonderHowTo_files/4-ways-crack-facebook-password-protect-yourself-from-them.300x140.jpg" alt="" width="300" height="140" draggable="false">                    </span>
+
+                <span class="text ">
+                        <span class="series">How To</span><span class="hide">:</span>
+                    4 Ways to Crack a Facebook Password &amp; How to Protect Yourself from Them
+                </span>
+            </a>
+        </h3>
+    </li>
+    <li class="article-item item snappable img-crop-zoom-rotate " data-article-id="189649">
+        <h3 class="article-headline">
+            <a draggable="false" href="https://null-byte.wonderhowto.com/how-to/android-for-hackers-turn-android-phone-into-hacking-device-without-root-0189649/" class="has-video ">
+
+                    <span class="img-crop">
+<img class="lazy-img" src="./BT Recon_ How to Snoop on Bluetooth Devices Using Kali Linux « Null Byte __ WonderHowTo_files/trans.gif" data-src="https://img.wonderhowto.com/img/45/53/63677009010607/0/android-for-hackers-turn-android-phone-into-hacking-device-without-root.300x140.jpg" alt="" width="300" height="140" draggable="false">                                            </span>
+
+                <span class="text ">
+                        <span class="series">Android for Hackers</span><span class="hide">:</span>
+                    How to Turn an Android Phone into a Hacking Device Without Root
+                </span>
+            </a>
+        </h3>
+    </li>
+    <li class="article-item item snappable img-crop-zoom-rotate " data-article-id="149638">
+        <h3 class="article-headline">
+            <a draggable="false" href="https://null-byte.wonderhowto.com/how-to/get-unlimited-free-trials-using-real-fake-credit-card-number-0149638/" class="no-video ">
+
+                    <span class="img-crop">
+<img class="lazy-img" src="./BT Recon_ How to Snoop on Bluetooth Devices Using Kali Linux « Null Byte __ WonderHowTo_files/trans.gif" data-src="https://img.wonderhowto.com/img/96/76/63521171811895/0/get-unlimited-free-trials-using-real-fake-credit-card-number.300x140.jpg" alt="" width="300" height="140" draggable="false">                                            </span>
+
+                <span class="text ">
+                        <span class="series">How To</span><span class="hide">:</span>
+                    Get Unlimited Free Trials Using a "Real" Fake Credit Card Number
+                </span>
+            </a>
+        </h3>
+    </li>
+    <li class="article-item item snappable img-crop-zoom-rotate " data-article-id="160161">
+        <h3 class="article-headline">
+            <a draggable="false" href="https://null-byte.wonderhowto.com/how-to/hack-android-using-kali-remotely-0160161/" class="no-video ">
+
+                    <span class="img-crop">
+<img class="lazy-img" src="./BT Recon_ How to Snoop on Bluetooth Devices Using Kali Linux « Null Byte __ WonderHowTo_files/trans.gif" data-src="https://img.wonderhowto.com/img/28/55/63559120258311/0/hack-android-using-kali-remotely.300x140.jpg" alt="" width="300" height="140" draggable="false">                                            </span>
+
+                <span class="text ">
+                        <span class="series">How To</span><span class="hide">:</span>
+                    Hack Android Using Kali (Remotely)
+                </span>
+            </a>
+        </h3>
+    </li>
+    <li class="article-item item snappable img-crop-zoom-rotate " data-article-id="139261">
+        <h3 class="article-headline">
+            <a draggable="false" href="https://null-byte.wonderhowto.com/how-to/crack-wi-fi-passwords-with-your-android-phone-and-get-free-internet-0139261/" class="no-video ">
+
+                    <span class="img-crop">
+<img class="lazy-img" src="./BT Recon_ How to Snoop on Bluetooth Devices Using Kali Linux « Null Byte __ WonderHowTo_files/trans.gif" data-src="https://img.wonderhowto.com/img/35/11/63483669455533/0/crack-wi-fi-passwords-with-your-android-phone-and-get-free-internet.300x140.jpg" alt="" width="300" height="140" draggable="false">                                            </span>
+
+                <span class="text ">
+                        <span class="series">How To</span><span class="hide">:</span>
+                    Crack Wi-Fi Passwords with Your Android Phone and Get Free Internet!
+                </span>
+            </a>
+        </h3>
+    </li>
+    <li class="article-item item snappable img-crop-zoom-rotate " data-article-id="160523">
+        <h3 class="article-headline">
+            <a draggable="false" href="https://null-byte.wonderhowto.com/how-to/hack-like-pro-hack-facebook-facebook-password-extractor-0160523/" class="no-video ">
+
+                    <span class="img-crop">
+<img class="lazy-img" src="./BT Recon_ How to Snoop on Bluetooth Devices Using Kali Linux « Null Byte __ WonderHowTo_files/trans.gif" data-src="https://img.wonderhowto.com/img/45/27/63560562351418/0/hack-like-pro-hack-facebook-facebook-password-extractor.300x140.jpg" alt="" width="300" height="140" draggable="false">                                            </span>
+
+                <span class="text ">
+                        <span class="series">Hack Like a Pro</span><span class="hide">:</span>
+                    How to Hack Facebook (Facebook Password Extractor)
+                </span>
+            </a>
+        </h3>
+    </li>
+    <li class="article-item item snappable img-crop-zoom-rotate " data-article-id="202701">
+        <h3 class="article-headline">
+            <a draggable="false" href="https://null-byte.wonderhowto.com/how-to/map-wardriving-data-with-jupyter-notebook-0202701/" class="has-video ">
+
+                    <span class="img-crop">
+<img class="lazy-img" src="./BT Recon_ How to Snoop on Bluetooth Devices Using Kali Linux « Null Byte __ WonderHowTo_files/trans.gif" data-src="https://img.wonderhowto.com/img/72/55/63722392798153/0/map-wardriving-data-with-jupyter-notebook.300x140.jpg" alt="" width="300" height="140" draggable="false">                                            </span>
+
+                <span class="text ">
+                        <span class="series">How To</span><span class="hide">:</span>
+                    Map Wardriving Data with Jupyter Notebook
+                </span>
+            </a>
+        </h3>
+    </li><li><aside class="whtaph leftbox" data-unit-type="leftbox"></aside></li>
+    <li class="article-item item snappable img-crop-zoom-rotate " data-article-id="189379">
+        <h3 class="article-headline">
+            <a draggable="false" href="https://null-byte.wonderhowto.com/how-to/hack-wi-fi-cracking-wpa2-passwords-using-new-pmkid-hashcat-attack-0189379/" class="has-video ">
+
+                    <span class="img-crop">
+<img class="lazy-img" src="./BT Recon_ How to Snoop on Bluetooth Devices Using Kali Linux « Null Byte __ WonderHowTo_files/trans.gif" data-src="https://img.wonderhowto.com/img/27/40/63677373718201/0/hack-wi-fi-cracking-wpa2-passwords-using-new-pmkid-hashcat-attack.300x140.jpg" alt="" width="300" height="140" draggable="false">                                            </span>
+
+                <span class="text ">
+                        <span class="series">How to Hack Wi-Fi</span><span class="hide">:</span>
+                    Cracking WPA2 Passwords Using the New PMKID Hashcat Attack
+                </span>
+            </a>
+        </h3>
+    </li>
+    <li class="article-item item snappable img-crop-zoom-rotate " data-article-id="196790">
+        <h3 class="article-headline">
+            <a draggable="false" href="https://null-byte.wonderhowto.com/how-to/phish-for-social-media-other-account-passwords-with-blackeye-0196790/" class="has-video ">
+
+                    <span class="img-crop">
+<img class="lazy-img" src="./BT Recon_ How to Snoop on Bluetooth Devices Using Kali Linux « Null Byte __ WonderHowTo_files/trans.gif" data-src="https://img.wonderhowto.com/img/91/14/63701568204822/0/phish-for-social-media-other-account-passwords-with-blackeye.300x140.jpg" alt="" width="300" height="140" draggable="false">                                            </span>
+
+                <span class="text ">
+                        <span class="series">How To</span><span class="hide">:</span>
+                    Phish for Social Media &amp; Other Account Passwords with BlackEye
+                </span>
+            </a>
+        </h3>
+    </li>
+    <li class="article-item item snappable img-crop-zoom-rotate " data-article-id="186450">
+        <h3 class="article-headline">
+            <a draggable="false" href="https://null-byte.wonderhowto.com/how-to/top-10-things-do-after-installing-kali-linux-0186450/" class="has-video ">
+
+                    <span class="img-crop">
+<img class="lazy-img" src="./BT Recon_ How to Snoop on Bluetooth Devices Using Kali Linux « Null Byte __ WonderHowTo_files/trans.gif" data-src="https://img.wonderhowto.com/img/41/15/63671319256230/0/top-10-things-do-after-installing-kali-linux.300x140.jpg" alt="" width="300" height="140" draggable="false">                                            </span>
+
+                <span class="text ">
+                        <span class="series">How To</span><span class="hide">:</span>
+                    Top 10 Things to Do After Installing Kali Linux
+                </span>
+            </a>
+        </h3>
+    </li>
+    <li class="article-item item snappable img-crop-zoom-rotate " data-article-id="195472">
+        <h3 class="article-headline">
+            <a draggable="false" href="https://null-byte.wonderhowto.com/how-to/find-identifying-information-from-phone-number-using-osint-tools-0195472/" class="has-video ">
+
+                    <span class="img-crop">
+<img class="lazy-img" src="./BT Recon_ How to Snoop on Bluetooth Devices Using Kali Linux « Null Byte __ WonderHowTo_files/trans.gif" data-src="https://img.wonderhowto.com/img/27/85/63694906245671/0/find-identifying-information-from-phone-number-using-osint-tools.300x140.jpg" alt="" width="300" height="140" draggable="false">                                            </span>
+
+                <span class="text ">
+                        <span class="series">How To</span><span class="hide">:</span>
+                    Find Identifying Information from a Phone Number Using OSINT Tools
+                </span>
+            </a>
+        </h3>
+    </li>
+    <li class="article-item item snappable img-crop-zoom-rotate " data-article-id="132568">
+        <h3 class="article-headline">
+            <a draggable="false" href="https://null-byte.wonderhowto.com/how-to/hacks-behind-cracking-part-1-bypass-software-registration-0132568/" class="no-video ">
+
+                    <span class="img-crop">
+<img class="lazy-img" src="./BT Recon_ How to Snoop on Bluetooth Devices Using Kali Linux « Null Byte __ WonderHowTo_files/trans.gif" data-src="https://img.wonderhowto.com/img/15/81/63461352388591/0/hacks-behind-cracking-part-1-bypass-software-registration.300x140.jpg" alt="" width="300" height="140" draggable="false">                                            </span>
+
+                <span class="text ">
+                        <span class="series">How To</span><span class="hide">:</span>
+                    The Hacks Behind Cracking, Part 1: How to Bypass Software Registration
+                </span>
+            </a>
+        </h3>
+    </li>
+    <li class="article-item item snappable img-crop-zoom-rotate " data-article-id="286761">
+        <h3 class="article-headline">
+            <a draggable="false" href="https://null-byte.wonderhowto.com/news/learn-essential-skills-start-career-with-affordable-online-training-0286761/" class="no-video ">
+
+                    <span class="img-crop">
+<img class="lazy-img" src="./BT Recon_ How to Snoop on Bluetooth Devices Using Kali Linux « Null Byte __ WonderHowTo_files/trans.gif" data-src="https://img.wonderhowto.com/img/82/84/63722126176353/0/learn-essential-skills-start-career-with-affordable-online-training.300x140.jpg" alt="" width="300" height="140" draggable="false">                                            </span>
+
+                <span class="text ">
+                        <span class="series">News</span><span class="hide">:</span>
+                    Learn the Essential Skills to Start a Career in IT with This Affordable Online Training
+                </span>
+            </a>
+        </h3>
+    </li>
+    <li class="article-item item snappable img-crop-zoom-rotate " data-article-id="181925">
+        <h3 class="article-headline">
+            <a draggable="false" href="https://null-byte.wonderhowto.com/how-to/easily-detect-cves-with-nmap-scripts-0181925/" class="has-video ">
+
+                    <span class="img-crop">
+<img class="lazy-img" src="./BT Recon_ How to Snoop on Bluetooth Devices Using Kali Linux « Null Byte __ WonderHowTo_files/trans.gif" data-src="https://img.wonderhowto.com/img/05/16/63652489735361/0/easily-detect-cves-with-nmap-scripts.300x140.jpg" alt="" width="300" height="140" draggable="false">                                            </span>
+
+                <span class="text ">
+                        <span class="series">How To</span><span class="hide">:</span>
+                    Easily Detect CVEs with Nmap Scripts
+                </span>
+            </a>
+        </h3>
+    </li>
+    <li class="article-item item snappable img-crop-zoom-rotate " data-article-id="156376">
+        <h3 class="article-headline">
+            <a draggable="false" href="https://null-byte.wonderhowto.com/how-to/hack-like-pro-spy-anyone-part-1-hacking-computers-0156376/" class="no-video ">
+
+                    <span class="img-crop">
+<img class="lazy-img" src="./BT Recon_ How to Snoop on Bluetooth Devices Using Kali Linux « Null Byte __ WonderHowTo_files/trans.gif" data-src="https://img.wonderhowto.com/img/16/84/63544219979519/0/hack-like-pro-spy-anyone-part-1-hacking-computers.300x140.jpg" alt="" width="300" height="140" draggable="false">                                            </span>
+
+                <span class="text ">
+                        <span class="series">Hack Like a Pro</span><span class="hide">:</span>
+                    How to Spy on Anyone, Part 1 (Hacking Computers)
+                </span>
+            </a>
+        </h3>
+    </li>
+                                            <li class="pad-small"><div class="paging next-only"> <a class="align-right raised-btn" href="https://null-byte.wonderhowto.com/hot/">All Hot  Posts <span class="fa fa-chevron-right"></span></a> </div></li>
+                </ul>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+            </div></div>
+
+            <div class="footer">
+                © 2019 WonderHowTo, Inc.
+            </div>
+        </div>
+    </div>
+</div>
+        </div>
+</div>
+
+
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div id="sidebars">
+            
+            
+
+
+
+
+
+
+
+            
+                <div class="sidebar sidebar-user-menu">
+                    <div class="center-frame">
+                        <div class="menu">
+                            <div class="sidebar-pad">
+                                <div class="my-profile clearfix">
+                                    <button type="button" class="raised-btn align-center-full user-menu-loginsignup"><i class="fa fa-user"></i> Login or signup</button>
+                                </div>
+
+                                <div class="icon-menu-tabs clearfix">
+                                    <button type="button" class="user-menu-settings active fa fa-gears"><span>Settings</span></button>
+                                    <button type="button" class="user-menu-drafts active fa fa-pencil-square-o"><span>My Writing</span></button>
+                                    <button type="button" class="user-menu-inbox active fa fa-envelope-o"><span>Messages</span></button>
+                                    <button type="button" class="user-menu-notifications active fa fa-bell-o"><span>Notifications</span></button>
+                                    <button type="button" class="user-menu-nav active fa fa-bars"><span>Navigation</span></button>
+                                </div>
+
+                                <div class="sidebar-tab-contents">
+                                    <div class="actiongroup"><ul><li class="centered-divide"><i class="loading-spinner"></i><div class="padtop-small">Loading...</div></li></ul></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+            <aside class="whtaph whtaph-skin" data-unit-type="skin"></aside>
+                <div class="footer-links">
+            <div class="center-frame">
+                <span>WonderHowTo.com</span>
+                <a href="https://null-byte.wonderhowto.com/about/">About Us</a>
+                <a href="https://null-byte.wonderhowto.com/terms/">Terms of Use</a>
+                <a href="https://null-byte.wonderhowto.com/privacy/">Privacy Policy</a>
+                <br><br>
+                      <center>
+                          <strong>Don't Miss:</strong><br>
+                          <a href="https://ios.gadgethacks.com/news/new-ios-13-features-200-best-hidden-most-exciting-new-changes-for-iphone-0198346/">New iOS 13 Features — The 200+ Best, Hidden &amp; Most Exciting New Changes for iPhone</a><br>
+                          <a href="https://ios.gadgethacks.com/news/20-features-ios-13s-safari-you-dont-want-miss-0198425/">20+ Features in iOS 13's Safari You Don't Want to Miss</a><br>
+                          <a href="https://ios.gadgethacks.com/news/31-new-features-for-camera-photos-ios-13-0198395/">31 New Features for Camera &amp; Photos in iOS 13</a><br>
+                          <a href="https://ios.gadgethacks.com/news/22-new-features-ios-13s-mail-app-help-you-master-art-email-0206374/">22 New Features in iOS 13's Mail App to Help You Master the Art of the Email</a><br>
+                          <a href="https://ios.gadgethacks.com/how-to/ios-13-makes-easier-request-desktop-mobile-sites-for-webpages-your-iphone-0198650/">How to Request Desktop or Mobile Web Pages in iOS 13</a><br>
+                          <a href="https://ios.gadgethacks.com/how-to/ios-13-changes-way-you-navigate-edit-text-heres-place-cursor-make-selections-perform-edits-more-0203292/">iOS 13 Changes How to Edit &amp; Select Text, Move Selections, &amp; Place the Cursor</a><br>
+                          <a href="https://ios.gadgethacks.com/how-to/change-your-profile-picture-display-name-for-imessage-ios-13-0198348/">How to Change Your iMessage Profile Picture &amp; Display Name in iOS 13</a><br>
+
+                          <br>
+                          By using this site you acknowledge and agree to our <a href="https://null-byte.wonderhowto.com/terms/" style="margin:0;">terms of use</a> &amp; <a href="https://null-byte.wonderhowto.com/privacy/" style="margin:0;">privacy policy</a>. <br>We do not sell personal information to 3rd parties.
+                      </center>
+            </div>
+        </div>
+        <div id="foot-init" class="clearfix">
+                <script type="text/javascript" src="./BT Recon_ How to Snoop on Bluetooth Devices Using Kali Linux « Null Byte __ WonderHowTo_files/ready.min.js"></script>
+    <!--[if lt IE 7 ]><link rel="stylesheet" href="https://img.wonderhowto.com/css/jquery.jgrowl.ie6.css?v=2020012201" type="text/css"/><![endif]-->
+    <!--[if lt IE 9 ]><link rel="stylesheet" href="https://img.wonderhowto.com/css/ie.css?v=2020012201" type="text/css"/><![endif]-->
+    <script src="./BT Recon_ How to Snoop on Bluetooth Devices Using Kali Linux « Null Byte __ WonderHowTo_files/jquery.min.js" type="text/javascript"></script>
+    <script type="text/javascript">if(!window.jQuery) document.write('<'+'scr'+'ipt type="text/javascr'+'ipt" src="https://img.wonderhowto.com/js/libs/jquery-1.7.min.js?v=2020012201"><'+'/scri'+'pt>');</script>
+    <script src="./BT Recon_ How to Snoop on Bluetooth Devices Using Kali Linux « Null Byte __ WonderHowTo_files/set.min.js" type="text/javascript"></script>
+    <script src="./BT Recon_ How to Snoop on Bluetooth Devices Using Kali Linux « Null Byte __ WonderHowTo_files/go.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        //<![CDATA[
+        WHT.init({
+            loggedInUser:{"UserID":0,"UserName":"not_logged_in","DisplayName":"not_logged_in","UserBio":"","IsAdmin":false,"IsStaff":false,"IsUser":false,"IsCurator":false,"CanEdit":false,"cd":0,"UserCommentScore":0,"KudosCount":0,"KudosPower":0,"JudgementPower":0,"ReputationCount":0,"ResponseCount":0,"ImageID":"user_default_large.jpg"},currentWorld:{"IsCategoryOrSubCategoryWorld":false,"WorldID":1124,"WorldName":"Null Byte","Description":"Null Byte is a white hat hacker world for anyone interested in hacking, science, networking, social engineering, security, pen-testing, getting root, zero days, etc.","Slogan":"The aspiring white-hat hacker/security awareness playground","UrlName":"null-byte","CreatedByUserID":32,"CreatedByUserName":"bryan","CreatedByUserDisplayName":"Bryan Crow","CreatedByUserImage":"636283108466577741","CreatedByUserGender":1,"CreatedByUserImagePath":"/userimages/636283108466577741","CreatedByUserProfilePath":"https://wwwwonderhowto.com/community/member/bryan/","CreatedDate":"\/Date(1316496204577)\/","LastUpdated":"\/Date(1587460441697)\/","HeaderGraphic":"636203278708946907","HasCustomHeaderGraphic":true,"HeaderGraphicMatchesOriginal":false,"HeaderHeight":38,"HeaderColor":"081e05","ShowHeaderText":false,"LargeImage":"637021620951344175","Image":"637021620951344175","TwitterHandle":"@NullByte","TwitterUrl":"http://twitter.com/NullByte","FacebookUrl":"","GooglePlusUrl":"https://www.youtube.com/channel/UCgTNupxATBfWmfehv21ym-g/","HowToSubCategoryMode":0,"InspirationSubCategoryMode":0,"RootDomainName":"wonderhowto.com","FullDomainName":"null-byte.wonderhowto.com","FullWWWDomainName":"null-byte.wonderhowto.com","HasChildWorlds":false,"HasOwnDomain":false,"AllowUserPosts":true,"ChannelID":2,"CategoryID":6,"MemberCount":17850,"ContributorCount":3332,"PostCount":6941,"ChildLevel":1,"ImageID":"636203278708946907","CoverImage":"637021620951344175"},alerts:[],ajaxControllerURL:'/ajax/',urlBase:'https://null-byte.wonderhowto.com',imgUrlBase:'https://img.wonderhowto.com',imgFormats:["1014x174","w974","974x232","1920x1080","3840x1800","3200x1500","2560x1200","1920x900","1280x600","1280x220","1200x1200","960x540","664x250","654x306","600x600","600x696","w532","w302","w240","w654","w728","w1456","300x380","300x300","300x200","300x140","250x188","236x160","225x113","200x150","200x113","191x89","190x88","186x86","w160","150x190","150x70","146x68","135x180","100x100","100x47","88x68","w88","65x30","64x50","62x83","62x29","51x68","48x64","42x56","32x43","18x24","16x16","b300x169","b300x140","b654x306","b300x52","b100x100","original"],activeBrowseBase:'QXJ0aWNsZUxpc3RLZXl8MTh8MTMwfDB8MTEyNHx8MXwwfDB8MHwxfDB8',hero:{id:203515,title:"How to Hack 5 GHz Wi-Fi Networks with an Alfa Wi-Fi Adapter",img:"https://img.wonderhowto.com/img/69/07/63620327870894/0/null-byte.1280x600.jpg"},rootHero:{id:286911,title:"How to Record Video with Full 100x Zoom on Your Galaxy S20 Ultra",img:"https://img.wonderhowto.com/img/04/60/63720291814765/0/wonderhowto.1280x600.jpg"},rootDomains:["wonderhowto.com","gadgethacks.com","reality.news"],wmTest:'(wonderhowto|gadgethacks|nextreality|invisiverse|driverless|wonderhowto)',hpUpdateID:0,consented:true,socialLinks: {facebook: '',twitter: 'http://twitter.com/NullByte',youtube: 'https://www.youtube.com/channel/UCgTNupxATBfWmfehv21ym-g/',pinterest: ''}
+        });
+
+        // Second part of jquery loading
+        (function (i, s, q, l) { for (q = window._q(), l = q.length; i < l;) { $.apply(this, s.call(q[i++])); } window._q = undefined; }(0, Array.prototype.slice));
+
+                
+                (function(){WHT.checkSignupID();})();
+                
+        //]]>
+    </script>
+    <script src="./BT Recon_ How to Snoop on Bluetooth Devices Using Kali Linux « Null Byte __ WonderHowTo_files/done.min.js" type="text/javascript"></script>
+
+    
+    <script type="text/javascript">
+        //<![CDATA[
+        //initialize article galleries:
+        WHT.activeArticle = new WHT.ManagedArticle({
+            articleID: 165049,
+            authorUserName: "tenebrism",
+            connectionType: 0,
+            rootElement: $('.article-wrapper.article-id-165049'),
+            fnInit: (function(){setTimeout(function(){$('#21778184docPartGal880005').whtGallery({initFromGalleryItemsObjects:[{type:"galleryVideo",caption:"",videoLink:"http%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DJmQk4Yp9bww",embedded:false,videoID:-1,thumbSource:"637151348590147836.jpg",isHowTo:false,siteLink:"",creditURL:"http://www.youtube.com",creditText:"",embedTag:"<iframe width=\"532\" height=\"299\" src=\"https://www.youtube.com/embed/JmQk4Yp9bww?autoplay=0&rel=0&fs=1&showinfo=0\" frameborder=\"0\" allowfullscreen=\"allowfullscreen\"></iframe>",videoTitle:"",standardWidth:532,standardHeight:299,chromeW:0,chromeH:25}],initWithLayoutIndex:0,imageTitleUrlBase:'bt-recon-snoop-bluetooth-devices-using-kali-linux'});},1);
+setTimeout(function(){$('#59868245docPartGal880045').whtGallery({initFromGalleryItemsObjects:[{type:"galleryImage",caption:"",standardSource:"637151923471321574.jpg",largeSource:"637151923471321574.jpg",thumbSource:"637151923471321574.jpg",standardWidth:3439,standardHeight:1929,largeWidth:3439,largeHeight:1929,creditURL:"",creditText:"",originalURL:"",shadow:false,upScale:false,scale:0}],initWithLayoutIndex:0,imageTitleUrlBase:'bt-recon-snoop-bluetooth-devices-using-kali-linux'});},1);
+setTimeout(function(){$('#7614495docPartGal880047').whtGallery({initFromGalleryItemsObjects:[{type:"galleryImage",caption:"",standardSource:"637151923707102066.jpg",largeSource:"637151923707102066.jpg",thumbSource:"637151923707102066.jpg",standardWidth:3439,standardHeight:1929,largeWidth:3439,largeHeight:1929,creditURL:"",creditText:"",originalURL:"",shadow:false,upScale:false,scale:0}],initWithLayoutIndex:0,imageTitleUrlBase:'bt-recon-snoop-bluetooth-devices-using-kali-linux'});},1);
+setTimeout(function(){$('#28840599docPartGal880049').whtGallery({initFromGalleryItemsObjects:[{type:"galleryImage",caption:"",standardSource:"637151923954291365.jpg",largeSource:"637151923954291365.jpg",thumbSource:"637151923954291365.jpg",standardWidth:3439,standardHeight:2779,largeWidth:3439,largeHeight:2779,creditURL:"",creditText:"",originalURL:"",shadow:false,upScale:false,scale:0}],initWithLayoutIndex:0,imageTitleUrlBase:'bt-recon-snoop-bluetooth-devices-using-kali-linux'});},1);
+setTimeout(function(){$('#2891206docPartGal880051').whtGallery({initFromGalleryItemsObjects:[{type:"galleryImage",caption:"",standardSource:"637151924170540276.jpg",largeSource:"637151924170540276.jpg",thumbSource:"637151924170540276.jpg",standardWidth:3439,standardHeight:1929,largeWidth:3439,largeHeight:1929,creditURL:"",creditText:"",originalURL:"",shadow:false,upScale:false,scale:0}],initWithLayoutIndex:0,imageTitleUrlBase:'bt-recon-snoop-bluetooth-devices-using-kali-linux'});},1);
+setTimeout(function(){$('#62666713docPartGal880053').whtGallery({initFromGalleryItemsObjects:[{type:"galleryImage",caption:"",standardSource:"637151924392414369.jpg",largeSource:"637151924392414369.jpg",thumbSource:"637151924392414369.jpg",standardWidth:3439,standardHeight:2871,largeWidth:3439,largeHeight:2871,creditURL:"",creditText:"",originalURL:"",shadow:false,upScale:false,scale:0}],initWithLayoutIndex:0,imageTitleUrlBase:'bt-recon-snoop-bluetooth-devices-using-kali-linux'});},1);
+}),
+            url: "https://null-byte.wonderhowto.com/how-to/bt-recon-snoop-bluetooth-devices-using-kali-linux-0165049/",
+            editUrl: "https://null-byte.wonderhowto.com/how-to/bt-recon-snoop-bluetooth-devices-using-kali-linux-0165049/edit/",
+            noCache: false,
+            dnra: false,
+            pageTitle: "BT Recon: How to Snoop on Bluetooth Devices Using Kali Linux &#171; Null Byte",
+            fnInitComments: (function(){WHT.Comments.init({id: 165049, urlVote: "https://null-byte.wonderhowto.com/ajax/updatecommentscore/", urlSubmit: "https://null-byte.wonderhowto.com/ajax/submitcomment/", urlDelete: "https://null-byte.wonderhowto.com/ajax/deletecomment/", docX: []});})
+        });
+        //]]>
+    </script>
+
+    <script type="text/javascript">
+        //Prevent double posting by accident
+        var currentlyVoting = false;
+
+        // see if there any comments to init:
+        if (typeof initQueue !== 'undefined' && initQueue) {
+            for(var i = 0; i < initQueue.length; i++) {
+                initQueue[i].apply();
+            }
+        }
+
+        // Follow Button:
+        var buttons = $(".article-author");
+        buttons.on("hover", ".btn", WHT.World.WorldButtonHoverHandler);
+        $(".article-author").on("hover",".follow-button",WHT.User.OnFollowButonHover);
+        $(".article-author").on("click",".follow-button",WHT.User.OnFollowUserClick);
+
+    </script>
+    <!--[if lt IE 7 ]><script type="text/javascript" src="https://img.wonderhowto.com/js/libs/dd_belatedpng.js?v=2020012201"></script><script type="text/javascript">DD_belatedPNG.fix('img, .png_bg');</script><![endif]-->
+    <script type="text/javascript">
+        //<![CDATA[
+        // Manually trigger jQuery ready to speed up page init:
+        setTimeout(function () { $.ready(); }, 0);
+        //]]>
+    </script>
+
+                        <!-- Analytics -->
+            <script type="text/javascript">
+                //<![CDATA[
+
+                // GA:
+                (function (i, s, o, g, r, a, m) {
+                    i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                        (i[r].q = i[r].q || []).push(arguments)
+                    }, i[r].l = 1 * new Date(); a = s.createElement(o),
+                    m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+                })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+                ga('create', 'UA-2361644-1', { 'cookieDomain': 'wonderhowto.com', 'legacyCookieDomain': '.wonderhowto.com' });
+                
+                    
+                        ga('send', 'pageview');
+                        
+                    
+
+                // comScore:
+                var _comscore = _comscore || [];
+                _comscore.push({ c1: "2", c2: "10055482" });
+                (function () {
+                    var s = document.createElement("script"), el = document.getElementsByTagName("script")[0]; s.async = true;
+                    s.src = (document.location.protocol == "https:" ? "https://sb" : "http://b") + ".scorecardresearch.com/beacon.js";
+                    el.parentNode.insertBefore(s, el);
+                })();
+                //]]>
+            </script>
+            <noscript><img src="https://sb.scorecardresearch.com/p?c1=2&amp;c2=10055482&amp;cv=2.0&amp;cj=1" style="width:0;height:0;overflow:hidden;display:block;" width="0" height="0" alt="" /></noscript>
+            <!-- End Analytics -->
+
+        </div>
+    </footer>
+
+
+
+
+
+
+<div><span style="display: none;"><iframe src="./BT Recon_ How to Snoop on Bluetooth Devices Using Kali Linux « Null Byte __ WonderHowTo_files/ps.html" style="display: none;"></iframe></span></div><iframe name="__bkframe" id="__bkframe" title="bk" src="./BT Recon_ How to Snoop on Bluetooth Devices Using Kali Linux « Null Byte __ WonderHowTo_files/saved_resource(25).html" style="border: 0px; width: 0px; height: 0px; display: none; position: absolute; clip: rect(0px, 0px, 0px, 0px);"></iframe><iframe id="google_osd_static_frame_2431332853184" name="google_osd_static_frame" style="display: none; width: 0px; height: 0px;" src="./BT Recon_ How to Snoop on Bluetooth Devices Using Kali Linux « Null Byte __ WonderHowTo_files/saved_resource(26).html"></iframe></body></html>
