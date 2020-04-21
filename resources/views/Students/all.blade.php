@@ -15,7 +15,7 @@
         @endif
         @if(Session::has("data"))
         @foreach (Session::get("data") as $student )
-        <input type="hidden" id="hidden" value="true">     
+        <input type="hidden" id="hidden" value="true">
         <div class="modal" tabindex="-1" id="studentModal">
             <div class="modal-dialog">
               <div class="modal-content">
@@ -33,7 +33,7 @@
                         </label>
                         <input type="text" class="form-control input-sm" readonly value="{{ $student->AdmissionNumber }} ">
                     </div>
-                     <div class="col-sm-4">
+                     <div class="col-sm-5">
                          <label class="label-control">
                             <i class="fa fa-baby-carriage">&nbsp;Parent</i>
                          </label>
@@ -45,7 +45,7 @@
                         </label>
                         <input type="text" class="form-control input-sm" readonly value="{{ $student->Nemis }}">
                     </div>
-                    <div class="col-sm-4">
+                    <div class="col-sm-5">
                         <label for="Class" class="label-control">
                             <i class="fa fa-university">&nbsp;Class</i>
                         </label>
@@ -63,11 +63,29 @@
                         </label>
                         <input type="text" class="form-control input-sm"   readonly value="{{ $student->birthDate }}">
                     </div>
-                    <div class="col-sm-4">
+                    <div class="col-sm-5">
                         <label for="Date Registered" class="label-control">
                             <i class="fa fa-user-plus">&nbsp;Date Registered</i>
                         </label>
                         <input type="text" class="form-control input-sm"  readonly value="{{ ($student->created_at)->toFormattedDateString() }}">
+                    </div><br><br><br>
+                    <div class="col-sm-2">
+                        <label for="Date Registered" class="label-control">
+                            <i class="fa fa-minus-circle">&nbsp;Arrears</i>
+                        </label>
+                        <input type="text" class="form-control input-sm"  readonly value="Ksh .{{ ($student->SchoolFees)-$student->Balance }}">
+                    </div>
+                    <div class="col-sm-4">
+                        <label for="Date Registered" class="label-control">
+                            <i class="fa fa-money-bill">&nbsp;School Fees</i>
+                        </label>
+                        <input type="text" class="form-control input-sm"  readonly value="{{$student->SchoolFees }}">
+                    </div>
+                    <div class="col-sm-5">
+                        <label for="Date Registered" class="label-control">
+                            <i class="fa fa-user-plus">&nbsp;Fees Balance</i>
+                        </label>
+                        <input type="text" class="form-control input-sm"  readonly value="{{ ($student->Balance) }}">
                     </div>
                  </div>
                 </div>
@@ -76,16 +94,17 @@
                 </div>
               </div>
             </div>
-          </div>   
+          </div>
         @endforeach
         @endif
         @if(Session::has("datae"))
         @foreach (Session::get("datae") as $student )
-        <input type="hidden" id="hiddene" value="true">     
+        <input type="hidden" id="hiddene" value="true">
         <div class="modal" tabindex="-1" id="studentModale">
             <div class="modal-dialog">
               <div class="modal-content">
                 <div class="modal-header" style="background-color:#f9f9f9">
+                    <a href="#" class="pull-left" data-toggle="modal" id="modalClosee"><button class="btn btn-danger" style="border:2px solid red;background-color:red">Close</button></a>
                   <h5 class="modal-title text-center"><i class="fa fa-user-graduate"></i> &nbsp;{{ $student->StudentName }}</h5>
                 </div>
                 <div class="modal-body">
@@ -103,11 +122,11 @@
                  </div>
                 </div>
                 <div class="modal-footer">
-                    <a href="#" class="pull-left" data-toggle="modal" id="modalClosee"><button class="btn btn-danger" style="border:2px solid red;background-color:red">Close</button></a> &copy;{{ config('app.name') }} @<?php echo date('Y');?>
+                    &copy;{{ config('app.name') }} @<?php echo date('Y');?>
                 </div>
               </div>
             </div>
-          </div>   
+          </div>
         @endforeach
         @endif
    @if(is_null($students) || count($students)==0)
@@ -186,6 +205,8 @@ $("#modalClose").click(function(){
 })
 $("#modalClosee").click(function(){
     $("#studentModale").hide()
+    window.open('/home/','_parent');
 })
+
 </script>
 @stop

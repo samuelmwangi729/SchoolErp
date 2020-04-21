@@ -3,11 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Student;
 use Session;
-use App\Parents;
-use App\Stream;
-use App\Classes;
+use App\{Parents,Student,Stream,Classes,CurrentTerm,Fee};
+use Excel;
 
 class StudentsController extends Controller
 {
@@ -21,9 +19,11 @@ class StudentsController extends Controller
         $students=Student::all();
         $classes=Classes::all();
         $streams=Stream::all();
+        $parents=Parents::orderBy('id','desc')->get();
         return view('Students.all')
         ->with("classes",$classes)
         ->with("streams",$streams)
+        ->with("parents",$parents)
         ->with('students',$students);
     }
 
@@ -62,9 +62,50 @@ class StudentsController extends Controller
             'Passport'=>'required',
             'Nemis'=>['required','unique:students']
         ]);
+        $term=CurrentTerm::all()->last()->CurrentTerm;
+         $row=Fee::where([
+            'Class'=>$request->class,
+           'Term'=>$term
+       ])->get();
+       $sum=0;
+       for($i=0;$i<count($row);$i++){
+        $sum=$sum+$row[$i]->Amount;
+       }
         $file=$request->Passport;
         $newName=time().$file->getClientOriginalName();
         $file->move('Students/',$newName);
+        Student::create([
+            'StudentName'=>$request->StudentName,
+            'parent'=>$request->parent,
+            'class'=>$request->class,
+            'Stream'=>$request->Stream,
+            'AdmissionNumber'=>$request->AdmissionNumber,
+            'Kcpe'=>$request->Kcpe,
+            'birthDate'=>$request->birthDate,
+            'Passport'=>'Students/'.$newName,
+            'Nemis'=>$request->Nemis,
+            'SchoolFees'=>$sum,
+            'Balance'=>$sum,
+        ]);
+        Session::flash('success','Student Successfully Added');
+        return redirect()->back();
+    }
+        /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function bulk(Request $request)
+    {
+        $this->validate($request,[
+            'StudentFile'=>'required|mimes:xls,xlsx'
+        ]);
+        $file=$request->StudentFile;
+        $newName=$file->getClientOriginalName();
+        $data=Excel::load($newName)->get();
+        dd($data);
+        // $file->move('Students/',$newName);
         Student::create([
             'StudentName'=>$request->StudentName,
             'parent'=>$request->parent,
@@ -112,7 +153,13 @@ class StudentsController extends Controller
         }
         $parents=Parents::orderBy('id','desc')->get();
         Session::flash("datae",$student);
+        $students=Student::all();
+        $classes=Classes::all();
+        $streams=Stream::all();
        return view('Students.all')
+       ->with("students",$students)
+       ->with("classes",$classes)
+       ->with("streams",$streams)
        ->with('parents',$parents);
     }
 
@@ -155,6 +202,8 @@ class StudentsController extends Controller
         $student->Kcpe=$request->Kcpe;
         $student->birthDate=$request->birthDate;
         $student->Nemis=$request->Nemis;
+        $student->SchoolFees=$request->SchoolFees;
+        $student->Balance=$request->SchoolFees;
         $student->save();
         Session::flash("success","Student Details Successfully Updated");
         return redirect()->back();

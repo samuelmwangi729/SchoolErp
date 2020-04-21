@@ -24,6 +24,8 @@ class CreateStudentsTable extends Migration
             $table->date('birthDate');
             $table->string('Passport');
             $table->string('Nemis');
+            $table->string('SchoolFees')->default(0);
+            $table->string('Balance')->default(0);
             $table->integer('Status')->default(0);
             $table->timestamps();
         });

@@ -117,5 +117,13 @@
                 </select>
             </div>
         </div>
+        <div class="col-sm-12 text-center">
+            <div class="form-group">
+                <label for="Denomination" class="label-control">
+                    School Fees
+                </label>
+                <input type="text" class="form-control" name="SchoolFees" value="{{ $student->SchoolFees ?? 'Leave Empty For Now'}}">
+            </div>
+        </div>
     </div>
 </fieldset>

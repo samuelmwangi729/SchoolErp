@@ -1,9 +1,9 @@
 {
-    "editor.fontFamily": "'Times New Roman'",
+    "editor.fontFamily": "\"'Times New Roman','courier\"",
     "editor.fontStyle": "italics",
-    "terminal.integrated.fontWeight": "bold",
     "terminal.integrated.fontSize": 12,
     "terminal.integrated.fontFamily": "monospace",
-    "workbench.colorTheme": "Abyss",
-    "editor.fontWeight": "bold"
+    "workbench.colorTheme": "United Ubuntu",
+    "editor.fontWeight": "bold",
+    "terminal.integrated.fontWeightBold": "normal"
 }

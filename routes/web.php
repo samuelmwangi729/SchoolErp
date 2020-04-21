@@ -216,3 +216,39 @@ Route::get("/Fees/All",[
     'uses'=>'FeesController@index',
     'as'=>'fees.index'
 ]);
+Route::post("/SetClass/Fees",[
+    'uses'=>'FeesController@store',
+    'as'=>'fees.post'
+]);
+Route::post("/CurrentTerm/Add",[
+    'uses'=>'FeesController@current',
+    'as'=>'current.post'
+]);
+Route::post("/NextTerm/Add",[
+    'uses'=>'FeesController@Next',
+    'as'=>'next.post'
+]);
+Route::get("/Fees/Edit/{id}",[
+    'uses'=>'FeesController@edit',
+    'as'=>'fees.edit'
+]);
+Route::get("/Fees/Delete/{id}",[
+    'uses'=>'FeesController@destroy',
+    'as'=>'fees.delete'
+]);
+Route::post("/Fees/Update/{id}",[
+    'uses'=>'FeesController@update',
+    'as'=>'fees.update'
+]);
+Route::get("/Fees/View/Form {class}",[
+    'uses'=>'FeesController@show',
+    'as'=>'fees.view'
+]);
+Route::get("/Fees/Balance",[
+    'uses'=>'FeesController@balances',
+    'as'=>'fees.balances'
+]);
+Route::post("/Fees/Filter",[
+    'uses'=>'FeesController@filter',
+    'as'=>'filter.post'
+]);

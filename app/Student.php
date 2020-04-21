@@ -16,6 +16,8 @@ class Student extends Model
         'birthDate',
         'Passport',
         'Nemis',
+        'SchoolFees',
+        'Balance',
         'Status'
     ];
 }

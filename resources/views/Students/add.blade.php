@@ -32,7 +32,8 @@
         </form>
     </div>
     <div class="form-row" id="StudentsForm">
-        <form method="post" action="{{ route('students.addFile') }}">
+        <form method="post" action="{{ route('students.addFile') }}" enctype="multipart/form-data">
+            @csrf
             <fieldset>
                 <legend>Add Students</legend>
                 <div class="row">
@@ -40,13 +41,13 @@
                         <label for="file" class="label-control">
                             Upload the Excel File
                         </label>
-                        <input type="file" class="form-control" name="file">
+                        <input type="file" class="form-control" name="StudentFile">
                     </div>
                     <div class="col-sm-6">
                         <button class="btn btn-success" style="margin-top:20px" ><i class="fa fa-upload"></i> Upload Details</button>
                     </div>
                 </div>
-               
+
             </fieldset>
         </form>
     </div>

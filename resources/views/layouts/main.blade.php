@@ -13,7 +13,7 @@
   </style>
 <body class="skin-black">
   <header class="header">
-    <a class="navbar-brand logo" style="color:#f04d0c;font-weight:bold" href="{{route('index')}}"> 
+    <a class="navbar-brand logo" style="color:#f04d0c;font-weight:bold" href="{{route('index')}}">
         {{-- <img src="img/logo.png" alt="logo"> --}}
         {{ config('app.name') }}
      </a>
@@ -28,7 +28,7 @@
         </a>
         <div class="navbar-right">
             <ul class="nav navbar-nav">
-                <!-- Messages: style can be found in dropdown.less-->       
+                <!-- Messages: style can be found in dropdown.less-->
                          <!-- User Account: style can be found in dropdown.less -->
                 <no-print class="dropdown user user-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -76,7 +76,7 @@
     </nav>
 </header>
 @if(false)
-   
+
 @else
 <div class="wrapper row-offcanvas row-offcanvas-left">
   <!-- Left side column. contains the logo and sidebar -->
@@ -168,7 +168,7 @@
                 <ul class="treeview-menu" style="font-size:12px">
                       <li><a href="{{route('voteheads')}}"><i class="fa fa-vote-yea"></i>Voteheads</a></li>
                       <li><a href="{{route('fees.index')}}"><i class="fa fa-plus"></i> Set Fees</a></li>
-                      <li><a href="{{route('index')}}"><i class="fa fa-times-circle"></i> Manage Subjects</a></li>
+                      <li><a href="{{route('fees.balances')}}"><i class="fa fa-digital-tachograph"></i> View Balances</a></li>
                       <li><a href="{{route('index')}}"><i class="fa fa-eye"></i> View Subjects</a></li>
                 </ul>
             </li>
@@ -242,7 +242,7 @@
 </div>
 @endif
 </div>
-    @include('layouts.js') 
-    
+    @include('layouts.js')
+
 </body>
 </html>
