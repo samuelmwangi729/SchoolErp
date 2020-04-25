@@ -18,6 +18,12 @@
         {{ Session::get('success') }}
     </div>
     @endif
+    @if(Session::has('error'))
+    <div class="alert alert-danger">
+        <a href="#" class="close" data-dismiss="alert">&times;</a>
+        {{ Session::get('error') }}
+    </div>
+    @endif
        <ul class="nav nav-tabs">
            <li class="active">
                <a href="#" id="Fees"><i class="fa fa-list-alt"></i>&nbsp; Fees</a>

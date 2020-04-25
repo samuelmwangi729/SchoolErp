@@ -66,7 +66,7 @@
             <h1>Advanced software made simple</h1>
             <p>Management Is the Heart of each and every Institution. With  {{config('app.name')}} School System, we guarantee smooth running of the Institution.Give it a try</p>
             <a class="button bg" href="#">Get Started</a><br><br>
-            &copy;2020 AllSoft International All Rights Reserved
+            &copy;2020 SmartSoft International All Rights Reserved
           </div>
         </div>
       </div>

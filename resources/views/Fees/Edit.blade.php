@@ -13,11 +13,7 @@
               <!--start form group-->
               <div class="form-group">
                 <label for="class" class="label-control"><i class="fa fa-university"></i>&nbsp; Class</label>
-                <select  name="Class" class="form-control input-sm">
-                    @foreach ($classes as $class)
-                    <option value="{{ $class->Class }}">Form {{ $class->Class }}</option>
-                    @endforeach
-                </select>
+                <input type="text" name="Class"  class="form-control" readonly value="{{ $fee->Class }}">
               </div>
               <!--end form group-->
           </div>
@@ -27,11 +23,7 @@
               <!--start form group-->
               <div class="form-group">
                 <label for="VoteHead" class="label-control"><i class="fa fa-tags"></i>&nbsp; Votehead</label>
-                <select  name="VoteHead" class="form-control input-sm">
-                    @foreach ($voteheads as $votehead)
-                    <option value="{{ $votehead->VoteHead }}">{{ $votehead->VoteHead }}</option>
-                    @endforeach
-                </select>
+                <input type="text" name="VoteHead"  class="form-control" readonly value="{{ $fee->VoteHead }}">
               </div>
               <!--end form group-->
           </div>
@@ -40,11 +32,7 @@
               <!--start form group-->
               <div class="form-group">
                 <label for="Term" class="label-control"><i class="fa fa-check-plus"></i>&nbsp; Term</label>
-                <select  name="Term" class="form-control input-sm">
-                    <option value="1">I</option>
-                    <option value="2">II</option>
-                    <option value="3">III</option>
-                </select>
+                <input type="text" name="Term"  class="form-control" value="{{ $fee->Term }}" readonly>
               </div>
               <!--end form group-->
           </div>

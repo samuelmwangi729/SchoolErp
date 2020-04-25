@@ -2,7 +2,22 @@
 @section('content')
 <h3>View Student Balances</h3>
 <div class="well well-xs">
-<form>
+    @if($errors->all())
+    <div class="alert alert-danger">
+        <a href="#" class="close" data-dismiss="alert">&times;</a>
+       @foreach ($errors->all() as $error)
+       <span>{{ $error }}</span>
+       @endforeach
+    </div>
+    @endif
+    @if(Session::has('error'))
+    <div class="alert alert-danger">
+        <a href="#" class="close" data-dismiss="alert">&timesbar;</a>
+        {{ Session::get('error') }}
+    </div>
+    @endif
+<form method="post" action="{{route('balances')}}">
+    @csrf
     <div class="row">
         <!--start col-->
         <div class="col-sm-3">
@@ -33,7 +48,7 @@
           <div class="col-sm-3">
             <div class="form-group">
                 <label for="Balance" class="fa fa-money-bill-wave-alt label-control">&nbsp;Balance Amount</label>
-                <select class="form-control input-sm" name="Class">
+                <select class="form-control input-sm" name="Amount">
                     <option value="1">&lt;5000</option>
                     <option value="2">&lt;10,000</option>
                     <option value="3">&lt;20,000</option>
@@ -45,8 +60,7 @@
           <!--start col-->
           <div class="col-sm-3">
             <div class="form-group">
-                Apply Filters and Print<br>
-               <button class="btn btn-success btn-sm" type="submit"><i class="fa fa-print">Print</i></button>
+               <button style="margin-top:20px" class="btn btn-success btn-sm" type="submit"><i class="fa fa-eye">&nbsp;View</i></button>
             </div>
         </div>
         <!--end col-->

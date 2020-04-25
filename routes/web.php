@@ -13,9 +13,10 @@ use Carbon\Carbon;
 */
 
 Route::get('/','HomeController@index');
-Route::get('/users','ApiController@index');
 Auth::routes();
-Route::get('/home','HomeController@home')->name('index');
+Route::group(['middleware' => ['auth']], function () {
+    Route::get('/users','ApiController@index');
+    Route::get('/home','HomeController@home')->name('index');
 Route::get('/Sessions/All',[
     'uses'=>'SessionsController@index',
     'as'=>'Ses.index'
@@ -252,3 +253,9 @@ Route::post("/Fees/Filter",[
     'uses'=>'FeesController@filter',
     'as'=>'filter.post'
 ]);
+Route::post("/Fees/Balances",[
+    'uses'=>'FeesController@FilterBalances',
+    'as'=>'balances'
+]);
+
+});

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\{Classes,VoteHead,Fee,CurrentTerm,NextTerm,Student,Stream};
 use Session;
+use DB;
 
 class FeesController extends Controller
 {
@@ -202,6 +203,10 @@ class FeesController extends Controller
             $class=Classes::all();
             $fees=Fee::where('Term',$term)->get();
             $voteheads=VoteHead::all();
+            if(is_null($term) || empty($term)){
+                Session::flash('error','Current Term Not Set. Please update Current Term');
+                return back();
+            }
             Session::flash('Data',$term->CurrentTerm);
             Session::flash('success','Filter Successfully Applied');
             return redirect()->route('fees.index')
@@ -216,6 +221,10 @@ class FeesController extends Controller
             $class=Classes::all();
             $fees=Fee::where('Term','=',$term)->get();
             $voteheads=VoteHead::all();
+            if(is_null($term) || empty($term)){
+                Session::flash('error','Next Term Not Set. Please update Next Term');
+                return back();
+            }
             Session::flash('Data',$term->NextTerm);
             Session::flash('success','Filter Successfully Applied');
             return redirect()->route('fees.index')
@@ -234,5 +243,64 @@ class FeesController extends Controller
         ->with("fees",$fees)
         ->with("voteheads",$voteheads);
         }
+    }
+    public function FilterBalances(Request $request){
+        $this->validate($request,[
+            'Class'=>'required',
+            'Stream'=>'required',
+            'Amount'=>'required'
+        ]);
+        if($request->Amount=="1"){
+            $query=Student::where([
+                ['class','=',$request->Class],
+                ['Stream','=',$request->Stream],
+                ['Balance','<=',5000]
+            ])->get();
+            if($query->count()==0){
+                Session::flash('error','No Students with the selected fees Balance. Try Again');
+                return back();
+            }else{
+                return view('Fees.Balance')->with('balances',$query);
+            }
+           }
+           if($request->Amount=="2"){
+            $query=Student::where([
+                ['class','=',$request->Class],
+                ['Stream','=',$request->Stream],
+                ['Balance','<=',10000]
+            ])->get();
+            if($query->count()==0){
+                Session::flash('error','No Students with the selected fees Balance. Try Again');
+                return back();
+            }else{
+                return view('Fees.Balance')->with('balances',$query);
+            }
+           }
+           if($request->Amount=="3"){
+            $query=Student::where([
+                ['class','=',$request->Class],
+                ['Stream','=',$request->Stream],
+                ['Balance','<=',20000]
+            ])->get();
+            if($query->count()==0){
+                Session::flash('error','No Students with the selected fees Balance. Try Again');
+                return back();
+            }else{
+                return view('Fees.Balance')->with('balances',$query);
+            }
+           }
+           if($request->Amount=="4"){
+            $query=Student::where([
+                ['class','=',$request->Class],
+                ['Stream','=',$request->Stream],
+                ['Balance','>',20000]
+            ])->get();
+            if($query->count()==0){
+                Session::flash('error','No Students with the selected fees Balance. Try Again');
+                return back();
+            }else{
+                return view('Fees.Balance')->with('balances',$query);
+            }
+           }
     }
 }

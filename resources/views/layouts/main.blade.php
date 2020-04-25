@@ -13,7 +13,7 @@
   </style>
 <body class="skin-black">
   <header class="header">
-    <a class="navbar-brand logo" style="color:#f04d0c;font-weight:bold" href="{{route('index')}}">
+    <a class="navbar-brand logo" style="color:#f04d0c;font-weight:bold;font-size:15px" href="{{route('index')}}">
         {{-- <img src="img/logo.png" alt="logo"> --}}
         {{ config('app.name') }}
      </a>
