@@ -257,5 +257,13 @@ Route::post("/Fees/Balances",[
     'uses'=>'FeesController@FilterBalances',
     'as'=>'balances'
 ]);
+Route::get("/Payments/Home",[
+    'uses'=>'PaymentsController@create',
+    'as'=>'payments.make'
+]);
+Route::post("/Payments/Save",[
+    'uses'=>'PaymentsController@store',
+    'as'=>'payments.post'
+]);
 
 });

@@ -179,7 +179,7 @@
                     <i class="fa fa-angle-left pull-right"></i>
                 </a>
                 <ul class="treeview-menu" style="font-size:12px">
-                      <li><a href="{{route('index')}}"><i class="fa fa-plus"></i> Add Subject</a></li>
+                      <li><a href="{{route('payments.make')}}"><i class="fa fa-plus"></i> Add Payment</a></li>
                       <li><a href="{{route('index')}}"><i class="fa fa-times-circle"></i> Manage Subjects</a></li>
                       <li><a href="{{route('index')}}"><i class="fa fa-eye"></i> View Subjects</a></li>
                 </ul>
