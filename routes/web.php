@@ -265,5 +265,24 @@ Route::post("/Payments/Save",[
     'uses'=>'PaymentsController@store',
     'as'=>'payments.post'
 ]);
-
+Route::post("/Payments/Update/{id}",[
+    'uses'=>'PaymentsController@update',
+    'as'=>'payments.update'
+]);
+Route::get("/Payments/View",[
+    'uses'=>'PaymentsController@index',
+    'as'=>'payments.index'
+]);
+Route::get("/Payments/Edit/{id}",[
+    'uses'=>'PaymentsController@edit',
+    'as'=>'transaction.edit'
+]);
+Route::get("/Payments/Print/{id}",[
+    'uses'=>'PaymentsController@show',
+    'as'=>'transaction.print'
+]);
+Route::get("/Payments/Receipt",[
+    'uses'=>'PaymentsController@receipt',
+    'as'=>'receipt'
+]);
 });

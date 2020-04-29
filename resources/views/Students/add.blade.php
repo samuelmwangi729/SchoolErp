@@ -52,7 +52,6 @@
         </form>
     </div>
 </div>
-<script src="{{asset('js/jquery-1.12.1.min.js')}}"></script>
 <script>
 $(".nav li").on("click",function(){
     $(".nav li").removeClass("active");
@@ -69,6 +68,9 @@ $("#Single").on("click",function(){
     $("#StudentsForm").hide();
     $("#StudentForm").show();
 });
+$(".chosen-select").chosen({
+    no_results_text: "Oops, no matching record found for ",
+    allow_single_deselect: true,});
 </script>
 
 @stop

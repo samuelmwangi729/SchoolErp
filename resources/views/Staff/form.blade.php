@@ -21,7 +21,7 @@
     <div class="form-group row">
         <div class="col-md-6">
             <label for="level" class="fa fa-user-cog label-control">&nbsp;Employee Type</label>
-        <select class="form-control input-sm" name="level">
+        <select class="form-control input-sm chosen-select" name="level">
             @foreach ($types as $type)
                 <option>{{ $type->Type }}</option>
             @endforeach

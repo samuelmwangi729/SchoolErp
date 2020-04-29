@@ -44,7 +44,7 @@
         @csrf
            <div class="form-group col-sm-3">
                <label for="Filter" class="fa fa-tags label-control">&nbsp;Filter By:</label>
-               <select name="Filter" class="form-control input-sm">
+               <select name="Filter" class="form-control input-sm chosen-select">
                    <option value="1">Current Term</option>
                    <option value="2">Next Term</option>
                    <option value="3">Whole Year</option>
@@ -412,7 +412,6 @@
     </div>
     <!--end modal-->
 </div>
-<script src="{{asset('js/jquery-1.12.1.min.js')}}"></script>
 <script>
 $(".nav li").on("click",function(){
     $(".nav li").removeClass("active");
@@ -430,5 +429,8 @@ $("#Current").click(function(){
 $("#Next").click(function(){
     $("#NextModal").show();
 })
+$(".chosen-select").chosen({
+    no_results_text: "Oops, no matching record found for ",
+    allow_single_deselect: true,});
 </script>
 @stop

@@ -153,5 +153,8 @@ $("#List").on("click",function(){
 $("#modalClose").on("click",function(){
     $("#errorModal").hide('fadeOutDown');
 })
+$(".chosen-select").chosen({
+    no_results_text: "Oops, no matching record found for ",
+    allow_single_deselect: true,});
 </script>
 @endsection

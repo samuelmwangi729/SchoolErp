@@ -6,13 +6,21 @@
                 <label class="label-control" for="Student Names">
                     Student Name
                 </label>
-                <input type="text" name="StudentName" @error('StudentName') is-invalid @enderror  class="form-control input-sm" placeholder="Students Name" value="{{ $student->StudentName ?? '' }}">
+                <input type="text" name="StudentName" @error('StudentName') is-invalid @enderror  class="form-control input-xs " placeholder="Students Name" value="{{ $student->StudentName ?? '' }}">
             </div>
         </div>
         <div class="col-sm-6">
             <div class="form-group">
+                <label for="KCPE" class="label-control">
+                    KCPE MARKS
+                </label>
+                <input type="number" class="form-control input-sm" name="Kcpe"  value="{{ $student->Kcpe ?? '' }}">
+            </div>
+        </div><br><br><br><br><br>
+        <div class="col-sm-6">
+            <div class="form-group">
                 <label for="Parent" class="label-control">Parent Name</label>
-                <select name="parent" class="form-control input-sm">
+                <select name="parent" class="form-control input-sm chosen-select">
                     @foreach ($parents as $parent)
                         <option value="{{ $parent->Names }}">{{ $parent->Names }}</option>
                     @endforeach
@@ -24,7 +32,7 @@
                 <label for="Class" class="label-control">
                     Class
                 </label>
-                <select name="class" class="form-control input-sm">
+                <select name="class" class="form-control input-sm chosen-select">
                     @foreach ($classes  as $class )
                         <option value="{{ $class->Class }}">Form {{ $class->Class }}</option>
                     @endforeach
@@ -36,7 +44,7 @@
                 <label for="Stream" class="label-control">
                     Stream
                 </label>
-                <select name="Stream" class="form-control input-sm">
+                <select name="Stream" class="form-control input-sm chosen-select">
                    @foreach ($streams as$stream )
                        <option value="{{ $stream->Stream }}">{{ $stream->Stream }}</option>
                    @endforeach
@@ -53,18 +61,18 @@
         </div>
         <div class="col-sm-6">
             <div class="form-group">
-                <label for="KCPE" class="label-control">
-                    KCPE MARKS
+                <label for="BirthDate" class="label-control">
+                    BirthDate
                 </label>
-                <input type="number" class="form-control input-sm" name="Kcpe"  value="{{ $student->Kcpe ?? '' }}">
+                <input type="date" class="form-control input-sm date" name="birthDate" required>
             </div>
         </div>
         <div class="col-sm-6">
             <div class="form-group">
-                <label for="BirthDate" class="label-control">
-                    BirthDate
+                <label for="Passport" class="label-control">
+                    Passport
                 </label>
-                <input type="date" class="form-control input-sm" name="birthDate" required>
+               <input type="file" class="form-control input-sm" name="Passport" value="{{ $student->Passport ?? '' }}" required>
             </div>
         </div>
         <div class="col-sm-6">
@@ -72,7 +80,7 @@
                 <label for="Gender" class="label-control">
                     Gender
                 </label>
-                <select class="form-control input-sm">
+                <select class="form-control input-sm chosen-select">
                     <option value="Male"><i class="fa fa-male"></i>&nbsp;Male</option>
                     <option value="Female"><i class="fa fa-female"></i>&nbsp;Female</option>
                 </select>
@@ -83,18 +91,10 @@
                 <label for="Dormitory" class="label-control">
                     Dormitory
                 </label>
-                <select class="form-control input-sm">
+                <select class="form-control input-sm chosen-select">
                     <option value="Male"><i class="fa fa-male"></i>&nbsp;Ruwenzori</option>
                     <option value="Female"><i class="fa fa-female"></i>&nbsp;M.t Longonot</option>
                 </select>
-            </div>
-        </div>
-        <div class="col-sm-6">
-            <div class="form-group">
-                <label for="Passport" class="label-control">
-                    Passport
-                </label>
-               <input type="file" class="form-control input-sm" name="Passport" value="{{ $student->Passport ?? '' }}" required>
             </div>
         </div>
         <div class="col-sm-6">
@@ -110,7 +110,7 @@
                 <label for="Denomination" class="label-control">
                     Religion
                 </label>
-                <select class="form-control input-sm">
+                <select class="form-control input-sm chosen-select">
                     <option value="Christian">&nbsp;Christian</option>
                     <option value="Muslim">&nbsp;Muslim</option>
                     <option value="Other">&nbsp;Other</option>

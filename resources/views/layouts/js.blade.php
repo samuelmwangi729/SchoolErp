@@ -5,7 +5,7 @@
 {{-- <script src="{{asset('js/jquery-ui-1.10.3.min.js')}}" type="text/javascript"></script> --}}
 
         {{-- <script src="{{ asset('js/app.js') }}" defer></script> --}}
-        <script src="{{asset('js/jquery-1.12.1.min.js')}}"></script>
+      
 <!-- Bootstrap -->
 <script src="{{asset('js/bootstrap.min.js')}}" type="text/javascript"></script>
 <!-- Morris.js charts -->

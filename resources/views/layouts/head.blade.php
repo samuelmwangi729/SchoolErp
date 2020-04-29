@@ -26,6 +26,12 @@
         <!-- Theme style -->
         <link href="{{ asset('css/AdminLTE.css') }}" rel="stylesheet" type="text/css" />
         <link href="{{ asset('css/Chart.min.css') }}" rel="stylesheet" type="text/css" />
+        <link href="{{ asset('css/chosen.min.css') }}" rel="stylesheet" type="text/css" />
+        <link href="{{ asset('css/jquery-ui.css') }}" rel="stylesheet" type="text/css" />
+        <script src="{{asset('js/jquery-1.12.1.min.js')}}"></script>
+        <script src="{{asset('js/jquery-ui.min.js')}}"></script>
+        <script src="{{asset('js/chosen.jquery.min.js')}}"></script>
+        <script src="{{asset('js/Styles.js')}}"></script>
 
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
