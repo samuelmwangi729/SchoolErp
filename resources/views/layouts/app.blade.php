@@ -45,7 +45,7 @@
                             <a class="nav-link" href="/login" style="color:white;font-weight:bold">Login</a>
                         </li>
                         <!-- Authentication Links -->
-                        
+
                             {{-- <li class="nav-item">
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                             </li>

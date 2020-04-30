@@ -181,7 +181,7 @@
                 <ul class="treeview-menu" style="font-size:12px">
                       <li><a href="{{route('payments.make')}}"><i class="fa fa-plus"></i> Add Payment</a></li>
                       <li><a href="{{route('payments.index')}}"><i class="fa fa-eye"></i> Manage Payments</a></li>
-                      <li><a href="{{route('index')}}"><i class="fa fa-eye"></i> View Subjects</a></li>
+                      <li><a href="{{route('payments.statements')}}"><i class="fa fa-print"></i>Print Statements</a></li>
                 </ul>
             </li>
             <li class="treeview">

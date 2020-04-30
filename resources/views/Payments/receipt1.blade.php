@@ -7,20 +7,15 @@
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Bootstrap 4 -->
-  <link rel="stylesheet" href="{{ asset('css/adminlte.css') }}">
-  <link rel="stylesheet" href="{{ asset('vendors/fontawesome/css/all.min.css') }}">
-  <!-- font Awesome -->
-  {{-- <link href="{{ asset('css/font-awesome.min.css') }}" rel="stylesheet" type="text/css" /> --}}
-  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
 </head>
 <body style="overflow:hidden;font-family:'Times New Roman', Times, serif' !important">
-<div class="container" style="margin-top:20px">
+<div class="container">
   <!-- Main content -->
   <section class="invoice">
     <!-- title row -->
     <div class="row-fluid" style="background-color:#f2f2f2;font-family:'Times New Roman', Times, serif'">
       <div class="col-12">
-        <h2  style="font-family:'Times New Roman';font-weight:bold;font-size:20px">
+        <h2 class="page-header" style="font-family:'Times New Roman';font-weight:bold;font-size:20px">
           <i class="fas fa-globe"></i>&nbsp;<span>Fees Payment Slip</span>
           <small class="float-right" style="font-family:'Courier New', Courier, monospace;font-size:12px;font-weight:bold;">Printed On:  Date: {{ date('d-m-Y') }}</small>
         </h2>
@@ -135,8 +130,7 @@
       <!-- /.col -->
     </div>
     <!-- /.row -->
-  </section><br>
-  <button class="btn btn-success no-print" onclick="window.print()"><i class="fa fa-print"></i>&nbsp;Print</button>&nbsp; <button class="btn btn-primary no-print" onclick="window.open('/Payments/View')"><i class="fa fa-backward"></i>&nbsp;Back</button>
+  </section>
   <!-- /.content -->
 </div>
 <!-- ./wrapper -->

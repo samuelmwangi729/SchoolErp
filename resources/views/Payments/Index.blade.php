@@ -39,7 +39,7 @@
                     <td>{{ $transaction->StudentAdmission }}</td>
                     <td>{{ $transaction->PaidBy }}</td>
                     <td>{{ $transaction->Amount }}</td>
-                    <td><a href="{{ route('transaction.edit',[$transaction->id]) }}" class="fa fa-edit btn btn-primary btn-xs"></a>&nbsp;<a href="{{ route('transaction.print',[$transaction->id]) }}" class="fa fa-print btn btn-success btn-xs"></a>&nbsp;<a href="#" class="fa fa-trash-alt btn btn-danger btn-xs"></a></td>
+                    <td><a href="{{ route('transaction.edit',[$transaction->id]) }}" class="fa fa-edit btn btn-primary btn-xs"></a>&nbsp;<a href="{{ route('transaction.print',[$transaction->id]) }}" class="fa fa-eye btn btn-success btn-xs"></a>&nbsp;<a href="#" class="fa fa-trash-alt btn btn-danger btn-xs"></a></td>
                 </tr>
                 @endforeach
             </tbody>

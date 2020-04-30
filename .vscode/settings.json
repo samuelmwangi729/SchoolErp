@@ -3,7 +3,8 @@
     "editor.fontStyle": "italics",
     "terminal.integrated.fontSize": 12,
     "terminal.integrated.fontFamily": "monospace",
-    "workbench.colorTheme": "United Ubuntu",
+    "workbench.colorTheme": "Abyss",
     "editor.fontWeight": "bold",
-    "terminal.integrated.fontWeightBold": "normal"
+    "terminal.integrated.fontWeightBold": "normal",
+    "editor.fontSize": 10
 }

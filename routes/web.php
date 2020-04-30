@@ -285,4 +285,8 @@ Route::get("/Payments/Receipt",[
     'uses'=>'PaymentsController@receipt',
     'as'=>'receipt'
 ]);
+Route::get("/Payments/All",[
+    'uses'=>'PaymentsController@all',
+    'as'=>'payments.statements'
+]);
 });

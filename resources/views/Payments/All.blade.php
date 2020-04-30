@@ -1,4 +1,7 @@
-/*!
+<html>
+<head>
+<style>
+    /*!
  * Bootstrap v3.0.3 (http://getbootstrap.com)
  * Copyright 2013 Twitter, Inc.
  * Licensed under http://www.apache.org/licenses/LICENSE-2.0
@@ -7116,3 +7119,37 @@ td.visible-print {
     display: none !important;
   }
 }
+</style>
+<title>Payments Statements</title>
+</head>
+<body style="font-family:'Times New Roman', Times, serif'">
+<div class="table-responsive">
+<table class="table table-bordered table-striped table-condensed ">
+<thead>
+    <img src="/img/logo.png"  width="100px" height="30px">
+<tr>
+  <th>S/NO</th>
+  <th style="color:red">Receipt Number</th>
+  <th class="text-center">Student Admission </th>
+  <th class="text-center">Payment Method</th>
+  <th class="text-center">Paid By</th>
+  <th class="text-center">Amount</th>
+</tr>
+</thead>
+<?php $count=1;?>
+ @foreach($payments as $payment)
+                <tr>
+                    {{ $payment }}
+                <td>{{$count}}</td>
+                    <td class="text-center">{{$payment->PaymentCode}}</td>
+                    <td class="text-center">{{$payment->StudentAdmission}}</td>
+                    <td class="text-center">{{$payment->PaymentMethod}}</td>
+                    <td class="text-center" style="font-size:12px;background-color:red;color:white;font-weight:bold">{{$payment->PaidBy}}</td>
+                    <td class="text-center">{{$payment->Amount}}</td>
+                    <?php $count=$count+1;?>
+                </tr>
+            @endforeach
+</table>
+</div>
+</body>
+</html>

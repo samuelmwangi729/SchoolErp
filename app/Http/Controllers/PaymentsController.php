@@ -20,7 +20,28 @@ class PaymentsController extends Controller
         $transactions=Payment::orderBy('id','desc')->get();
         return view('Payments.Index')->with('transactions',$transactions);
     }
-
+    public function all(){
+        $all=Payment::all();
+        $fileName="Statement.pdf";
+        $mpdf=new \Mpdf\Mpdf([
+            'margin_left'=>10,
+            'margin_top'=>21,
+            'margin_right'=>10,
+            'margin_bottom'=>50,
+            'margin_header'=>10,
+            'margin_footer'=>10,
+        ]);
+        $html= \View::make('Payments.All')->with('payments',$all);
+        $html=$html->render();
+        //  $mpdf->Image('img/logo.png',30,0,90,210);
+        // $mpdf->SetWatermarkText(config('app.name'));
+        $mpdf->watermark_font = 'DejaVuSansCondensed';
+        $mpdf->SetHeader('SChool System  {PAGENO}');
+        // $mpdf->SetFooter('{PAGENO}');
+        // $stylesheet=file_get_contents('css/adminlte.css')
+        $mpdf->WriteHTML($html);
+        $mpdf->Output($fileName,'I');
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -84,29 +105,28 @@ class PaymentsController extends Controller
             Session::flash('error','Transaction Not Found');
             return back();
         }
-        // dd(url('/css/adminlte.min.css'));
-        $fileName="Receipt.pdf";
-        $mpdf=new \Mpdf\Mpdf([
-            'margin_left'=>10,
-            'margin_top'=>21,
-            'margin_right'=>10,
-            'margin_bottom'=>50,
-            'margin_header'=>10,
-            'margin_footer'=>10,
-        ]);
-        $html= \View::make('Payments.receipt')->with('last',$last);
-        $html=$html->render();
-        // $mpdf->Image('/img/logo.jpg',90,210);
-        $mpdf->SetWatermarkText('Draft');
-        $mpdf->watermark_font = 'DejaVuSansCondensed';
-        $mpdf->SetHeader('VirtualSchool  {PAGENO}');
-        // $mpdf->SetFooter('{PAGENO}');
-        // $stylesheet=file_get_contents(asset('/css/adminlte.min.css'));
-        // $mpdf->WriteHTML($stylesheet,1);
-
-        $mpdf->WriteHTML($html);
-        $mpdf->Output($fileName,'I');
-        // return view('Payments.receipt')->with('last',$last);
+        // // dd(url('/css/adminlte.min.css'));
+        // $fileName="Receipt.pdf";
+        // $mpdf=new \Mpdf\Mpdf([
+        //     'margin_left'=>10,
+        //     'margin_top'=>21,
+        //     'margin_right'=>10,
+        //     'margin_bottom'=>50,
+        //     'margin_header'=>10,
+        //     'margin_footer'=>10,
+        // ]);
+        // $html= \View::make('Payments.receipt')->with('last',$last);
+        // $$html=$html->render();
+        // // $mpdf->Image('/img/logo.jpg',90,210);
+        // $mpdf->SetWatermarkText(config('app.name'));
+        // $mpdf->watermark_font = 'DejaVuSansCondensed';
+        // $mpdf->SetHeader('VirtualSchool  {PAGENO}');
+        // // $mpdf->SetFooter('{PAGENO}');
+        // $stylesheet=file_get_contents('css/adminlte.css');
+        // $mpdf->WriteHTML($stylesheet,2);
+        // $mpdf->WriteHTML($html,1);
+        // $mpdf->Output($fileName,'I');
+        return view('Payments.receipt')->with('last',$last);
     }
 
     /**
