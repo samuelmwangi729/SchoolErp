@@ -289,4 +289,12 @@ Route::get("/Payments/All",[
     'uses'=>'PaymentsController@all',
     'as'=>'payments.statements'
 ]);
+Route::get("/Exams/All",[
+    'uses'=>'ExamsController@index',
+    'as'=>'exam.index'
+]);
+Route::post("/Exams/Save",[
+    'uses'=>'ExamsController@store',
+    'as'=>'exam.save'
+]);
 });

@@ -35,11 +35,13 @@ class PaymentsController extends Controller
         $html=$html->render();
         //  $mpdf->Image('img/logo.png',30,0,90,210);
         // $mpdf->SetWatermarkText(config('app.name'));
-        $mpdf->watermark_font = 'DejaVuSansCondensed';
+        // $mpdf->watermark_font = 'DejaVuSansCondensed';
         $mpdf->SetHeader('SChool System  {PAGENO}');
         // $mpdf->SetFooter('{PAGENO}');
-        // $stylesheet=file_get_contents('css/adminlte.css')
-        $mpdf->WriteHTML($html);
+        $stylesheet=file_get_contents('css/bootstrap.css');
+        $mpdf->WriteHTML($stylesheet,3);
+
+        $mpdf->WriteHTML($html,0);
         $mpdf->Output($fileName,'I');
     }
     /**

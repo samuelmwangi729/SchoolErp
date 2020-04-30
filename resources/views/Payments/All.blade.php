@@ -7126,7 +7126,6 @@ td.visible-print {
 <div class="table-responsive">
 <table class="table table-bordered table-striped table-condensed ">
 <thead>
-    <img src="/img/logo.png"  width="100px" height="30px">
 <tr>
   <th>S/NO</th>
   <th style="color:red">Receipt Number</th>
@@ -7139,7 +7138,6 @@ td.visible-print {
 <?php $count=1;?>
  @foreach($payments as $payment)
                 <tr>
-                    {{ $payment }}
                 <td>{{$count}}</td>
                     <td class="text-center">{{$payment->PaymentCode}}</td>
                     <td class="text-center">{{$payment->StudentAdmission}}</td>

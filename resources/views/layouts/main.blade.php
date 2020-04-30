@@ -191,7 +191,7 @@
                     <i class="fa fa-angle-left pull-right"></i>
                 </a>
                 <ul class="treeview-menu">
-                      <li><a href="{{route('index')}}"><i class="fa fa-plus"></i> Add Subject</a></li>
+                      <li><a href="{{route('exam.index')}}"><i class="fa fa-book-reader"><sup><i class="fa fa-plus"></i></sup></i> Add Exam</a></li>
                       <li><a href="{{route('index')}}"><i class="fa fa-times-circle"></i> Manage Subjects</a></li>
                       <li><a href="{{route('index')}}"><i class="fa fa-eye"></i> View Subjects</a></li>
                 </ul>
@@ -233,6 +233,7 @@
       <section class="content">
         <div style="overflow:hidden">
           <main class="py-4" style="font-family: 'Times New Roman', Times, serif; font-size:12px">
+            @include('layouts.errors')
               @yield('content')
               {{-- <router-view></router-view> --}}
           </main>
