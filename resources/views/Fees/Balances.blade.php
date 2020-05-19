@@ -2,20 +2,6 @@
 @section('content')
 <h3>View Student Balances</h3>
 <div class="well well-xs">
-    @if($errors->all())
-    <div class="alert alert-danger">
-        <a href="#" class="close" data-dismiss="alert">&times;</a>
-       @foreach ($errors->all() as $error)
-       <span>{{ $error }}</span>
-       @endforeach
-    </div>
-    @endif
-    @if(Session::has('error'))
-    <div class="alert alert-danger">
-        <a href="#" class="close" data-dismiss="alert">&timesbar;</a>
-        {{ Session::get('error') }}
-    </div>
-    @endif
 <form method="post" action="{{route('balances')}}">
     @csrf
     <div class="row">

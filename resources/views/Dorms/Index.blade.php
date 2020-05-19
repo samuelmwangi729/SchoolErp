@@ -2,28 +2,6 @@
 @section('content')
 <div class="container-fluid">
     <div class="table-responsive">
-        @if($errors->all())
-    <div class="alert alert-danger">
-        <a href="#" class="close" data-dismiss="alert"><u>&times;</u></a>
-        <ul style="list-style:none">
-           @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-           @endforeach
-        </ul>
-    </div>
-    @endif
-    @if(Session::has('error'))
-    <div class="alert alert-danger">
-        <a href="#" class="close" data-dismiss="alert"><u>&times;</u></a>
-        <span>{{ Session::get('error')}}</span>
-    </div>
-    @endif
-    @if(Session::has('success'))
-    <div class="alert alert-success">
-        <a href="#" class="close" data-dismiss="alert"><u>&times;</u></a>
-        <span>{{Session::get('success')}}</span>
-    </div>
-    @endif
         <a href="javascript::void" id="AddDorm" class="btn btn-success btn-xs"><i class="fa fa-building"></i>&nbsp; Add Dormitory</a>
         <br>
         <table class="table table-condensed table-striped table-hover">
@@ -62,7 +40,7 @@
             </div>
             <div class="modal-body">
                 <form method="POST" action="{{ route('dorm.add') }}" id="contactForm" method="post" class="contact-form-aqua">
-                    @csrf  
+                    @csrf
                     <div class="form-group">
                         <label class="label-control" for="Dorm"><i class="fa fa-tags"></i>&nbsp; Dorm Name</label>
                         <input type="text" class="form-control input-sm" name="Dorm" placeholder="Enter the Name of The Dorm">

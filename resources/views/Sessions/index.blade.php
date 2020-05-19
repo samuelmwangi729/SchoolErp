@@ -2,12 +2,6 @@
 @section('content')
 <div class="container-fluid">
     <h1>Manage Sessions</h1>
-    @if(Session::has('success'))
-    <div class="alert alert-success">
-        <a href="#" class="close" data-dismiss="alert">&times;</a>
-        <span>{{ Session::get('success') }}</span><br>
-    </div>
-    @endif
     <div class="container">
         <ul class="nav nav-tabs">
             <li class="active"><a href="javascript::void" id="List"><i class="fa fa-list"></i>&nbsp;Session List</a></li>

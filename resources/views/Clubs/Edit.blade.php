@@ -2,22 +2,6 @@
 @section('content')
 <div class="container-fluid">
     <div class="table-responsive">
-        @if($errors->all())
-            <div class="alert alert-danger">
-                <a href="#" class="close" data-dismiss="alert">&times;</a>
-                <ul style="list-style:none">
-                    @foreach ($errors->all() as $error )
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
-        @endif
-        @if(Session::has('success'))
-        <div class="alert alert-success">
-            <a href="#" class="close" data-dismiss="alert">&times;</a>
-            {{ Session::get('success') }}
-        </div>
-        @endif
         <form method="POST" action="{{ route('club.update',[$club->id]) }}" id="contactForm" method="post" class="contact-form-aqua">
             @csrf
             <div class="form-group">
@@ -32,7 +16,7 @@
                     </button>
                 </div>
             </div>
-        </form>        
+        </form>
     </div>
 </div>
 <script src="{{asset('js/jquery-1.12.1.min.js')}}"></script>

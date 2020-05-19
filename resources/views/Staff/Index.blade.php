@@ -2,28 +2,6 @@
 @section('content')
 <div class="container-fluid">
     <h1>Manage School Staff</h1>
-    @if(Session::has('success'))
-    <div class="alert alert-success">
-        <a href="#" class="close" data-dismiss="alert">&times;</a>
-        <span>{{ Session::get('success') }}</span><br>
-    </div>
-    @endif
-    @if(Session::has('error'))
-    <div class="alert alert-danger">
-        <a href="#" class="close" data-dismiss="alert">&times;</a>
-        <span>{{ Session::get('error') }}</span><br>
-    </div>
-    @endif
-    @if($errors->all())
-    <div class="alert alert-danger">
-        <a href="#" class="close" data-dismiss="alert">&times;</a>
-       <ul>
-           @foreach($errors->all() as $error)
-           <li>{{$error}}</li>
-           @endforeach
-       </ul>
-    </div>
-    @endif
     <div class="container">
         <ul class="nav nav-tabs">
             <li class="active"><a href="javascript::void" id="List"><i class="fa fa-list"></i>&nbsp;All Staff</a></li>
@@ -114,7 +92,7 @@
             </div>
             <div class="modal-body">
                 <form method="POST" action="{{ route('staff.register') }}" id="contactForm" method="post" class="contact-form-aqua">
-                    @csrf                
+                    @csrf
               @include('Staff.form')
               <div class="col-sm-6 col-sm-offset-5">
                   <button class="btn btn-success btn-xs" type="submit"><i class="fa fa-user-plus"></i>&nbsp;Add Staff</button>

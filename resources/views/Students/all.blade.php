@@ -1,18 +1,6 @@
 @extends('layouts.main')
 @section('content')
 <div class="container-fluid">
-    @if(Session::has('success'))
-        <div class="alert alert-success">
-            <a href="#" class="close" data-dismiss="alert">&times;</a>
-            {{ Session::get('success') }}
-        </div>
-        @endif
-        @if(Session::has('error'))
-        <div class="alert alert-danger">
-            <a href="#" class="close" data-dismiss="alert">&times;</a>
-            {{ Session::get('error') }}
-        </div>
-        @endif
         @if(Session::has("data"))
         @foreach (Session::get("data") as $student )
         <input type="hidden" id="hidden" value="true">

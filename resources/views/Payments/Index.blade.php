@@ -2,26 +2,6 @@
 @section('content')
 <div class="container-fluid">
     <div class="table-responsive col-sm-7">
-        @if($errors->all())
-        <div class="alert alert-danger">
-            <a href="#" class="close" data-dismiss="alert">&timesbar;</a>
-            @foreach ($errors->all() as  $error)
-            <span>{{ $error }}</span><br>
-            @endforeach
-        </div>
-        @endif
-        @if(Session::has('error'))
-        <div class="alert alert-danger">
-            <a href="#" class="close" data-dismiss="alert">&timesbar;</a>
-           {{Session::get('error')}}
-        </div>
-        @endif
-        @if(Session::has('success'))
-        <div class="alert alert-success">
-            <a href="#" class="close" data-dismiss="alert">&timesbar;</a>
-           {{Session::get('success')}}
-        </div>
-        @endif
         <table class="table table-condensed table-hover table-striped table-bordered">
             <caption><h1>Payments Transactions</h1>
                 </caption>

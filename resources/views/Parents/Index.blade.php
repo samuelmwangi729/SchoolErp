@@ -3,28 +3,6 @@
 <div class="container-fluid">
     <a href="javascript::void" id="AddTeacher"  class="btn btn-primary"><i class="fa fa-user-plus"></i>&nbsp;Add Parent </a> <br><br>
 <div class="table-responsive">
-    @if($errors->all())
-    <div class="alert alert-danger">
-        <a href="#" class="close" data-dismiss="alert"><u>&times;</u></a>
-        <ul style="list-style:none">
-           @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-           @endforeach
-        </ul>
-    </div>
-    @endif
-    @if(Session::has('error'))
-    <div class="alert alert-danger">
-        <a href="#" class="close" data-dismiss="alert"><u>&times;</u></a>
-        <span>{{ Session::get('error')}}</span>
-    </div>
-    @endif
-    @if(Session::has('success'))
-    <div class="alert alert-success">
-        <a href="#" class="close" data-dismiss="alert"><u>&times;</u></a>
-        <span>{{Session::get('success')}}</span>
-    </div>
-    @endif
     <table class="table table-striped  table-bordered table-hover table-condensed">
         <thead>
             <tr>

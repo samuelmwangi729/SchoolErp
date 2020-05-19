@@ -9,22 +9,6 @@
         </ul>
     </div><br>
     <div class="form-row" id="StudentForm">
-        @if($errors->all())
-        <div class="alert alert-danger">
-            <a href="#" class="close" data-dismiss="alert"><u>&times;</u></a>
-            <ul>
-                @foreach ($errors->all() as $error )
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-        @endif
-        @if(Session::has('success'))
-        <div class="alert alert-success">
-            <a href="#" class="close" data-dismiss="alert">&times;</a>
-            {{ Session::get('success') }}
-        </div>
-        @endif
         <form method="post" action="{{ route('student.store') }}" enctype="multipart/form-data">
             @csrf
             @include('Students.AddStudentForm')

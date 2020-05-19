@@ -3,27 +3,6 @@
 <div class="container-fluid">
     <h3><i class="fa fa-user-cog"></i>&nbsp;Edit Parents Details</h3>
     <div class="container-fluid">
-        @if($errors->all())
-    <div class="alert alert-danger">
-        <a href="#" class="close" data-dismiss="alert"><u>&times;</u></a>
-        <ul style="list-style:none">
-           @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-           @endforeach
-        </ul>
-    </div>
-    @endif
-    @if(Session::has('error'))
-    <div class="alert alert-danger">
-        <a href="#" class="close" data-dismiss="alert"><u>&times;</u></a>
-        <span>{{ Session::get('error')}}</span>
-    </div>
-    @endif
-    @if(Session::has('success'))
-    <div class="alert alert-success">
-        <a href="#" class="close" data-dismiss="alert"><u>&times;</u></a>
-        <span>{{Session::get('success')}}</span>
-    </div>
     @endif
         <div class="form">
             <form method="post" action="{{ route('parent.update',[$parent->id]) }}">

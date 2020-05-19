@@ -2,28 +2,6 @@
 @section('content')
 <div class="container-fluid">
    <div class="container-fluid">
-    @if($errors->all())
-    <div class="alert alert-danger">
-        <a href="#" class="close" data-dismiss="alert"><u>&times;</u></a>
-        <ul>
-            @foreach ($errors->all() as $error )
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-    @endif
-    @if(Session::has('success'))
-    <div class="alert alert-success">
-        <a href="#" class="close" data-dismiss="alert">&times;</a>
-        {{ Session::get('success') }}
-    </div>
-    @endif
-    @if(Session::has('error'))
-    <div class="alert alert-danger">
-        <a href="#" class="close" data-dismiss="alert">&times;</a>
-        {{ Session::get('error') }}
-    </div>
-    @endif
        <ul class="nav nav-tabs">
            <li class="active">
                <a href="#" id="Fees"><i class="fa fa-list-alt"></i>&nbsp; Fees</a>

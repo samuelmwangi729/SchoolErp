@@ -2,26 +2,6 @@
 @section('content')
 <div class="container-fluid">
     <h1>Manage Classes</h1>
-    @if(Session::has('success'))
-    <div class="alert alert-success">
-        <a href="#" class="close" data-dismiss="alert">&times;</a>
-        <span>{{ Session::get('success') }}</span><br>
-    </div>
-    @endif
-    @if(Session::has('error'))
-    <div class="alert alert-danger">
-        <a href="#" class="close" data-dismiss="alert">&times;</a>
-        <span>{{ Session::get('error') }}</span><br>
-    </div>
-    @endif
-    @if($errors->all())
-    <div class="alert alert-danger">
-        <a href="#" class="close" data-dismiss="alert">&times;</a>
-        @foreach($errors->all() as $error)
-        <span>{{ $error }}</span>
-        @endforeach
-    </div>
-    @endif
     <div class="container">
         <ul class="nav nav-tabs">
             <li class="active"><a href="javascript::void" id="List"><i class="fa fa-university"></i>&nbsp;Classes List</a></li>
@@ -95,7 +75,7 @@
                 </form>
             </div>
         </div>
-       </div>  
+       </div>
 </div>
 <script src="{{asset('js/jquery-1.12.1.min.js')}}"></script>
 <script>

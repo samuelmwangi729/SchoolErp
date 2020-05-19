@@ -5,27 +5,6 @@
     <li class="active"><a href="#" id="Vlist"><i class="fa fa-list"></i>&nbsp;VoteHeads List</a></li>
     <li><a href="javascript::void;" id="Add"><i class="fa fa-plus-circle"></i>&nbsp;Add VoteHeads</a></li>
 </ul>
-@if(Session::has('success'))
-<div class="alert alert-success">
-    {{ Session::get("success") }}
-</div>
-@endif
-@if(Session::has('error'))
-<div class="alert alert-danger">
-    {{ Session::get("error") }}
-</div>
-@endif
-@if($errors->all())
-<div class="alert alert-danger">
-    <a href="#" class="close" data-dismiss="alert">&times;</a>
-    <ul style="list-style:none">
-        @foreach ($errors->all() as  $error)
-            <li>{{ $error }}</li>
-        @endforeach
-    </ul>
-
-</div>
-@endif
 <div class="table-responsive" id="List">
     <table class="table table-hover table-striped table-codensed">
         <tr>

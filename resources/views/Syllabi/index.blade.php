@@ -8,34 +8,6 @@
         </ul>
     </div>
     <div class="col-sm-10" id="tview">
-        @if($errors->all())
-    <div class="alert alert-danger">
-        <a href="#" class="close" data-dismiss="alert">&times;</a>
-        <ul style="list-style:bullet">
-            @foreach ($errors->all() as $error )
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-    @endif
-        @if(Session::has('success'))
-            <div class="alert alert-success">
-                <a href="#" class="close" data-dismiss="alert">&times;</a>
-                    <ul style="list-style:none">
-                        <li>{{ Session::get('success') }}</li>
-                    </ul>
-                </a>
-            </div>
-        @endif
-        @if(Session::has('error'))
-            <div class="alert alert-danger">
-                <a href="#" class="close" data-dismiss="alert">&times;</a>
-                    <ul style="list-style:none">
-                        <li>{{ Session::get('error') }}</li>
-                    </ul>
-                </a>
-            </div>
-        @endif
         <div class="table-responsive">
             <table class="table table-condensed table-striped table-hover">
                 <thead>

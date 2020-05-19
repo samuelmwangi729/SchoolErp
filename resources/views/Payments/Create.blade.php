@@ -5,26 +5,6 @@
         <i class="fa fa-hand-holding-usd"></i>&nbsp; Make Fees Payments<hr>
     </h2>
     <div>
-        @if($errors->all())
-        <div class="alert alert-danger">
-            <a href="#" class="close" data-dismiss="alert">&timesbar;</a>
-            @foreach ($errors->all() as  $error)
-            <span>{{ $error }}</span><br>
-            @endforeach
-        </div>
-        @endif
-        @if(Session::has('error'))
-        <div class="alert alert-danger">
-            <a href="#" class="close" data-dismiss="alert">&timesbar;</a>
-           {{Session::get('error')}}
-        </div>
-        @endif
-        @if(Session::has('success'))
-        <div class="alert alert-success">
-            <a href="#" class="close" data-dismiss="alert">&timesbar;</a>
-           {{Session::get('success')}}
-        </div>
-        @endif
         <form method="post" action="{{ route('payments.post') }}" class="form">
             @csrf
             <div class="row">

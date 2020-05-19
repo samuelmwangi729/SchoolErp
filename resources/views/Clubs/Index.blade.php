@@ -4,25 +4,7 @@
     <div class="table-responsive">
         <a href="javascript::void;" id="Club" class="btn btn-sm btn-success pull-right"><i class="fa fa-users-cog"></i> Add Club</a>
         <br><br><br><br>
-
     <table class="table table-condensed table-bordered table-striped">
-        @if($errors->all())
-            <div class="alert alert-danger">
-                <a href="#" class="close" data-dismiss="alert">&times;</a>
-                <ul style="list-style:none">
-                    @foreach ($errors->all() as $error )
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
-        @endif
-        @if(Session::has('success'))
-        <div class="alert alert-success">
-            <a href="#" class="close" data-dismiss="alert">&times;</a>
-            {{ Session::get('success') }}
-        </div>
-
-        @endif
     <thead>
     <tr>
     <th>ID</th>
